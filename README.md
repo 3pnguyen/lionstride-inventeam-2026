@@ -1,6 +1,6 @@
 # lionstride-inventeam-2026
 
-<Changelog for code>
+## Changelog for code:
 
 X = (not the main code but related)
 
