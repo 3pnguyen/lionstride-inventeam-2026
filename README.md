@@ -1,5 +1,7 @@
 # lionstride-inventeam-2026
 
+Branch for all of the source code of the circuit and device
+
 ## Changelog for code:
 
 X = (not the main code but related)
