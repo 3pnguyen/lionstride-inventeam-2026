@@ -9,9 +9,5 @@ Source code and other resources are in branches:
 * device-source: Source code for the device
 * device-schematic: Schematics of the device
 
-## Visit our website
+## Visit our website for more info!
 https://kcle102.wixsite.com/my-site
-
-## Team
-
-* 
