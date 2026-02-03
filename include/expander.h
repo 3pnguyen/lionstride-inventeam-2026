@@ -1,0 +1,17 @@
+#pragma once
+
+#include <Arduino.h>
+#include <SPI.h>
+
+enum MCP_DEVICE {
+  MCP1,
+  MCP2
+};
+
+int maxColumn();
+
+int maxExpanderIO();
+
+void setupColumns();
+
+void activateColumn(int column = -1);
