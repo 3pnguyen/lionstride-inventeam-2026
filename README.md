@@ -2,7 +2,7 @@
 
 Branch for the schematic files of the circuit and device
 
-## Version timestamps:
+## Prototype version timestamps:
 
 * v1 - 10.25.25
 * v2 - 10.26.25
