@@ -6,12 +6,16 @@
 #include "battery.h"
 #include "filter.h"
 
+//-------------------------------------- Change these as neccesary --------------------------------------
+
+#define DISCOVER_PIN 21
+
+//-------------------------------------------------------------------------------------------------------
+
 enum EspModes {
   PRIMARY,
   SECONDARY
 };
-
-std::vector<String> splitString(const String &input, char delimiter, bool keepEmpty = false);
 
 EspModes discoverMode();
 
@@ -19,10 +23,14 @@ void setupSerialCommunication();
 
 void sendMessage(String message);
 
+void sendMessage(const char* message);
+
 void receiveMessagesSecondary();
 
 bool receiveMessagesPrimary(); // original version, modified to check if it can receive data from the other ESP32
 
-bool receiveMessagesPrimary(String &storage); // overload original function (for matrix and bluetooth)
+bool receiveMessagesPrimary(char* storage, size_t storageSize); // overload original function (for matrix and bluetooth)
+
+bool receiveMessagesPrimary(String &storage); // overload original function (USED to be for matrix and bluetooth)
 
 bool receiveMessagesPrimary(int &storage); // extra overload if an integer is expected (for bluetooth)

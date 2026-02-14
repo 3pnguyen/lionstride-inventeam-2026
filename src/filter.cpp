@@ -7,21 +7,25 @@ int lightMedianFilter(int a, int b, int c) {
 }
 
 int ADCMeanFilter(int pin, int samples, bool withMedianFilter) {
+  if (samples <= 0) return 0;
   long sum = 0;
-  for (int i = 0; i < samples; i += 3) {
 
-      if (withMedianFilter) {
-        int r0 = analogRead(pin);
-        int r1 = analogRead(pin);
-        int r2 = analogRead(pin);
-        int median = lightMedianFilter(r0, r1, r2);
-        sum += median;
-      } else {
-        sum += analogRead(pin);
-      }
+  if (withMedianFilter) {
+    int groups = samples / 3;
+    if (groups <= 0) groups = 1;
+    for (int i = 0; i < groups; i++) {
+      int r0 = analogRead(pin);
+      int r1 = analogRead(pin);
+      int r2 = analogRead(pin);
+      sum += lightMedianFilter(r0, r1, r2);
+    }
+    return (int)(sum / groups);
   }
-  if (withMedianFilter) return (int) (sum / (samples / 3));
-  return (int) sum / samples;
+
+  for (int i = 0; i < samples; i++) {
+    sum += analogRead(pin);
+  }
+  return (int)(sum / samples);
 }
 
 IntervalTimer::IntervalTimer(unsigned long intervalMs) : interval(intervalMs) {}

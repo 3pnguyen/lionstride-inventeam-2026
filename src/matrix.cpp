@@ -5,14 +5,13 @@
 #define SWITCH_TIME 500 // microseconds
 #define MATRIX_ADC_1 A2
 #define MATRIX_ADC_2 A3
-#define MATRIX_DATA_LENGTH 4096 // a lot of extra space
 #define INSTRUCTIONS_DATA_LENGTH 100 // also a lot of extra space
 #define ADC_SAMPLES 15
 
 //-------------------------------------------------------------------------------------------------------
 
-String matrixData;
-String instructionsData;
+char matrixBuffer[MATRIX_DATA_LENGTH];
+char instructionBuffer[INSTRUCTIONS_DATA_LENGTH];
 
 void setupMatrix() {
   pinMode(ADC_REF_PIN, INPUT);
@@ -20,12 +19,10 @@ void setupMatrix() {
 
   setupRows();
   setupColumns();
-  matrixData.reserve(MATRIX_DATA_LENGTH);
-  instructionsData.reserve(INSTRUCTIONS_DATA_LENGTH);
 }
 
-String scanMatrix(SenseModes mode) {
-  matrixData = "";
+void scanMatrix(SenseModes mode) {
+  matrixBuffer[0] = '\0';
 
   if(mode == TEMPERATURE) {
 
@@ -43,13 +40,13 @@ String scanMatrix(SenseModes mode) {
         int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
         float data = readThermistorTemperature(code_sensor, code_gnd, code_ref);
 
-        char dataText[16];
-        if (!isnan(data)) snprintf(dataText, sizeof(dataText), "%.2f", data);
-        else snprintf(dataText, sizeof(dataText), "NaN");
+        char dataBuffer[16];
+        if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.2f", data);
+        else snprintf(dataBuffer, sizeof(dataBuffer), "NaN");
 
-        matrixData += dataText;
+        strlcat(matrixBuffer, dataBuffer, sizeof(matrixBuffer));
 
-        if (!(column == maxColumn() - 1 && row == maxRow() - 1)) matrixData += ' ';
+        if (!(column == maxColumn() - 1 && row == maxRow() - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
       }
     }
 
@@ -57,33 +54,38 @@ String scanMatrix(SenseModes mode) {
     activateRow();
 
   } else {
-    instructionsData = "";
+    instructionBuffer[0] = '\0';
 
     for (int column = 0; column < maxColumn(); column++) {
       int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
       int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
 
       for (int row = 0; row < maxRow(); row++) {
-        instructionsData = "";
-        instructionsData += "scan matrix individual,";
-        instructionsData += column; instructionsData += ",";
-        instructionsData += row; instructionsData += ",";
-        instructionsData += code_gnd; instructionsData += ",";
-        instructionsData += code_ref; instructionsData += ",";
-        instructionsData += "p,";
-        instructionsData += (!(column == maxColumn() - 1 && row == maxRow() - 1)) ? false : true;
+        snprintf(
+          instructionBuffer, 
+          sizeof(instructionBuffer), 
+          "scan matrix individual,%d,%d,%d,%d,p,%s",
+          column,
+          row,
+          code_gnd,
+          code_ref,
+          (column == maxColumn() - 1 && row == maxRow() - 1) ? "true" : "false"
+        );
 
-        sendMessage(instructionsData);
-        //matrixData += receiveMessagesPrimary();
-        if (!receiveMessagesPrimary(matrixData)) matrixData += "0.0";
+        sendMessage(instructionBuffer);
 
-        if (!(column == maxColumn() - 1 && row == maxRow() - 1)) matrixData += ' ';
+        char cellBuffer[32];
+        cellBuffer[0] = '\0';
+        if (!receiveMessagesPrimary(cellBuffer, sizeof(cellBuffer))) {
+          strlcat(matrixBuffer, "0.0", sizeof(matrixBuffer));
+        } else {
+          strlcat(matrixBuffer, cellBuffer, sizeof(matrixBuffer));
+        }
+
+        if (!(column == maxColumn() - 1 && row == maxRow() - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
       }
     }
-
   }
-
-  return matrixData;
 }
 
 float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, SenseModes mode, bool disable) {

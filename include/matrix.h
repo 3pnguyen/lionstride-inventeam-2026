@@ -6,6 +6,14 @@
 #include "multiplexer.h"
 #include "serial.h"
 
+//-------------------------------------- Change these as neccesary --------------------------------------
+
+#define MATRIX_DATA_LENGTH 4096 // a lot of extra space
+
+//-------------------------------------------------------------------------------------------------------
+
+extern char matrixBuffer[MATRIX_DATA_LENGTH];
+
 enum SenseModes {
   TEMPERATURE,
   PRESSURE
@@ -13,6 +21,6 @@ enum SenseModes {
 
 void setupMatrix();
 
-String scanMatrix(SenseModes mode);
+void scanMatrix(SenseModes mode);
 
 float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, SenseModes mode, bool disable);

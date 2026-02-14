@@ -101,12 +101,12 @@ void activateColumn(int column) {
   _writeRegister(MCP2, OLATB, 0x00);
 
   // exception cases
-  if (column == 21) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[2]); return; }
-  else if (column == 22) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[3]); return; }
-  else if (column == 23) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[4]); return; }
-  else if (column == 24) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[5]); return; }
-  else if (column == 25) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[6]); return; }
-  else if (column == 26) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[7]); return; }
+  if (column == 20) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[2]); return; }
+  else if (column == 21) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[3]); return; }
+  else if (column == 22) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[4]); return; }
+  else if (column == 23) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[5]); return; }
+  else if (column == 24) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[6]); return; }
+  else if (column == 25) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[7]); return; }
 
   if (column < 0) return;
 

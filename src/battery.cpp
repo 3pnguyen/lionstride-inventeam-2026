@@ -40,7 +40,7 @@ int _batteryPercent() {
 
 void _indicateBatteryLED(int percent) {
   pinMode(IND_LED_PIN, OUTPUT);
-  analogWrite(IND_LED_PIN, (int) (percent / 100) * 255);
+  analogWrite(IND_LED_PIN, (int) ((percent / 100.0f) * 255.0f));
 }
 
 int battery(bool print_serial) {
