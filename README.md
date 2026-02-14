@@ -16,3 +16,4 @@ X = (not the main code but related)
 * 2.1.2026 - major improvement where primary receiving UART ESP can timeout if awaiting too long and can now print error messages for that (for both the main and UART testing code)
 * 2.2.2026 - minor fix in the battery code fallback w/ UART (final update before PlatformIO switch)
 * 2.2.2026 - major switch from Arduino IDE to PlatformIO
+* 2.14.2026 - fix for memory fragmentation + more test code
