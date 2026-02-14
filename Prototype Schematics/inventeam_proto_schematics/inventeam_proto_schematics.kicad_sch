@@ -6397,7 +6397,7 @@
 			)
 		)
 		(instances
-			(project "Inventeam_Project_V3"
+			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a"
 					(page "4")
 				)
@@ -6868,7 +6868,7 @@
 			)
 		)
 		(instances
-			(project "Inventeam_Project_V3"
+			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a"
 					(page "2")
 				)
@@ -7290,7 +7290,7 @@
 			)
 		)
 		(instances
-			(project "Inventeam_Project_V3"
+			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a"
 					(page "3")
 				)
@@ -7762,7 +7762,7 @@
 			)
 		)
 		(instances
-			(project "Inventeam_Project_V3"
+			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a"
 					(page "5")
 				)
