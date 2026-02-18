@@ -4,14 +4,15 @@
 #include "matrix.h"
 
 EspModes mode;
+String input;
 
 void setup() {
-  pinMode(DISCOVER_PIN, INPUT_PULLUP);
-  
-  mode = discoverMode();
   setupMatrix();
 
   #ifndef TEST
+    pinMode(DISCOVER_PIN, INPUT_PULLUP);
+    mode = discoverMode();
+
     if(mode == PRIMARY) setupBluetooth();
     setupSerialCommunication();
   #else
@@ -24,16 +25,17 @@ void loop() {
     ((mode == PRIMARY) ? handleBluetoothCommands : receiveMessagesSecondary)();
   #else
     if (Serial.available() > 0) {
-      switch (TEST) {
-        case 0:
-          scanMatrix((mode == PRIMARY) ? TEMPERATURE : PRESSURE);
-          Serial.println(matrixBuffer);
-          break;
-        case 1:
-          battery(true);
-          break;
-        default:
-          break;
+      input = Serial.readStringUntil('\n');
+      input.trim();
+
+      if (input.equals("temperature")) {
+        scanMatrix(TEMPERATURE);
+        Serial.println(matrixBuffer);
+      } else if (input.equals("pressure")) {
+        scanMatrix(PRESSURE);
+        Serial.println(matrixBuffer);
+      } else if (input.equals("battery")) {
+        battery(true);
       }
     }
   #endif
