@@ -17,6 +17,7 @@ void setup() {
     setupSerialCommunication();
   #else
     Serial.begin(115200);
+    Serial.println("Testing begun...");
   #endif
 }
 
