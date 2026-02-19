@@ -17,6 +17,12 @@ void setup() {
     setupSerialCommunication();
   #else
     Serial.begin(115200);
+
+    for (int i = 5; i > 0; i--) {
+      Serial.println(String(i) + "...");
+      delay(1000);
+    }
+
     Serial.println("Testing begun...");
   #endif
 }
@@ -33,10 +39,12 @@ void loop() {
         scanMatrix(TEMPERATURE);
         Serial.println(matrixBuffer);
       } else if (input.equals("pressure")) {
-        scanMatrix(PRESSURE);
+        scanMatrix(PRESSURE_PRIMARY);
         Serial.println(matrixBuffer);
       } else if (input.equals("battery")) {
         battery(true);
+      } else {
+        Serial.println("Wdym!?");
       }
     }
   #endif

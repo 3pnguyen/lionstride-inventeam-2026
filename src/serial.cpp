@@ -14,7 +14,7 @@
 //-------------------------------------------------------------------------------------------------------
 
 HardwareSerial uart(UART);
-IntervalTimer timeout(TIMEOUT_THRESHOLD);
+IntervalTimer messageTimeout(TIMEOUT_THRESHOLD);
 
 char dataBuffer[DATA_LENGTH];
 
@@ -85,10 +85,10 @@ void receiveMessagesSecondary() {
 bool receiveMessagesPrimary() {
   //sendMessage("debug");
 
-  timeout.reset();
+  messageTimeout.reset();
 
   while (uart.available() == 0) {
-    if (timeout.isReady()) return false;
+    if (messageTimeout.isReady()) return false;
     delay(1);
   }
 
@@ -96,10 +96,10 @@ bool receiveMessagesPrimary() {
 }
 
 bool receiveMessagesPrimary(String &storage) {
-  timeout.reset();
+  messageTimeout.reset();
 
   while (uart.available() == 0) {
-    if (timeout.isReady()) return false;
+    if (messageTimeout.isReady()) return false;
     delay(1);
   }
 
@@ -108,10 +108,10 @@ bool receiveMessagesPrimary(String &storage) {
 }
 
 bool receiveMessagesPrimary(char* storage, size_t storageSize) {
-  timeout.reset();
+  messageTimeout.reset();
 
   while (uart.available() == 0) {
-    if (timeout.isReady()) return false;
+    if (messageTimeout.isReady()) return false;
     delay(1);
   }
 
@@ -121,10 +121,10 @@ bool receiveMessagesPrimary(char* storage, size_t storageSize) {
 }
 
 bool receiveMessagesPrimary(int &storage) {
-  timeout.reset();
+  messageTimeout.reset();
 
   while (uart.available() == 0) {
-    if (timeout.isReady()) return false;
+    if (messageTimeout.isReady()) return false;
     delay(1);
   }
 

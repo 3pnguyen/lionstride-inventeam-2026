@@ -5,6 +5,7 @@
 #include "expander.h"
 #include "multiplexer.h"
 #include "serial.h"
+#include "filter.h"
 
 //-------------------------------------- Change these as neccesary --------------------------------------
 
@@ -16,7 +17,8 @@ extern char matrixBuffer[MATRIX_DATA_LENGTH];
 
 enum SenseModes {
   TEMPERATURE,
-  PRESSURE
+  PRESSURE,
+  PRESSURE_PRIMARY
 };
 
 void setupMatrix();

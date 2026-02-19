@@ -7,8 +7,11 @@
 #define MATRIX_ADC_2 A3
 #define INSTRUCTIONS_DATA_LENGTH 100 // also a lot of extra space
 #define ADC_SAMPLES 15
+#define PRESSURE_TIMEOUT 2000
 
 //-------------------------------------------------------------------------------------------------------
+
+IntervalTimer pressureTimeout(PRESSURE_TIMEOUT);
 
 char matrixBuffer[MATRIX_DATA_LENGTH];
 char instructionBuffer[INSTRUCTIONS_DATA_LENGTH];
@@ -24,8 +27,7 @@ void setupMatrix() {
 void scanMatrix(SenseModes mode) {
   matrixBuffer[0] = '\0';
 
-  if(mode == TEMPERATURE) {
-
+  if (mode == TEMPERATURE) {
     for (int column = 0; column < maxColumn(); column++) {
       activateColumn(column);
       delayMicroseconds(SWITCH_TIME);
@@ -53,14 +55,21 @@ void scanMatrix(SenseModes mode) {
     activateColumn();
     activateRow();
 
-  } else {
+  } else if (mode == PRESSURE) {
     instructionBuffer[0] = '\0';
+    pressureTimeout.reset();
 
     for (int column = 0; column < maxColumn(); column++) {
       int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
       int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
 
       for (int row = 0; row < maxRow(); row++) {
+        if (pressureTimeout.isReady()) {
+          matrixBuffer[0] = '\0';
+          snprintf(matrixBuffer, sizeof(matrixBuffer), "timeout");
+          return;
+        }
+
         snprintf(
           instructionBuffer, 
           sizeof(instructionBuffer), 
@@ -85,6 +94,33 @@ void scanMatrix(SenseModes mode) {
         if (!(column == maxColumn() - 1 && row == maxRow() - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
       }
     }
+  } else if (mode == PRESSURE_PRIMARY) {
+    for (int column = 0; column < maxColumn(); column++) {
+      activateColumn(column);
+      delayMicroseconds(SWITCH_TIME);
+
+      int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
+      int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
+
+      for (int row = 0; row < maxRow(); row++) {
+        activateRow(row);
+        delayMicroseconds(SWITCH_TIME);
+
+        int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
+        float data = readFSRNormalizedFromCodes(code_sensor, code_gnd, code_ref);
+
+        char dataBuffer[16];
+        if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", data);
+        else snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", 0.0);
+
+        strlcat(matrixBuffer, dataBuffer, sizeof(matrixBuffer));
+
+        if (!(column == maxColumn() - 1 && row == maxRow() - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
+      }
+    }
+
+    activateColumn();
+    activateRow();
   }
 }
 
