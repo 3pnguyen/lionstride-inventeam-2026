@@ -18,3 +18,4 @@ X = (not the main code but related)
 * 2.2.2026 - major switch from Arduino IDE to PlatformIO
 * 2.14.2026 - fix for memory fragmentation + more test code
 * 2.18.2026 - tested code and modified accordingly (it mostly worked first try, yay!)
+* 2.19.2026 - written more test code (to test individual matrix location scanning, and column and row code)

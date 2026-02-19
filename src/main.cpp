@@ -43,6 +43,32 @@ void loop() {
         Serial.println(matrixBuffer);
       } else if (input.equals("battery")) {
         battery(true);
+      } else if (input.equals("individual temperature")) {
+        Serial.println(
+          String(
+            scanMatrixIndividual(
+              0,
+              0,
+              ADCMeanFilter(ADC_GND_PIN, 15),
+              ADCMeanFilter(ADC_REF_PIN, 15),
+              TEMPERATURE,
+              true
+            )
+          )
+        );
+      } else if (input.equals("individual pressure")) {
+        Serial.println(
+          String(
+            scanMatrixIndividual(
+              0,
+              0,
+              ADCMeanFilter(ADC_GND_PIN, 15),
+              ADCMeanFilter(ADC_REF_PIN, 15),
+              PRESSURE,
+              true
+            )
+          )
+        );
       } else {
         Serial.println("Wdym!?");
       }
