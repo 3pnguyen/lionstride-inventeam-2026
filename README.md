@@ -17,3 +17,4 @@ X = (not the main code but related)
 * 2.2.2026 - minor fix in the battery code fallback w/ UART (final update before PlatformIO switch)
 * 2.2.2026 - major switch from Arduino IDE to PlatformIO
 * 2.14.2026 - fix for memory fragmentation + more test code
+* 2.18.2026 - teeny weeny test code improvements
