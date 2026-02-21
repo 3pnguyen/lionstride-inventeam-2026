@@ -4,8 +4,10 @@
 #include "bluetooth.h"
 #include "serial.h"
 #include "matrix.h"
+#include "filter.h"
 
 String input;
+IntervalTimer hardwareTimeout(60000);
 
 static inline void setupTest() {
     Serial.begin(115200);
@@ -39,8 +41,8 @@ static inline void test() {
             scanMatrixIndividual(
               0,
               0,
-              ADCMeanFilter(ADC_GND_PIN, 15),
-              ADCMeanFilter(ADC_REF_PIN, 15),
+              ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES),
+              ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES),
               TEMPERATURE,
               true
             )
@@ -53,8 +55,8 @@ static inline void test() {
             scanMatrixIndividual(
               0,
               0,
-              ADCMeanFilter(ADC_GND_PIN, 15),
-              ADCMeanFilter(ADC_REF_PIN, 15),
+              ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES),
+              ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES),
               PRESSURE,
               true
             )
@@ -64,8 +66,17 @@ static inline void test() {
       } else if (input.equals("test hardware")) { // to test expander and multiplexer
         activateColumn(0);
         activateRow(0);
+        hardwareTimeout.reset();
 
-      } else if (input.equals("disable hardware")) { // disable hardware 
+        do {
+          input = Serial.readStringUntil('\n');
+          input.trim();
+
+          Serial.println(ADCMeanFilter(MATRIX_ADC_1, ADC_SAMPLES));
+
+          delay(100);
+        } while (!hardwareTimeout.isReady() && input != "stop");
+
         activateColumn();
         activateRow();
 

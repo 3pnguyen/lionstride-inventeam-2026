@@ -3,10 +3,7 @@
 //-------------------------------------- Change these as neccesary --------------------------------------
 
 #define SWITCH_TIME 500 // microseconds
-#define MATRIX_ADC_1 A2
-#define MATRIX_ADC_2 A3
 #define INSTRUCTIONS_DATA_LENGTH 100 // also a lot of extra space
-#define ADC_SAMPLES 15
 #define PRESSURE_TIMEOUT 2000
 
 //-------------------------------------------------------------------------------------------------------

@@ -9,6 +9,9 @@
 
 //-------------------------------------- Change these as neccesary --------------------------------------
 
+#define MATRIX_ADC_1 A2
+#define MATRIX_ADC_2 A3
+#define ADC_SAMPLES 15
 #define MATRIX_DATA_LENGTH 4096 // a lot of extra space
 
 //-------------------------------------------------------------------------------------------------------
