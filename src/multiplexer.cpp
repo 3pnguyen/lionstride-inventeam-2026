@@ -57,3 +57,24 @@ void activateRow(int row) {
   if (row < MUX_PINS) _muxPinSelect(MUX_EN_1, row);
   else _muxPinSelect(MUX_EN_2, row - MUX_PINS);
 }
+
+// ------------------------- Ai-gen Debug functions -----------------------------------------
+
+void debugTMUXControlLines(Stream& out, uint16_t delayMs) {
+  out.println("---- TMUX1208 control-line test ----");
+  out.println("row, EN1, EN2, A2, A1, A0");
+
+  for (int row = -1; row < ROWS; row++) {
+    activateRow(row);
+    delay(delayMs);
+
+    out.print(row); out.print(", ");
+    out.print(digitalRead(MUX_EN_1)); out.print(", ");
+    out.print(digitalRead(MUX_EN_2)); out.print(", ");
+    out.print(digitalRead(MUX_A2_PIN)); out.print(", ");
+    out.print(digitalRead(MUX_A1_PIN)); out.print(", ");
+    out.println(digitalRead(MUX_A0_PIN));
+  }
+
+  activateRow(-1);
+}

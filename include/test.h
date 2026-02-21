@@ -9,10 +9,28 @@
 String input;
 IntervalTimer hardwareTimeout(60000);
 
+/*
+
+Testing commands:
+
+* temperature
+* pressure
+* battery
+* individual temperature
+* individual pressure
+* test hardware
+* debug mcp1
+* debug mcp2
+* walk mcp1
+* walk mcp2
+* debug rows
+
+*/
+
 static inline void setupTest() {
     Serial.begin(115200);
 
-    for (int i = 5; i > 0; i--) {
+    for (int i = 3; i > 0; i--) {
       Serial.println(String(i) + "...");
       delay(1000);
     }
@@ -72,13 +90,35 @@ static inline void test() {
           input = Serial.readStringUntil('\n');
           input.trim();
 
-          Serial.println(ADCMeanFilter(MATRIX_ADC_1, ADC_SAMPLES));
+          Serial.println(
+            "GND ADC: " +
+            String(analogRead(ADC_GND_PIN)) +
+            ", REF ADC: " +
+            String(analogRead(ADC_REF_PIN)) +
+            ", Sensor ADC: " +
+            String(analogRead(MATRIX_ADC_1))
+          );
 
           delay(100);
         } while (!hardwareTimeout.isReady() && input != "stop");
 
         activateColumn();
         activateRow();
+
+      } else if (input.equals("debug mcp1")) { // to test expander
+        debugMCPConnection(MCP1);
+
+      } else if (input.equals("debug mcp2")) { // to test expander
+        debugMCPConnection(MCP2);
+
+      } else if (input.equals("walk mcp1")) { // to test expander
+        debugMCPWalkOutputs(MCP1);
+
+      } else if (input.equals("walk mcp2")) { // to test expander
+        debugMCPWalkOutputs(MCP2);
+
+      } else if (input.equals("debug rows")) { // to test multiplexer
+        debugTMUXControlLines();
 
       } else { // for edge cases and errors
         Serial.println("Wdym!?");

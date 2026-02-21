@@ -124,3 +124,68 @@ void activateColumn(int column) {
 
   }
 }
+
+// ------------------------- Ai-gen Debug functions -----------------------------------------
+
+static bool _writeReadCheck(MCP_DEVICE dev, uint8_t reg, uint8_t value, Stream& out) {
+  _writeRegister(dev, reg, value);
+  uint8_t readback = _readRegister(dev, reg);
+  bool ok = (readback == value);
+
+  out.print("MCP"); out.print((int)dev + 1);
+  out.print(" reg 0x"); out.print(reg, HEX);
+  out.print(" <= 0x"); out.print(value, HEX);
+  out.print(" read 0x"); out.print(readback, HEX);
+  out.println(ok ? " [OK]" : " [FAIL]");
+  return ok;
+}
+
+bool debugMCPConnection(MCP_DEVICE dev, Stream& out) {
+  out.print("---- MCP"); out.print((int)dev + 1); out.println(" connection test ----");
+
+  uint8_t oldIODIRA = _readRegister(dev, IODIRA);
+  uint8_t oldIODIRB = _readRegister(dev, IODIRB);
+  uint8_t oldOLATA  = _readRegister(dev, OLATA);
+  uint8_t oldOLATB  = _readRegister(dev, OLATB);
+
+  bool ok = true;
+  ok &= _writeReadCheck(dev, IODIRA, 0x00, out);
+  ok &= _writeReadCheck(dev, IODIRB, 0x00, out);
+  ok &= _writeReadCheck(dev, OLATA,  0xAA, out);
+  ok &= _writeReadCheck(dev, OLATA,  0x55, out);
+  ok &= _writeReadCheck(dev, OLATB,  0xAA, out);
+  ok &= _writeReadCheck(dev, OLATB,  0x55, out);
+
+  // restore
+  _writeRegister(dev, IODIRA, oldIODIRA);
+  _writeRegister(dev, IODIRB, oldIODIRB);
+  _writeRegister(dev, OLATA,  oldOLATA);
+  _writeRegister(dev, OLATB,  oldOLATB);
+
+  out.println(ok ? "MCP result: PASS" : "MCP result: FAIL");
+  return ok;
+}
+
+void debugMCPWalkOutputs(MCP_DEVICE dev, Stream& out, uint16_t delayMs) {
+  _writeRegister(dev, IODIRA, 0x00);
+  _writeRegister(dev, IODIRB, 0x00);
+
+  out.print("Walking MCP"); out.print((int)dev + 1); out.println(" outputs...");
+  for (int i = 0; i < 8; i++) {
+    uint8_t v = (1u << i);
+    _writeRegister(dev, OLATA, v);
+    _writeRegister(dev, OLATB, 0x00);
+    out.print("OLATA bit "); out.println(i);
+    delay(delayMs);
+  }
+  for (int i = 0; i < 8; i++) {
+    uint8_t v = (1u << i);
+    _writeRegister(dev, OLATA, 0x00);
+    _writeRegister(dev, OLATB, v);
+    out.print("OLATB bit "); out.println(i);
+    delay(delayMs);
+  }
+
+  _writeRegister(dev, OLATA, 0x00);
+  _writeRegister(dev, OLATB, 0x00);
+}
