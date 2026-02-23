@@ -17,7 +17,7 @@ X = (not the main code but related)
 * 2.2.2026 - minor fix in the battery code fallback w/ UART (final update before PlatformIO switch)
 * 2.2.2026 - major switch from Arduino IDE to PlatformIO
 * 2.14.2026 - fix for memory fragmentation + more test code
-* 2.18.2026 - tested code and modified accordingly (it mostly worked first try, yay!)
+* 2.18.2026 - tested code and modified accordingly 
 * 2.19.2026 - written more test code (to test individual matrix location scanning, and column and row code)
 * 2.20.2026 - given test code a seperate file because there is so much of it already... it also turns out that I have only tested half of the code, not most :\
 * 2.22.2026 - test code + increased scanning time
