@@ -167,6 +167,8 @@ float readFSRNormalizedFromCodes(int adc_code_sensor,
   return _adcCodeNormalize(adc_code_sensor, adc_code_gnd, adc_code_ref, clip);
 }
 
+// function below not needed because offset does not affect it
+
 float readPressureResistanceFromCodes(
     int adc_code_sensor,
     int adc_code_gnd,
