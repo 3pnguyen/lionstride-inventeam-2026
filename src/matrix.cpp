@@ -2,7 +2,7 @@
 
 //-------------------------------------- Change these as neccesary --------------------------------------
 
-#define SWITCH_TIME 500 // microseconds
+#define SWITCH_TIME 4000 // microseconds
 #define INSTRUCTIONS_DATA_LENGTH 100 // also a lot of extra space
 #define PRESSURE_TIMEOUT 2000
 

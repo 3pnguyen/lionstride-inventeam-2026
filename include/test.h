@@ -16,8 +16,8 @@ Testing commands:
 * temperature
 * pressure
 * battery
-* individual temperature
-* individual pressure
+* i temperature
+* i pressure
 * test hardware
 * debug mcp1
 * debug mcp2
@@ -53,7 +53,7 @@ static inline void test() {
 
       } else if (input.equals("battery")) { // to test battery
         battery(true);
-      } else if (input.equals("individual temperature")) { // to test matrix, sensor, and filter
+      } else if (input.equals("i temperature")) { // to test matrix, sensor, and filter
         Serial.println(
           String(
             scanMatrixIndividual(
@@ -67,7 +67,7 @@ static inline void test() {
           )
         );
 
-      } else if (input.equals("individual pressure")) { // to test matrix, sensor, and filter
+      } else if (input.equals("i pressure")) { // to test matrix, sensor, and filter
         Serial.println(
           String(
             scanMatrixIndividual(
@@ -121,7 +121,7 @@ static inline void test() {
         debugTMUXControlLines();
 
       } else { // for edge cases and errors
-        Serial.println("Wdym!?");
+        Serial.println("Wdym " + input + "!?");
 
       }
     }
