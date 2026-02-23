@@ -8,6 +8,9 @@ static constexpr float SH_A = 0.0011252935711115418f;
 static constexpr float SH_B = 0.0002347147730973799f;
 static constexpr float SH_C = 8.565018940064752e-08f; //Steinhart-Hart values for the chosen thermistor
 
+#define PULL_DOWN_R1 1.012e+6f
+#define PULL_DOWN_R2 0.991e+6f
+
 #define THERM_VCC 3.3f
 #define VREF_IC 2.5f
 #define THERM_FIXED_R 10000.0f
@@ -17,6 +20,7 @@ static constexpr float SH_C = 8.565018940064752e-08f; //Steinhart-Hart values fo
 float _adcCodeToVoltage(int adc_code, int adc_code_gnd, int adc_code_ref, float vref = 2.5f);
 float _voltageToResistance(float v_meas, float vcc, float r_fixed);
 float _resistanceToTemperatureC(float r_therm);
+float _adcCodeNormalize(int adc_code, int adc_code_gnd, int adc_code_ref, bool clip = true);
 
 float _adcCodeToVoltage(
     int adc_code,
@@ -88,4 +92,25 @@ float readThermistorTemperature(
 
     if (fahrenheit) return tempC * 9.0f / 5.0f + 32.0f;
     else return tempC;
+}
+
+// ------------------------- ai-gen code for FSR -------------------------
+
+float _adcCodeNormalize(int adc_code,
+                                     int adc_code_gnd,
+                                     int adc_code_ref,
+                                     bool clip) {
+  if (adc_code_ref == adc_code_gnd) return 0.0f; // avoid divide-by-zero
+  float norm = (float)(adc_code - adc_code_gnd) / (float)(adc_code_ref - adc_code_gnd);
+  if (!clip) return norm;
+  if (norm < 0.0f) return 0.0f;
+  if (norm > 1.0f) return 1.0f;
+  return norm;
+}
+
+float readFSRNormalizedFromCodes(int adc_code_sensor,
+                                               int adc_code_gnd,
+                                               int adc_code_ref,
+                                               bool clip) {
+  return _adcCodeNormalize(adc_code_sensor, adc_code_gnd, adc_code_ref, clip);
 }
