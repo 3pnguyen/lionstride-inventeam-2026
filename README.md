@@ -26,3 +26,4 @@ Branch for the schematic files of the circuit and device
 * v15 - 1.25.26
 	* v15 minor 1 - 2.13.26
 	* v15 minor 2 - 2.19.26
+* v16 - 2.22.26
