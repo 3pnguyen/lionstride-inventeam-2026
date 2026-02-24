@@ -16,14 +16,15 @@ Testing commands:
 * temperature
 * pressure
 * battery
-* i temperature
-* i pressure
+* i temperature (individual temperature)
+* i pressure (individual pressure)
 * test hardware
 * debug mcp1
 * debug mcp2
 * walk mcp1
 * walk mcp2
 * debug rows
+* test math
 
 */
 
@@ -120,6 +121,12 @@ static inline void test() {
       } else if (input.equals("debug rows")) { // to test multiplexer
         debugTMUXControlLines();
 
+      } else if (input.equals("test math")) { // to test sensor
+        Serial.println("The inputed sample ADC code is 2555...");
+        Serial.println("Which should be about 2.06V (2.059), 6.03k ohms, and 96.8 degrees F...");
+        Serial.println("Running math debug function.");
+        debugSensorMath(2555);
+        
       } else { // for edge cases and errors
         Serial.println("Wdym " + input + "!?");
 

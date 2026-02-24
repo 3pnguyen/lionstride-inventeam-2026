@@ -37,7 +37,7 @@ void scanMatrix(SenseModes mode) {
         delayMicroseconds(SWITCH_TIME);
 
         int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
-        float data = readThermistorTemperature(code_sensor, code_gnd, code_ref);
+        float data = readThermistorTemperature(code_sensor, code_gnd, code_ref, (row < maxMultiplexerPins()) ? PULL_DOWN_R1 : PULL_DOWN_R2);
 
         char dataBuffer[16];
         if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.2f", data);
@@ -130,7 +130,7 @@ float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, Sens
 
   int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
   float data;
-  if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, code_gnd, code_ref);
+  if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, code_gnd, code_ref, (row < maxMultiplexerPins()) ? PULL_DOWN_R1 : PULL_DOWN_R2);
   else data = readFSRNormalizedFromCodes(code_sensor, code_gnd, code_ref);
 
   if(!disable) {
