@@ -45,10 +45,12 @@ static inline void test() {
       input.trim();
 
       if (input.equals("temperature")) { // to test matrix, sensor, and filter
+        Serial.println("Temperature matrix:");
         scanMatrix(TEMPERATURE);
         Serial.println(matrixBuffer);
 
       } else if (input.equals("pressure")) { // to test matrix, sensor, and filter
+        Serial.println("Pressure matrix:");
         scanMatrix(PRESSURE_PRIMARY);
         Serial.println(matrixBuffer);
 

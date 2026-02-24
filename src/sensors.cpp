@@ -8,7 +8,7 @@ static constexpr float SH_B = 0.0002347147730973799f;
 static constexpr float SH_C = 8.565018940064752e-08f; //Steinhart-Hart values for the chosen thermistor
 
 #define VCC 3.3f
-#define VREF_IC 2.5f
+#define VREF_IC 2.36681318681f //should be 2.5V, our setup has around 2.36V
 #define FIXED_R 10000.0f
 
 //-------------------------------------------------------------------------------------------------------
