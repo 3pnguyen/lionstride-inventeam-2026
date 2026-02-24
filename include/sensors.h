@@ -32,14 +32,14 @@ float readThermistorTemperature( // read thermistor with calibration and pull-do
 
 float readFSRNormalizedFromCodes(
     int adc_code_sensor,
-    bool clip = true
+    bool clip = false
 );
 
 float readFSRNormalizedFromCodes(
     int adc_code_sensor,
     int adc_code_gnd,
     int adc_code_ref,
-    bool clip = true
+    bool clip = false
 );
 
 // ------------------------- Debug functions -----------------------------------------

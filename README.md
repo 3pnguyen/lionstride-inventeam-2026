@@ -22,3 +22,4 @@ X = (not the main code but related)
 * 2.20.2026 - given test code a seperate file because there is so much of it already... it also turns out that I have only tested half of the code, not most :\
 * 2.22.2026 - test code + increased scanning time
 * 2.23.2026 - Fixed and created test code for the conversion math, and compensated for the pull-down resistors
+* 2.24.2026 - Created some alternate code for collecting data without calibration and applied it (calibration hardware is unreliable on the circuit) 

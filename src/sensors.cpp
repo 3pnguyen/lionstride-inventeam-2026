@@ -26,7 +26,6 @@ float _readSensorResistanceFromCodes(int adc_code_sensor, int adc_code_gnd, int 
 
 float _adcCodeToVoltage(int adc_code, float vin) {
     // Assuming a simple linear relationship: voltage = (adc_code / max_adc_code) * vref
-    // For a 12-bit ADC, max_adc_code = 4095
     return (adc_code / MAX_ADC_CODE) * vin;
 }
 
@@ -139,7 +138,7 @@ float _readSensorResistanceFromCodes(
     return _voltageToResistance(v_meas, vcc, r_fixed);
 }
 
-float readThemistorTemperature(
+float readThermistorTemperature(
     int adc_code_sensor,
     float pull_down_r,
     bool fahrenheit
@@ -188,7 +187,14 @@ float _adcCodeNormalize(
     int adc_code,
     bool clip
 ) {
-    return 0.0; // WIP
+    float norm = (float)adc_code / MAX_ADC_CODE;
+
+    if (!clip) return norm;
+
+    if (norm < 0.0f) return 0.0f;
+    if (norm > 1.0f) return 1.0f;
+
+    return norm;
 }
 
 float _adcCodeNormalize(
@@ -209,7 +215,7 @@ float readFSRNormalizedFromCodes(
     int adc_code_sensor,
     bool clip
 ) {
-    return 0.0; // WIP
+    return _adcCodeNormalize(adc_code_sensor, clip);
 }
 
 float readFSRNormalizedFromCodes(

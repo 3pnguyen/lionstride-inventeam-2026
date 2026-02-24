@@ -2,7 +2,8 @@
 
 //-------------------------------------- Change these as neccesary --------------------------------------
 
-#define SWITCH_TIME 14000 // microseconds
+#define PRIMARY_SWITCH_TIME 14000 // microseconds
+#define SECONDARY_SWITCH_TIME 7000 // microseconds, quick fix for mismatch in time calculation
 #define INSTRUCTIONS_DATA_LENGTH 100 // also a lot of extra space
 #define PRESSURE_TIMEOUT 2000
 
@@ -27,17 +28,17 @@ void scanMatrix(SenseModes mode) {
   if (mode == TEMPERATURE) {
     for (int column = 0; column < maxColumn(); column++) {
       activateColumn(column);
-      delayMicroseconds(SWITCH_TIME);
+      delayMicroseconds(PRIMARY_SWITCH_TIME);
 
-      int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
-      int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
+      //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
+      //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
 
       for (int row = 0; row < maxRow(); row++) {
         activateRow(row);
-        delayMicroseconds(SWITCH_TIME);
+        delayMicroseconds(PRIMARY_SWITCH_TIME);
 
         int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
-        float data = readThermistorTemperature(code_sensor, code_gnd, code_ref, (row < maxMultiplexerPins()) ? PULL_DOWN_R1 : PULL_DOWN_R2);
+        float data = readThermistorTemperature(code_sensor, (row < maxMultiplexerPins()) ? PULL_DOWN_R1 : PULL_DOWN_R2);
 
         char dataBuffer[16];
         if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.2f", data);
@@ -57,8 +58,8 @@ void scanMatrix(SenseModes mode) {
     pressureTimeout.reset();
 
     for (int column = 0; column < maxColumn(); column++) {
-      int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
-      int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
+      //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
+      //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
 
       for (int row = 0; row < maxRow(); row++) {
         if (pressureTimeout.isReady()) {
@@ -73,8 +74,8 @@ void scanMatrix(SenseModes mode) {
           "scan matrix individual,%d,%d,%d,%d,p,%s",
           column,
           row,
-          code_gnd,
-          code_ref,
+          0,
+          -1,
           (column == maxColumn() - 1 && row == maxRow() - 1) ? "true" : "false"
         );
 
@@ -94,17 +95,17 @@ void scanMatrix(SenseModes mode) {
   } else if (mode == PRESSURE_PRIMARY) {
     for (int column = 0; column < maxColumn(); column++) {
       activateColumn(column);
-      delayMicroseconds(SWITCH_TIME);
+      delayMicroseconds(PRIMARY_SWITCH_TIME);
 
-      int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
-      int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
+      //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
+      //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
 
       for (int row = 0; row < maxRow(); row++) {
         activateRow(row);
-        delayMicroseconds(SWITCH_TIME);
+        delayMicroseconds(PRIMARY_SWITCH_TIME);
 
         int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
-        float data = readFSRNormalizedFromCodes(code_sensor, code_gnd, code_ref);
+        float data = readFSRNormalizedFromCodes(code_sensor);
 
         char dataBuffer[16];
         if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", data);
@@ -123,15 +124,20 @@ void scanMatrix(SenseModes mode) {
 
 float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, SenseModes mode, bool disable) {
   activateColumn(column);
-  delayMicroseconds(SWITCH_TIME);
+  delayMicroseconds(SECONDARY_SWITCH_TIME);
 
   activateRow(row);
-  delayMicroseconds(SWITCH_TIME);
+  delayMicroseconds(SECONDARY_SWITCH_TIME);
 
   int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
   float data;
-  if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, code_gnd, code_ref, (row < maxMultiplexerPins()) ? PULL_DOWN_R1 : PULL_DOWN_R2);
-  else data = readFSRNormalizedFromCodes(code_sensor, code_gnd, code_ref);
+  if (code_ref >= 0) {
+    if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, code_gnd, code_ref, (row < maxMultiplexerPins()) ? PULL_DOWN_R1 : PULL_DOWN_R2);
+    else data = readFSRNormalizedFromCodes(code_sensor, code_gnd, code_ref);
+  } else {
+    if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, (row < maxMultiplexerPins()) ? PULL_DOWN_R1 : PULL_DOWN_R2);
+    else data = readFSRNormalizedFromCodes(code_sensor);
+  }
 
   if(!disable) {
     activateColumn();
