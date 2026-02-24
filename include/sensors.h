@@ -14,7 +14,13 @@
 
 //-------------------------------------------------------------------------------------------------------
 
-float readThermistorTemperature(
+float readThermistorTemperature( // read thermistor wihtout calibration but with pull-down conpensaton
+    int adc_code_sensor,
+    float pull_down_r,
+    bool fahrenheit = true
+);
+
+float readThermistorTemperature( // read thermistor with calibration and pull-down conpensation
     int adc_code_sensor,
     int adc_code_gnd,
     int adc_code_ref,
@@ -24,10 +30,17 @@ float readThermistorTemperature(
 
 // ------------------------- ai-gen code for FSR -------------------------
 
-float readFSRNormalizedFromCodes(int adc_code_sensor,
-                                            int adc_code_gnd,
-                                            int adc_code_ref,
-                                            bool clip = true);
+float readFSRNormalizedFromCodes(
+    int adc_code_sensor,
+    bool clip = true
+);
+
+float readFSRNormalizedFromCodes(
+    int adc_code_sensor,
+    int adc_code_gnd,
+    int adc_code_ref,
+    bool clip = true
+);
 
 // ------------------------- Debug functions -----------------------------------------
 
