@@ -62,8 +62,8 @@ static inline void test() {
             scanMatrixIndividual(
               0,
               0,
-              ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES),
-              ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES),
+              0, //ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES),
+              -1, //ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES),
               TEMPERATURE,
               true
             )
@@ -76,8 +76,8 @@ static inline void test() {
             scanMatrixIndividual(
               0,
               0,
-              ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES),
-              ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES),
+              0, //ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES),
+              -1, //ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES),
               PRESSURE,
               true
             )
