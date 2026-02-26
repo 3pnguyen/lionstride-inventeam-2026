@@ -9,12 +9,12 @@
 
 //-------------------------------------------------------------------------------------------------------
 
-void _formatMatrixData(IndexingModes mode);
+void _formatMatrixData(SenseModes mode, IndexingModes readMatrixBy);
 
 IntervalTimer pressureTimeout(PRESSURE_TIMEOUT);
 
 char matrixBuffer[MATRIX_DATA_LENGTH];
-float matrixData[67][67]; //placeholders
+float matrixData[MATRIX_ROWS][MATRIX_COLUMNS]; 
 char instructionBuffer[INSTRUCTIONS_DATA_LENGTH];
 
 void setupMatrix() {
@@ -42,6 +42,8 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
 
         int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
         float data = readThermistorTemperature(code_sensor, (row < maxMultiplexerPins()) ? PULL_DOWN_R1 : PULL_DOWN_R2);
+
+        matrixData[row][column] = data;
 
         char dataBuffer[16];
         if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.2f", data);
@@ -92,6 +94,9 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
           strlcat(matrixBuffer, cellBuffer, sizeof(matrixBuffer));
         }
 
+        float data = atof(cellBuffer);
+        matrixData[row][column] = data;
+
         if (!(column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
       }
     }
@@ -109,6 +114,8 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
 
         int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
         float data = readFSRNormalizedFromCodes(code_sensor);
+
+        matrixData[row][column] = data;
 
         char dataBuffer[16];
         if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", data);
@@ -150,6 +157,20 @@ float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, Sens
   return data;
 }
 
-void _formatMatrixData(IndexingModes mode) {
-  
+void _formatMatrixData(SenseModes mode, IndexingModes readMatrixBy) {
+  if (readMatrixBy == COLUMNS) return;
+
+  matrixBuffer[0] = '\0';
+
+  for (int row = 0; row < MATRIX_ROWS; row++) {
+    for (int column = 0; column < MATRIX_COLUMNS; column++) {
+      char dataBuffer[16];
+
+      if (mode == TEMPERATURE) {
+
+      } else {
+
+      }
+    }
+  }
 }
