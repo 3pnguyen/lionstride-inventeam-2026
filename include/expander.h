@@ -16,7 +16,7 @@ void setupColumns();
 
 void activateColumn(int column = -1);
 
-// ------------------------- Ai-gen Debug functions -----------------------------------------
+// ------------------------- Ai-gen (Alice & Ivette) Debug functions -----------------------------------------
 
 bool debugMCPConnection(MCP_DEVICE dev, Stream& out = Serial);
 

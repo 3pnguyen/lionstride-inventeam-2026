@@ -24,6 +24,6 @@ void setupRows();
 
 void activateRow(int row = -1);
 
-// ------------------------- Ai-gen Debug functions -----------------------------------------
+// ------------------------- Ai-gen (Alice & Ivette) Debug functions -----------------------------------------
 
 void debugTMUXControlLines(Stream& out = Serial, uint16_t delayMs = 120);
