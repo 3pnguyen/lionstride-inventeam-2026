@@ -42,8 +42,6 @@ void _cDeselect(MCP_DEVICE dev);
 void _writeRegister(MCP_DEVICE dev, uint8_t reg, uint8_t val);
 uint8_t _readRegister(MCP_DEVICE dev, uint8_t reg);
 
-int maxColumn() { return MATRIX_COLUMNS; }
-
 int maxExpanderIO() { return EXPANDER_PINS; }
 
 void setupColumns() {

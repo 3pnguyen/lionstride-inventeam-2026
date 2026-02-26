@@ -9,6 +9,8 @@
 
 //-------------------------------------------------------------------------------------------------------
 
+void _formatMatrixData(IndexingModes mode);
+
 IntervalTimer pressureTimeout(PRESSURE_TIMEOUT);
 
 char matrixBuffer[MATRIX_DATA_LENGTH];
@@ -23,18 +25,18 @@ void setupMatrix() {
   setupColumns();
 }
 
-void scanMatrix(SenseModes mode) {
+void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
   matrixBuffer[0] = '\0';
 
   if (mode == TEMPERATURE) {
-    for (int column = 0; column < maxColumn(); column++) {
+    for (int column = 0; column < MATRIX_COLUMNS; column++) {
       activateColumn(column);
       delayMicroseconds(PRIMARY_SWITCH_TIME);
 
       //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
       //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
 
-      for (int row = 0; row < maxRow(); row++) {
+      for (int row = 0; row < MATRIX_ROWS; row++) {
         activateRow(row);
         delayMicroseconds(PRIMARY_SWITCH_TIME);
 
@@ -47,7 +49,7 @@ void scanMatrix(SenseModes mode) {
 
         strlcat(matrixBuffer, dataBuffer, sizeof(matrixBuffer));
 
-        if (!(column == maxColumn() - 1 && row == maxRow() - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
+        if (!(column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
       }
     }
 
@@ -58,11 +60,11 @@ void scanMatrix(SenseModes mode) {
     instructionBuffer[0] = '\0';
     pressureTimeout.reset();
 
-    for (int column = 0; column < maxColumn(); column++) {
+    for (int column = 0; column < MATRIX_COLUMNS; column++) {
       //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
       //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
 
-      for (int row = 0; row < maxRow(); row++) {
+      for (int row = 0; row < MATRIX_ROWS; row++) {
         if (pressureTimeout.isReady()) {
           matrixBuffer[0] = '\0';
           snprintf(matrixBuffer, sizeof(matrixBuffer), "timeout");
@@ -77,7 +79,7 @@ void scanMatrix(SenseModes mode) {
           row,
           0,
           -1,
-          (column == maxColumn() - 1 && row == maxRow() - 1) ? "true" : "false"
+          (column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1) ? "true" : "false"
         );
 
         sendMessage(instructionBuffer);
@@ -90,18 +92,18 @@ void scanMatrix(SenseModes mode) {
           strlcat(matrixBuffer, cellBuffer, sizeof(matrixBuffer));
         }
 
-        if (!(column == maxColumn() - 1 && row == maxRow() - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
+        if (!(column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
       }
     }
   } else if (mode == PRESSURE_PRIMARY) {
-    for (int column = 0; column < maxColumn(); column++) {
+    for (int column = 0; column < MATRIX_COLUMNS; column++) {
       activateColumn(column);
       delayMicroseconds(PRIMARY_SWITCH_TIME);
 
       //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
       //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
 
-      for (int row = 0; row < maxRow(); row++) {
+      for (int row = 0; row < MATRIX_ROWS; row++) {
         activateRow(row);
         delayMicroseconds(PRIMARY_SWITCH_TIME);
 
@@ -114,7 +116,7 @@ void scanMatrix(SenseModes mode) {
 
         strlcat(matrixBuffer, dataBuffer, sizeof(matrixBuffer));
 
-        if (!(column == maxColumn() - 1 && row == maxRow() - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
+        if (!(column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
       }
     }
 
@@ -148,6 +150,6 @@ float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, Sens
   return data;
 }
 
-void formatMatrixData(IndexingModes mode) {
+void _formatMatrixData(IndexingModes mode) {
   
 }

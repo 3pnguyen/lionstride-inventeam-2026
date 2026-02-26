@@ -9,8 +9,6 @@ enum MCP_DEVICE {
     MCP2
 };
 
-int maxColumn();
-
 int maxExpanderIO();
 
 void setupColumns();

@@ -14,8 +14,6 @@
 
 void _muxPinSelect(unsigned int enable_pin, int select_pin = -1);
 
-int maxRow() { return MATRIX_ROWS; }
-
 int maxMultiplexerPins() { return MUX_PINS; }
 
 void setupRows() {

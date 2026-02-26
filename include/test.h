@@ -74,7 +74,7 @@ static inline void test() {
       Serial.println("Row: ");
       inputRow = Serial.parseInt() - 1;
 
-      if (inputColumn < 0 || inputColumn >= maxColumn() || inputRow < 0 || inputRow >= maxRow()) {
+      if (inputColumn < 0 || inputColumn >= MATRIX_COLUMNS || inputRow < 0 || inputRow >= MATRIX_ROWS) {
         Serial.println("Invalid input! Disabling columns and rows.");
         inputColumn = -1;
         inputRow = -1;

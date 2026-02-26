@@ -11,7 +11,7 @@ static inline void writeEnablePin(unsigned int enPin, bool enable) {
 #endif
 }
 
-int maxRow();
+//int maxRow();
 
 int maxMultiplexerPins();
 
