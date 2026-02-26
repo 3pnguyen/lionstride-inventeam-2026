@@ -23,3 +23,4 @@ X = (not the main code but related)
 * 2.22.2026 - test code + increased scanning time
 * 2.23.2026 - Fixed and created test code for the conversion math, and compensated for the pull-down resistors
 * 2.24.2026 - Created some alternate code for collecting data without calibration and applied it (calibration hardware is unreliable on the circuit) 
+* 2.25.2026 - Made testing code more flexible with user input to enable desired columns and rows on certain commands
