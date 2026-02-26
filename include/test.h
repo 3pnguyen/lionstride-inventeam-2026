@@ -6,30 +6,50 @@
 #include "matrix.h"
 #include "filter.h"
 
-String input;
-IntervalTimer hardwareTimeout(60000);
+static String input;
+static int inputRow;
+static int inputColumn;
+static IntervalTimer hardwareTimeout(60000);
 
-/*
+/* ----------------- Testing commands -----------------
 
-Testing commands:
+* temperature: Scans the entire matrix and returns temperature data
 
-* temperature
-* pressure
-* battery
-* i temperature (individual temperature)
-* i pressure (individual pressure)
-* test hardware
-* debug mcp1
-* debug mcp2
-* walk mcp1
-* walk mcp2
-* debug rows
-* test math
+* pressure: Scans the entire matrix and returns pressure data 
 
-*/
+* battery: Returns battery percentage
+
+* i temperature: Scans an individual column and row and returns temperature data
+  - User input column and row
+
+* i pressure: Scans an individual column and row and returns pressure data
+  - User input column and row
+
+* test adc: Tests ADC outputs
+  - User input column, row, and "stop" to exit the loop (60 seconds timeout)
+
+* debug mcp1: Tests expander 1
+
+* debug mcp2: Tests expander 2
+
+* walk mcp1: Tests expander 1
+
+* walk mcp2: Tests expander 2
+
+* debug rows: Tests both multiplexers
+
+* test math: Tests the conversion math from ADC to voltage, resistance, and temperature
+
+* i matrix: Activate a specific column and row on the matrix
+  - User input column and row
+
+* d matrix: Deactivate the entire matrix
+
+---------------------------------------------------- */
 
 static inline void setupTest() {
     Serial.begin(115200);
+    Serial.setTimeout(1000);
 
     for (int i = 3; i > 0; i--) {
       Serial.println(String(i) + "...");
@@ -40,9 +60,30 @@ static inline void setupTest() {
 }
 
 static inline void test() {
-    if (Serial.available() > 0) {
+    auto getInput = []() -> void {
       input = Serial.readStringUntil('\n');
       input.trim();
+    };
+
+    auto getMatrixInput = []() -> void {
+      Serial.setTimeout(5000);
+      
+      Serial.println("Column: ");
+      inputColumn = Serial.parseInt() - 1; // parseInt -1 reuturns -1 if invalid
+      Serial.println("Row: ");
+      inputRow = Serial.parseInt() - 1;
+
+      if (inputColumn < 0 || inputColumn >= maxColumn() || inputRow < 0 || inputRow >= maxRow()) {
+        Serial.println("Invalid input! Disabling columns and rows.");
+        inputColumn = -1;
+        inputRow = -1;
+      }
+
+      Serial.setTimeout(1000);
+    };
+
+    if (Serial.available() > 0) {
+      getInput();
 
       if (input.equals("temperature")) { // to test matrix, sensor, and filter
         Serial.println("Temperature matrix:");
@@ -57,11 +98,13 @@ static inline void test() {
       } else if (input.equals("battery")) { // to test battery
         battery(true);
       } else if (input.equals("i temperature")) { // to test matrix, sensor, and filter
+        getMatrixInput();
+
         Serial.println(
           String(
             scanMatrixIndividual(
-              0,
-              0,
+              inputColumn,
+              inputRow,
               0, //ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES),
               -1, //ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES),
               TEMPERATURE,
@@ -71,11 +114,13 @@ static inline void test() {
         );
 
       } else if (input.equals("i pressure")) { // to test matrix, sensor, and filter
+        getMatrixInput();
+        
         Serial.println(
           String(
             scanMatrixIndividual(
-              0,
-              0,
+              inputColumn,
+              inputRow,
               0, //ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES),
               -1, //ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES),
               PRESSURE,
@@ -84,23 +129,26 @@ static inline void test() {
           )
         );
 
-      } else if (input.equals("test hardware")) { // to test expander and multiplexer
-        activateColumn(0);
-        activateRow(0);
+      } else if (input.equals("test adc")) { // to test expander and multiplexer
+        getMatrixInput();
+        
+        activateColumn(inputColumn);
+        activateRow(inputRow);
         hardwareTimeout.reset();
 
         do {
-          input = Serial.readStringUntil('\n');
-          input.trim();
+          if (Serial.available() > 0) {
+            getInput();
 
-          Serial.println(
-            "GND ADC: " +
-            String(analogRead(ADC_GND_PIN)) +
-            ", REF ADC: " +
-            String(analogRead(ADC_REF_PIN)) +
-            ", Sensor ADC: " +
-            String(analogRead(MATRIX_ADC_1))
-          );
+            Serial.println(
+              "GND ADC: " +
+              String(analogRead(ADC_GND_PIN)) +
+              ", REF ADC: " +
+              String(analogRead(ADC_REF_PIN)) +
+              ", Sensor ADC: " +
+              String(analogRead(MATRIX_ADC_1))
+            );
+          }
 
           delay(100);
         } while (!hardwareTimeout.isReady() && input != "stop");
@@ -129,8 +177,17 @@ static inline void test() {
         Serial.println("Running math debug function.");
         debugSensorMath(2555);
         
+      } else if (input.equals("i matrix")) { // to test matrix
+        getMatrixInput();
+        activateColumn(inputColumn);
+        activateRow(inputRow);
+
+      } else if (input.equals("d matrix")) { // to test matrix
+        activateColumn();
+        activateRow();
+
       } else { // for edge cases and errors
-        Serial.println("Wdym " + input + "!?");
+        Serial.println("Wdym!?");
 
       }
     }
