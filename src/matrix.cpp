@@ -12,6 +12,7 @@
 IntervalTimer pressureTimeout(PRESSURE_TIMEOUT);
 
 char matrixBuffer[MATRIX_DATA_LENGTH];
+float matrixData[67][67]; //placeholders
 char instructionBuffer[INSTRUCTIONS_DATA_LENGTH];
 
 void setupMatrix() {
@@ -145,4 +146,8 @@ float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, Sens
   }
 
   return data;
+}
+
+void formatMatrixData(IndexingModes mode) {
+  
 }

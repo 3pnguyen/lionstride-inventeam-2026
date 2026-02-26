@@ -20,7 +20,6 @@
 
 #define EXPANDER_PINS 16 // limits
 #define GPIOAB_PINS 8
-#define COLUMNS 26
 
 //-------------------------------------------------------------------------------------------------------
 
@@ -43,7 +42,7 @@ void _cDeselect(MCP_DEVICE dev);
 void _writeRegister(MCP_DEVICE dev, uint8_t reg, uint8_t val);
 uint8_t _readRegister(MCP_DEVICE dev, uint8_t reg);
 
-int maxColumn() { return COLUMNS; }
+int maxColumn() { return MATRIX_COLUMNS; }
 
 int maxExpanderIO() { return EXPANDER_PINS; }
 
@@ -110,7 +109,7 @@ void activateColumn(int column) {
 
   if (column < 0) return;
 
-  if (column >= COLUMNS) return;
+  if (column >= MATRIX_COLUMNS) return;
   
   if (column < EXPANDER_PINS) {
     int index = column;

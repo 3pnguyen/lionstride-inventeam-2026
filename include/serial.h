@@ -5,16 +5,11 @@
 #include "matrix.h"
 #include "battery.h"
 #include "filter.h"
+#include "macros.h"
 
-//-------------------------------------- Change these as neccesary --------------------------------------
-
-#define DISCOVER_PIN 21
-
-//-------------------------------------------------------------------------------------------------------
-
-enum EspModes {
-  PRIMARY,
-  SECONDARY
+enum EspModes { 
+    PRIMARY,
+    SECONDARY
 };
 
 EspModes discoverMode();

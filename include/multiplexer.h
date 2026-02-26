@@ -1,12 +1,7 @@
 #pragma once
 
 #include <Arduino.h>
-
-//-------------------------------------- Change these as neccesary --------------------------------------
-
-#define MUX_ENABLE_ACTIVE_LOW 0 //TMUX1208 is active high
-
-//-------------------------------------------------------------------------------------------------------
+#include "macros.h"
 
 static inline void writeEnablePin(unsigned int enPin, bool enable) {
 #if MUX_ENABLE_ACTIVE_LOW

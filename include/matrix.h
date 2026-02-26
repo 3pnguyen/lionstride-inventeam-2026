@@ -6,26 +6,25 @@
 #include "multiplexer.h"
 #include "serial.h"
 #include "filter.h"
+#include "macros.h"
 
-//-------------------------------------- Change these as neccesary --------------------------------------
-
-#define MATRIX_ADC_1 A2
-#define MATRIX_ADC_2 A3
-#define ADC_SAMPLES 15
-#define MATRIX_DATA_LENGTH 4096 // a lot of extra space
-
-//-------------------------------------------------------------------------------------------------------
-
-extern char matrixBuffer[MATRIX_DATA_LENGTH];
+enum IndexingModes {
+    ROWS,
+    COLUMNS
+};
 
 enum SenseModes {
-  TEMPERATURE,
-  PRESSURE,
-  PRESSURE_PRIMARY
+    TEMPERATURE,
+    PRESSURE,
+    PRESSURE_PRIMARY
 };
+
+extern char matrixBuffer[MATRIX_DATA_LENGTH];
 
 void setupMatrix();
 
 void scanMatrix(SenseModes mode);
 
 float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, SenseModes mode, bool disable);
+
+void formatMatrixData(IndexingModes mode);

@@ -9,13 +9,12 @@
 #define MUX_EN_2 27
 
 #define MUX_PINS 8 // limits
-#define ROWS 12
 
 //-------------------------------------------------------------------------------------------------------
 
 void _muxPinSelect(unsigned int enable_pin, int select_pin = -1);
 
-int maxRow() { return ROWS; }
+int maxRow() { return MATRIX_ROWS; }
 
 int maxMultiplexerPins() { return MUX_PINS; }
 
@@ -52,7 +51,7 @@ void activateRow(int row) {
 
   if (row < 0) return;
 
-  if (row >= ROWS) return;
+  if (row >= MATRIX_ROWS) return;
 
   if (row < MUX_PINS) _muxPinSelect(MUX_EN_1, row);
   else _muxPinSelect(MUX_EN_2, row - MUX_PINS);
@@ -64,7 +63,7 @@ void debugTMUXControlLines(Stream& out, uint16_t delayMs) {
   out.println("---- TMUX1208 control-line test ----");
   out.println("row, EN1, EN2, A2, A1, A0");
 
-  for (int row = -1; row < ROWS; row++) {
+  for (int row = -1; row < MATRIX_ROWS; row++) {
     activateRow(row);
     delay(delayMs);
 

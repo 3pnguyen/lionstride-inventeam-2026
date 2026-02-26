@@ -5,6 +5,7 @@
 #include "serial.h"
 #include "matrix.h"
 #include "filter.h"
+#include "macros.h" //optimization
 
 static String input;
 static int inputRow;

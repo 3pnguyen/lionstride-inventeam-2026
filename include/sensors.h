@@ -3,16 +3,7 @@
 #include <Arduino.h>
 #include "filter.h"
 #include "matrix.h"
-
-//-------------------------------------- Change these as neccesary --------------------------------------
-
-#define ADC_REF_PIN A4
-#define ADC_GND_PIN A1
-
-#define PULL_DOWN_R1 1.012e+6f
-#define PULL_DOWN_R2 0.991e+6f
-
-//-------------------------------------------------------------------------------------------------------
+#include "macros.h"
 
 float readThermistorTemperature( // read thermistor wihtout calibration but with pull-down conpensaton
     int adc_code_sensor,

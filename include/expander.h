@@ -2,10 +2,11 @@
 
 #include <Arduino.h>
 #include <SPI.h>
+#include "macros.h"
 
 enum MCP_DEVICE {
-  MCP1,
-  MCP2
+    MCP1,
+    MCP2
 };
 
 int maxColumn();

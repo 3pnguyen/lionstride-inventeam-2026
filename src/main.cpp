@@ -3,6 +3,7 @@
 #include "serial.h"
 #include "matrix.h"
 #include "test.h"
+#include "macros.h" //optimization
 
 EspModes mode;
 
