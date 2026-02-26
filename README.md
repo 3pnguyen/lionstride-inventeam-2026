@@ -1,6 +1,6 @@
 # lionstride-inventeam-2026
 
-Branch for the schematic files of the circuit and device
+## Branch for the schematic files of the circuit and device
 
 ## Prototype version timestamps:
 
