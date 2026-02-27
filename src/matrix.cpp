@@ -2,8 +2,7 @@
 
 //-------------------------------------- Change these as neccesary --------------------------------------
 
-#define PRIMARY_SWITCH_TIME 14000 // microseconds
-#define SECONDARY_SWITCH_TIME 7000 // microseconds, quick fix for mismatch in time calculation
+#define SWITCH_TIME 14000 // microseconds
 #define INSTRUCTIONS_DATA_LENGTH 100 // also a lot of extra space
 #define PRESSURE_TIMEOUT 2000
 
@@ -31,14 +30,14 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
   if (mode == TEMPERATURE) {
     for (int column = 0; column < MATRIX_COLUMNS; column++) {
       activateColumn(column);
-      delayMicroseconds(PRIMARY_SWITCH_TIME);
+      delayMicroseconds(SWITCH_TIME);
 
       //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
       //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
 
       for (int row = 0; row < MATRIX_ROWS; row++) {
         activateRow(row);
-        delayMicroseconds(PRIMARY_SWITCH_TIME);
+        delayMicroseconds(SWITCH_TIME);
 
         int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
         float data = readThermistorTemperature(code_sensor, (row < maxMultiplexerPins()) ? PULL_DOWN_R1 : PULL_DOWN_R2);
@@ -91,14 +90,14 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
   } else if (mode == PRESSURE_PRIMARY) {
     for (int column = 0; column < MATRIX_COLUMNS; column++) {
       activateColumn(column);
-      delayMicroseconds(PRIMARY_SWITCH_TIME);
+      delayMicroseconds(SWITCH_TIME);
 
       //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
       //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
 
       for (int row = 0; row < MATRIX_ROWS; row++) {
         activateRow(row);
-        delayMicroseconds(PRIMARY_SWITCH_TIME);
+        delayMicroseconds(SWITCH_TIME);
 
         int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
         float data = readFSRNormalizedFromCodes(code_sensor);
@@ -116,10 +115,10 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
 
 float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, SenseModes mode, bool disable) {
   activateColumn(column);
-  if (chosenColumn.hasChanged(column)) delayMicroseconds(SECONDARY_SWITCH_TIME);
+  if (chosenColumn.hasChanged(column)) delayMicroseconds(SWITCH_TIME);
 
   activateRow(row);
-  if (chosenRow.hasChanged(row)) delayMicroseconds(SECONDARY_SWITCH_TIME);
+  if (chosenRow.hasChanged(row)) delayMicroseconds(SWITCH_TIME);
 
   int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
   float data;
