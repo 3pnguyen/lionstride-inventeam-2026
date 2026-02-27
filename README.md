@@ -33,3 +33,4 @@ X = (not the main code but related)
 * 2.24.2026 - Created some alternate code for collecting data without calibration and applied it (calibration hardware is unreliable on the circuit) 
 * 2.25.2026 - Made testing code more flexible with user input to enable desired columns and rows on certain commands
 * 2.26.2026 - Created helper function to reformat the matrix buffer to be correct with the app (index by columns -> index by rows)
+* 2.27.2026 - Fixed timing for when pressure is scanned compared to temperature (made the scanning times the same, pressure used to be longer than it should)
