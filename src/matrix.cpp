@@ -12,7 +12,8 @@
 void _formatMatrixData(SenseModes mode, IndexingModes readMatrixBy);
 
 IntervalTimer pressureTimeout(PRESSURE_TIMEOUT);
-Debounce<int> chosenColumn(0);
+Debounce<int> chosenColumn(-1);
+Debounce<int> chosenRow(-1);
 
 char matrixBuffer[MATRIX_DATA_LENGTH];
 float matrixData[MATRIX_ROWS][MATRIX_COLUMNS]; 
@@ -118,7 +119,7 @@ float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, Sens
   if (chosenColumn.hasChanged(column)) delayMicroseconds(SECONDARY_SWITCH_TIME);
 
   activateRow(row);
-  delayMicroseconds(SECONDARY_SWITCH_TIME);
+  if (chosenRow.hasChanged(row)) delayMicroseconds(SECONDARY_SWITCH_TIME);
 
   int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
   float data;
@@ -133,6 +134,8 @@ float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, Sens
   if(!disable) {
     activateColumn();
     activateRow();
+    chosenColumn.secondValue = -1;
+    chosenRow.secondValue = -1;
   }
 
   return data;
