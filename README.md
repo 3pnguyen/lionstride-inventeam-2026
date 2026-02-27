@@ -8,7 +8,7 @@
 
 ## Purpose
 
-This code is the firmware that we load into small microcontrollers. It's main purpose is to collect data from the matrix and send it over to the app. It collects data from the matrix by giving special commands to electrical componenets on our schematic, to close a circuit on a certain thermistor that we want. It will read data through analog, and store it for when it needs to send it over to the companion app w/ Bluetooth. While it reads raw data, it is also filtering and calibrating each value in the background.
+This code is the firmware that we load into ESP32s. It's main purpose is to collect data from the matrix and send it over to the app. It collects data from the matrix by giving special commands to electrical componenets on our schematic, to close a circuit on a certain thermistor that we want. It will read data through analog, and store it for when it needs to send it over to the companion app w/ Bluetooth. While it reads raw data, it is also filtering and calibrating each value in the background.
 
 ## Changelog for code
 
