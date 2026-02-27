@@ -26,8 +26,6 @@ void setupMatrix() {
 }
 
 void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
-  matrixBuffer[0] = '\0';
-
   if (mode == TEMPERATURE) {
     for (int column = 0; column < MATRIX_COLUMNS; column++) {
       activateColumn(column);
@@ -44,14 +42,6 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
         float data = readThermistorTemperature(code_sensor, (row < maxMultiplexerPins()) ? PULL_DOWN_R1 : PULL_DOWN_R2);
 
         matrixData[row][column] = data;
-
-        char dataBuffer[16];
-        if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.2f", data);
-        else snprintf(dataBuffer, sizeof(dataBuffer), "NaN");
-
-        strlcat(matrixBuffer, dataBuffer, sizeof(matrixBuffer));
-
-        if (!(column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
       }
     }
 
@@ -89,15 +79,11 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
         char cellBuffer[32];
         cellBuffer[0] = '\0';
         if (!receiveMessagesPrimary(cellBuffer, sizeof(cellBuffer))) {
-          strlcat(matrixBuffer, "0.0", sizeof(matrixBuffer));
+          matrixData[row][column] = 0.0;
         } else {
-          strlcat(matrixBuffer, cellBuffer, sizeof(matrixBuffer));
+          float data = atof(cellBuffer);
+          matrixData[row][column] = data;
         }
-
-        float data = atof(cellBuffer);
-        matrixData[row][column] = data;
-
-        if (!(column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
       }
     }
   } else if (mode == PRESSURE_PRIMARY) {
@@ -116,20 +102,14 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
         float data = readFSRNormalizedFromCodes(code_sensor);
 
         matrixData[row][column] = data;
-
-        char dataBuffer[16];
-        if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", data);
-        else snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", 0.0);
-
-        strlcat(matrixBuffer, dataBuffer, sizeof(matrixBuffer));
-
-        if (!(column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
       }
     }
 
     activateColumn();
     activateRow();
   }
+
+  _formatMatrixData(mode, readMatrixBy);
 }
 
 float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, SenseModes mode, bool disable) {
@@ -158,18 +138,44 @@ float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, Sens
 }
 
 void _formatMatrixData(SenseModes mode, IndexingModes readMatrixBy) {
-  if (readMatrixBy == COLUMNS) return;
-
   matrixBuffer[0] = '\0';
 
-  for (int row = 0; row < MATRIX_ROWS; row++) {
+  if (readMatrixBy == COLUMNS) {
     for (int column = 0; column < MATRIX_COLUMNS; column++) {
-      char dataBuffer[16];
+      for (int row = 0; row < MATRIX_ROWS; row++) {
+        char dataBuffer[16];
+        float data = matrixData[row][column];
 
-      if (mode == TEMPERATURE) {
+        if (mode == TEMPERATURE) {
+          if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.2f", data);
+          else snprintf(dataBuffer, sizeof(dataBuffer), "NaN");
+        } else {
+          if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", data);
+          else snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", 0.0);
+        }
 
-      } else {
+        strlcat(matrixBuffer, dataBuffer, sizeof(matrixBuffer));
 
+        if (!(column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
+      }
+    }
+  } else {
+    for (int row = 0; row < MATRIX_ROWS; row++) {
+      for (int column = 0; column < MATRIX_COLUMNS; column++) {
+        char dataBuffer[16];
+        float data = matrixData[row][column];
+
+        if (mode == TEMPERATURE) {
+          if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.2f", data);
+          else snprintf(dataBuffer, sizeof(dataBuffer), "NaN");
+        } else {
+          if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", data);
+          else snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", 0.0);
+        }
+
+        strlcat(matrixBuffer, dataBuffer, sizeof(matrixBuffer));
+
+        if (!(column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
       }
     }
   }
