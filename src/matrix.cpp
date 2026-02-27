@@ -12,6 +12,7 @@
 void _formatMatrixData(SenseModes mode, IndexingModes readMatrixBy);
 
 IntervalTimer pressureTimeout(PRESSURE_TIMEOUT);
+Debounce<int> chosenColumn(0);
 
 char matrixBuffer[MATRIX_DATA_LENGTH];
 float matrixData[MATRIX_ROWS][MATRIX_COLUMNS]; 
@@ -114,7 +115,7 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
 
 float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, SenseModes mode, bool disable) {
   activateColumn(column);
-  delayMicroseconds(SECONDARY_SWITCH_TIME);
+  if (chosenColumn.hasChanged(column)) delayMicroseconds(SECONDARY_SWITCH_TIME);
 
   activateRow(row);
   delayMicroseconds(SECONDARY_SWITCH_TIME);
