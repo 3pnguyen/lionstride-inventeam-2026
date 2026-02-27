@@ -140,7 +140,7 @@ float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, Sens
 void _formatMatrixData(SenseModes mode, IndexingModes readMatrixBy) {
   matrixBuffer[0] = '\0';
 
-  if (readMatrixBy == COLUMNS) {
+  if (readMatrixBy == READ_BY_COLUMNS) {
     for (int column = 0; column < MATRIX_COLUMNS; column++) {
       for (int row = 0; row < MATRIX_ROWS; row++) {
         char dataBuffer[16];

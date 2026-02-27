@@ -88,12 +88,12 @@ static inline void test() {
 
       if (input.equals("temperature")) { // to test matrix, sensor, and filter
         Serial.println("Temperature matrix:");
-        scanMatrix(TEMPERATURE);
+        scanMatrix(TEMPERATURE, READ_BY_ROWS);
         Serial.println(matrixBuffer);
 
       } else if (input.equals("pressure")) { // to test matrix, sensor, and filter
         Serial.println("Pressure matrix:");
-        scanMatrix(PRESSURE_PRIMARY);
+        scanMatrix(PRESSURE_PRIMARY, READ_BY_ROWS);
         Serial.println(matrixBuffer);
 
       } else if (input.equals("battery")) { // to test battery

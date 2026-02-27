@@ -22,11 +22,11 @@ void handleBluetoothCommands() {
     command.trim();
 
     if (command == "scan temperature") {
-      scanMatrix(TEMPERATURE);
+      scanMatrix(TEMPERATURE, READ_BY_ROWS);
       Bluetooth.println(matrixBuffer);
 
     } else if (command == "scan pressure") {
-      scanMatrix(PRESSURE);
+      scanMatrix(PRESSURE, READ_BY_ROWS);
       Bluetooth.println(matrixBuffer);
 
     } else if (command == "battery") {
