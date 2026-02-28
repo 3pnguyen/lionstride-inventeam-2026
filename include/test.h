@@ -52,11 +52,18 @@ static inline void setupTest() {
     Serial.begin(115200);
     Serial.setTimeout(1000);
 
+    #ifdef WEB_TEST
+      do {
+        input = Serial.readStringUntil('\n');
+        input.trim();
+        delay(1);
+      } while (!input.equals("start"));
+    #endif
+
     for (int i = 3; i > 0; i--) {
       Serial.println(String(i) + "...");
       delay(1000);
     }
-
     Serial.println("Testing begun...");
 }
 
@@ -68,10 +75,13 @@ static inline void test() {
 
     auto getMatrixInput = []() -> void {
       Serial.setTimeout(5000);
-      
-      Serial.println("Column: ");
+      #ifndef WEB_TEST
+        Serial.println("Column: ");
+      #endif
       inputColumn = Serial.parseInt() - 1; // parseInt -1 reuturns -1 if invalid
-      Serial.println("Row: ");
+      #ifndef WEB_TEST
+        Serial.println("Row: ");
+      #endif
       inputRow = Serial.parseInt() - 1;
 
       if (inputColumn < 0 || inputColumn >= MATRIX_COLUMNS || inputRow < 0 || inputRow >= MATRIX_ROWS) {
@@ -137,22 +147,33 @@ static inline void test() {
         activateRow(inputRow);
         hardwareTimeout.reset();
 
-        do {
-          if (Serial.available() > 0) {
-            getInput();
+        #ifndef WEB_TEST
+          do {
+            if (Serial.available() > 0) {
+              getInput();
 
-            Serial.println(
-              "GND ADC: " +
-              String(analogRead(ADC_GND_PIN)) +
-              ", REF ADC: " +
-              String(analogRead(ADC_REF_PIN)) +
-              ", Sensor ADC: " +
-              String(analogRead(MATRIX_ADC_1))
-            );
-          }
+              Serial.println(
+                "GND ADC: " +
+                String(analogRead(ADC_GND_PIN)) +
+                ", REF ADC: " +
+                String(analogRead(ADC_REF_PIN)) +
+                ", Sensor ADC: " +
+                String(analogRead(MATRIX_ADC_1))
+              );
+            }
 
-          delay(100);
-        } while (!hardwareTimeout.isReady() && input != "stop");
+            delay(100);
+          } while (!hardwareTimeout.isReady() && input != "stop");
+        #else
+          Serial.println(
+            "GND ADC: " +
+            String(analogRead(ADC_GND_PIN)) +
+            ", REF ADC: " +
+            String(analogRead(ADC_REF_PIN)) +
+            ", Sensor ADC: " +
+            String(analogRead(MATRIX_ADC_1))
+          );
+        #endif
 
         activateColumn();
         activateRow();
@@ -186,10 +207,13 @@ static inline void test() {
       } else if (input.equals("d matrix")) { // to test matrix
         activateColumn();
         activateRow();
+        
+        Serial.println("Matrix deactivated.");
 
       } else { // for edge cases and errors
-        Serial.println("Wdym!?");
-
+        #ifdef WEB_TEST
+          Serial.println("Wdym!?");
+        #endif
       }
     }
 }
