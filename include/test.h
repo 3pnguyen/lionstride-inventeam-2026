@@ -12,6 +12,8 @@ static int inputRow;
 static int inputColumn;
 static IntervalTimer hardwareTimeout(60000);
 
+#define WEB_MODE
+
 /* ----------------- Testing commands -----------------
 
 * temperature: Scans the entire matrix and returns temperature data
@@ -52,7 +54,7 @@ static inline void setupTest() {
     Serial.begin(115200);
     Serial.setTimeout(1000);
 
-    #ifdef WEB_TEST
+    #ifdef WEB_MODE
       do {
         input = Serial.readStringUntil('\n');
         input.trim();
@@ -75,11 +77,11 @@ static inline void test() {
 
     auto getMatrixInput = []() -> void {
       Serial.setTimeout(5000);
-      #ifndef WEB_TEST
+      #ifndef WEB_MODE
         Serial.println("Column: ");
       #endif
       inputColumn = Serial.parseInt() - 1; // parseInt -1 reuturns -1 if invalid
-      #ifndef WEB_TEST
+      #ifndef WEB_MODE
         Serial.println("Row: ");
       #endif
       inputRow = Serial.parseInt() - 1;
@@ -147,7 +149,7 @@ static inline void test() {
         activateRow(inputRow);
         hardwareTimeout.reset();
 
-        #ifndef WEB_TEST
+        #ifndef WEB_MODE
           do {
             if (Serial.available() > 0) {
               getInput();
@@ -211,7 +213,7 @@ static inline void test() {
         Serial.println("Matrix deactivated.");
 
       } else { // for edge cases and errors
-        #ifdef WEB_TEST
+        #ifndef WEB_MODE
           Serial.println("Wdym!?");
         #endif
       }
