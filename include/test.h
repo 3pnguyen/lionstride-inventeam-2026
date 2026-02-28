@@ -206,6 +206,8 @@ static inline void test() {
         activateColumn(inputColumn);
         activateRow(inputRow);
 
+        Serial.println("Individual column and row activated.");
+
       } else if (input.equals("d matrix")) { // to test matrix
         activateColumn();
         activateRow();
