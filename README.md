@@ -12,6 +12,7 @@ Source code and other resources are in branches:
 * app-source: Source code for the app
 * device-source: Source code for the device
 * device-schematic: Schematics of the device
+* website-source: Source code for the website/debugger UI
 
 ## Visit our website for more info!
 https://kcle102.wixsite.com/my-site
