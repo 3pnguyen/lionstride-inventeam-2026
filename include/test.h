@@ -5,14 +5,12 @@
 #include "serial.h"
 #include "matrix.h"
 #include "filter.h"
-#include "macros.h" //optimization
+#include "macros.h" 
 
 static String input;
 static int inputRow;
 static int inputColumn;
 static IntervalTimer hardwareTimeout(60000);
-
-#define WEB_MODE
 
 /* ----------------- Testing commands -----------------
 
@@ -75,7 +73,7 @@ static inline void test() {
       input.trim();
     };
 
-    auto getMatrixInput = []() -> void {
+    auto getMatrixInput = []() -> bool {
       Serial.setTimeout(5000);
       #ifndef WEB_MODE
         Serial.println("Column: ");
@@ -90,9 +88,13 @@ static inline void test() {
         Serial.println("Invalid input! Disabling columns and rows.");
         inputColumn = -1;
         inputRow = -1;
+        activateColumn();
+        activateRow();
+        return false;
       }
 
       Serial.setTimeout(1000);
+      return true;
     };
 
     if (Serial.available() > 0) {
@@ -111,7 +113,7 @@ static inline void test() {
       } else if (input.equals("battery")) { // to test battery
         battery(true);
       } else if (input.equals("i temperature")) { // to test matrix, sensor, and filter
-        getMatrixInput();
+        if (!getMatrixInput()) return;
 
         Serial.println(
           String(
@@ -127,7 +129,7 @@ static inline void test() {
         );
 
       } else if (input.equals("i pressure")) { // to test matrix, sensor, and filter
-        getMatrixInput();
+        if (!getMatrixInput()) return;
         
         Serial.println(
           String(
@@ -143,7 +145,7 @@ static inline void test() {
         );
 
       } else if (input.equals("test adc")) { // to test expander and multiplexer
-        getMatrixInput();
+        if (!getMatrixInput()) return;
         
         activateColumn(inputColumn);
         activateRow(inputRow);
@@ -202,7 +204,7 @@ static inline void test() {
         debugSensorMath(2555);
         
       } else if (input.equals("i matrix")) { // to test matrix
-        getMatrixInput();
+        if (!getMatrixInput()) return;
         activateColumn(inputColumn);
         activateRow(inputRow);
 
