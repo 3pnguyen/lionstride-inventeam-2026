@@ -2,8 +2,9 @@
 
 ## Branch for the debugger UI/website
 
-![image](https://github.com/user-attachments/assets/4f44fcd9-805f-420d-b181-50ee2d6bfcb5)
-![image](https://github.com/user-attachments/assets/d7ce6c90-303e-416c-8afc-087373cb917e)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 
 ## Purpose
 
@@ -12,3 +13,6 @@ This code is almost like the website version of the app, but this frontend code 
 ## Changelog for code
 
 * 2.28.2026- started and finished first version of the UI (in 7 hours)
+
+![image](https://github.com/user-attachments/assets/4f44fcd9-805f-420d-b181-50ee2d6bfcb5)
+![image](https://github.com/user-attachments/assets/d7ce6c90-303e-416c-8afc-087373cb917e)
