@@ -1,0 +1,241 @@
+/*
+Page color: #ffeeee
+Div color: #FFFFFF
+Button color: #ff2b39
+Buttion hover: #B00320
+Button active: #adfcaa
+*/
+
+/*------------------------------------------- Main -------------------------------------------*/
+
+body {
+    background-color: #ffeeee;
+    font-family: 'Inter', sans-serif;
+}
+
+button {
+    font-weight: bold;
+}
+
+#main {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    translate: 0px 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#title {
+    text-align: center;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+p {
+    font-weight: bold;
+}
+
+/*------------------------------------------- Connect controls -------------------------------------------*/
+
+#connect-controls {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    height: 20px;
+    width: 96vw;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#connect {
+    background-color: #ff2b39;
+    height: 30px;
+    width: 75px;
+    border-radius: 5px;
+    border: none;
+}
+
+#connect:hover {
+    background-color: #B00320;
+    translate: 0px -4px;
+    cursor: pointer;
+}
+
+#connect:active {
+    background-color: #adfcaa;
+    translate: 0px -1px;
+    cursor: pointer;
+}
+
+#connect-status {
+    font-size: 20px;
+}
+
+/*------------------------------------------- Matrix console & control -------------------------------------------*/
+
+.square {
+    height: 22px;
+    width: 22px;
+    background-color: #c4b708;
+    border-radius: 10px;
+}
+
+.square.active {
+    background-color: #2ecc71;
+}
+
+#matrix-controls {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+#matrix-console {
+    background-color: black;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: repeat(2, 22px);
+    grid-template-rows: repeat(20, 22px);
+    grid-auto-flow: column;
+    gap: 6px;
+    translate: 110px 50px;
+}
+
+#rowInput {
+    width: 75px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+
+}
+
+#columnInput {
+    width: 75px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+#submit {
+    background-color: #ff2b39;
+    height: 30px;
+    width: 75px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: #B00320;
+    translate: 0px -4px;
+    cursor: pointer;
+}
+
+#submit:active {
+    background-color: #adfcaa;
+    translate: 0px -1px;
+    cursor: pointer;
+}
+
+/*------------------------------------------- Command controls -------------------------------------------*/
+
+#command-controls {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+#command-console {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 6px;
+}
+
+.command-button {
+    background-color: #ff2b39;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.command-button:hover {
+    background-color: #B00320;
+    translate: 0px -4px;
+    cursor: pointer;
+}
+
+.command-button:active {
+    background-color: #adfcaa;
+    translate: 0px -1px;
+    cursor: pointer;
+}
+
+#command-input {
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+/*------------------------------------------- Output console -------------------------------------------*/
+
+#output-console {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+#output {
+    border: black 2px solid;
+    background-color: rgb(247, 247, 247);
+    height: 700px;
+    width: 700px;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    border-radius: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: Consolas, "Courier New", monospace;
+}
+
+.output-entry {
+    margin: 0 0 8px;
+    white-space: pre-wrap;
+}
+
+.output-entry.command {
+    font-weight: 700;
+    background-color: #eef6ff;
+    border-left: 4px solid #2f7de1;
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+
+.output-entry.device {
+    padding-left: 6px;
+}
+
+/*------------------------------------------- About -------------------------------------------*/
+
+#about-console {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+}
+
+#about-text {
+    font-size: 20px;
+}

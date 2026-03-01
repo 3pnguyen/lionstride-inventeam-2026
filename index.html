@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugger UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 id="title">Debugger UI</h1>
+    
+    <div id="connect-controls">
+        <p id="connect-status">Not connected</p>
+        <button id="connect">Connect</button>
+    </div>
+
+    <div id="main">
+
+        <div id="matrix-controls">
+            <h1>Matrix Controls</h1>
+            <p>Enter row and column:</p>
+            <input type="number" id="rowInput">
+            <input type="number" id="columnInput">
+            <button id="submit">Submit</button>
+            <div id="matrix-console"></div>
+        </div>
+
+        <div id="command-controls">
+            <h1>Command Controls</h1>
+            <div id="command-console">
+                <button id="temperature" class="command-button">Scan for temperature</button>
+                <button id="pressure" class="command-button"> Scan for pressure</button>
+                <button id="battery" class="command-button">Check the battery level</button>
+                <button id="i-temperature" class="command-button">Individually scan for temperature</button>
+                <button id="i-pressure" class="command-button">Individually scan for pressure</button>
+                <button id="test-adc" class="command-button">Check the ADC outputs</button>
+                <button id="debug-mcp1" class="command-button">Check connections on MCP1</button>
+                <button id="debug-mcp2" class="command-button">Check connections on MCP2</button>
+                <button id="walk-mcp1" class="command-button">Walk MCP1</button>
+                <button id="walk-mcp2" class="command-button">Walk MCP2</button>
+                <button id="debug-rows" class="command-button">Check connections on rows + both TMUXs</button>
+                <button id="test-math" class="command-button">Test conversion math</button>
+                <button id="i-matrix" class="command-button">Individually turn on one part of matrix</button>
+                <button id="d-matrix" class="command-button">Disable entire matrix</button>
+                <input type="text" id="command-input" placeholder="Custom command here">
+            </div>
+        </div>
+
+        <div id="output-console">
+            <h1>Output Console</h1>
+            <div id="output"></div>
+        </div>
+
+        <div id="about-console">
+            <h1>About</h1>
+            <img src="assets/lionstride_logo.png" alt="Logo" width="350">
+            <p id="about-text">
+                This is a simple UI to help with debugging the matrix. It is totally possible to run debugging right inside the serial monitor, but the UI makes it possible for our teamates to manage our circuit easier.
+            </p>
+        </div>
+    </div>
+
+</body>
+
+<script src="main.js"></script>
+
+</html>
