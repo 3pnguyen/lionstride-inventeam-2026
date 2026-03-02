@@ -35,3 +35,4 @@ X = (not the main code but related)
 * 2.26.2026 - Created helper function to reformat the matrix buffer to be correct with the app (index by columns -> index by rows)
 * 2.27.2026 - Fixed timing for when pressure is scanned compared to temperature (made the scanning times the same, pressure used to be longer than it should)
 * 2.28.2026 - Modifide test file for compability w/ debugging website
+* 3.2.2026 - Removed old helper functions that would expose macros to exposing the macros directly in the macro header file
