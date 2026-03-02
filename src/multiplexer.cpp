@@ -8,13 +8,9 @@
 #define MUX_EN_1 33
 #define MUX_EN_2 27
 
-#define MUX_PINS 8 // limits
-
 //-------------------------------------------------------------------------------------------------------
 
 void _muxPinSelect(unsigned int enable_pin, int select_pin = -1);
-
-int maxMultiplexerPins() { return MUX_PINS; }
 
 void setupRows() {
   pinMode(MUX_A0_PIN, OUTPUT);

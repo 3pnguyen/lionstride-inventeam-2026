@@ -18,7 +18,6 @@
 #define EXPANDER_C_SELECT_1 12
 #define EXPANDER_C_SELECT_2 13
 
-#define EXPANDER_PINS 16 // limits
 #define GPIOAB_PINS 8
 
 //-------------------------------------------------------------------------------------------------------
@@ -41,8 +40,6 @@ void _cSelect(MCP_DEVICE dev);
 void _cDeselect(MCP_DEVICE dev);
 void _writeRegister(MCP_DEVICE dev, uint8_t reg, uint8_t val);
 uint8_t _readRegister(MCP_DEVICE dev, uint8_t reg);
-
-int maxExpanderIO() { return EXPANDER_PINS; }
 
 void setupColumns() {
   pinMode(EXPANDER_C_SELECT_1, OUTPUT);

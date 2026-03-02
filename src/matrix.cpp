@@ -39,8 +39,8 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
         activateRow(row);
         delayMicroseconds(SWITCH_TIME);
 
-        int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
-        float data = readThermistorTemperature(code_sensor, (row < maxMultiplexerPins()) ? PULL_DOWN_R1 : PULL_DOWN_R2);
+        int code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
+        float data = readThermistorTemperature(code_sensor, (row < MUX_PINS) ? PULL_DOWN_R1 : PULL_DOWN_R2);
 
         matrixData[row][column] = data;
       }
@@ -99,7 +99,7 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
         activateRow(row);
         delayMicroseconds(SWITCH_TIME);
 
-        int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
+        int code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
         float data = readFSRNormalizedFromCodes(code_sensor);
 
         matrixData[row][column] = data;
@@ -120,13 +120,13 @@ float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, Sens
   activateRow(row);
   if (chosenRow.hasChanged(row)) delayMicroseconds(SWITCH_TIME);
 
-  int code_sensor = ADCMeanFilter((row < maxMultiplexerPins()) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
+  int code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
   float data;
   if (code_ref >= 0) {
-    if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, code_gnd, code_ref, (row < maxMultiplexerPins()) ? PULL_DOWN_R1 : PULL_DOWN_R2);
+    if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, code_gnd, code_ref, (row < MUX_PINS) ? PULL_DOWN_R1 : PULL_DOWN_R2);
     else data = readFSRNormalizedFromCodes(code_sensor, code_gnd, code_ref);
   } else {
-    if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, (row < maxMultiplexerPins()) ? PULL_DOWN_R1 : PULL_DOWN_R2);
+    if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, (row < MUX_PINS) ? PULL_DOWN_R1 : PULL_DOWN_R2);
     else data = readFSRNormalizedFromCodes(code_sensor);
   }
 
