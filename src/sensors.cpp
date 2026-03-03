@@ -7,11 +7,6 @@ static constexpr float SH_A = 0.0011252935711115418f;
 static constexpr float SH_B = 0.0002347147730973799f;
 static constexpr float SH_C = 8.565018940064752e-08f; //Steinhart-Hart values for the chosen thermistor
 
-#define VCC 3.3f
-#define VREF_IC 2.36681318681f //should be 2.5V, our setup has around 2.36V
-#define FIXED_R 10000.0f
-#define MAX_ADC_CODE 4095.0f
-
 //-------------------------------------------------------------------------------------------------------
 
 float _adcCodeToVoltage(int adc_code, float vin); // base conversion function for ADC code to voltage, assuming ideal linear relationship and no calibration offsets
@@ -19,8 +14,6 @@ float _adcCodeToVoltage(int adc_code, int adc_code_gnd, int adc_code_ref, float 
 float _voltageToResistance(float v_meas, float vcc, float r_fixed);
 float _voltageToResistanceCompensated(float v_meas, float vcc, float r_fixed, float r_pull);
 float _resistanceToTemperatureC(float r_therm);
-float _adcCodeNormalize(int adc_code, bool clip = true);
-float _adcCodeNormalize(int adc_code, int adc_code_gnd, int adc_code_ref, bool clip = true);
 float _readSensorResistanceFromCodes(int adc_code_sensor, float vcc, float r_fixed, float r_pull); // simplified version of the function that does not use calibration
 float _readSensorResistanceFromCodes(int adc_code_sensor, int adc_code_gnd, int adc_code_ref, float vref, float vcc, float r_fixed, float r_pull); // function that computes the sensor resistance from ADC codes, applying calibration offsets and pull-down compensation
 
@@ -179,67 +172,6 @@ float readThermistorTemperature(
 
     if (fahrenheit) return tempC * 9.0f / 5.0f + 32.0f;
     else return tempC;
-}
-
-// ------------------------- FSR / pressure helpers -------------------------
-
-float _adcCodeNormalize(
-    int adc_code,
-    bool clip
-) {
-    float norm = (float)adc_code / MAX_ADC_CODE;
-
-    if (!clip) return norm;
-
-    if (norm < 0.0f) return 0.0f;
-    if (norm > 1.0f) return 1.0f;
-
-    return norm;
-}
-
-float _adcCodeNormalize(
-    int adc_code,
-    int adc_code_gnd,
-    int adc_code_ref,
-    bool clip
-) {
-    if (adc_code_ref == adc_code_gnd) return 0.0f; // avoid divide-by-zero
-    float norm = (float)(adc_code - adc_code_gnd) / (float)(adc_code_ref - adc_code_gnd);
-    if (!clip) return norm;
-    if (norm < 0.0f) return 0.0f;
-    if (norm > 1.0f) return 1.0f;
-    return norm;
-}
-
-float readFSRNormalizedFromCodes(
-    int adc_code_sensor,
-    bool clip
-) {
-    return _adcCodeNormalize(adc_code_sensor, clip);
-}
-
-float readFSRNormalizedFromCodes(
-    int adc_code_sensor,
-    int adc_code_gnd,
-    int adc_code_ref,
-    bool clip
-) {
-    return _adcCodeNormalize(adc_code_sensor, adc_code_gnd, adc_code_ref, clip);
-}
-
-// function below not needed because offset does not affect it
-// i will keep it though just in case
-
-float readPressureResistanceFromCodes(
-    int adc_code_sensor,
-    int adc_code_gnd,
-    int adc_code_ref,
-    float r_pull,
-    float vref = VREF_IC,
-    float vcc = VCC,
-    float r_fixed = FIXED_R
-) {
-    return _readSensorResistanceFromCodes(adc_code_sensor, adc_code_gnd, adc_code_ref, vref, vcc, r_fixed, r_pull);
 }
 
 // ------------------------- Debug functions -----------------------------------------

@@ -7,6 +7,7 @@
 #include "serial.h"
 #include "filter.h"
 #include "macros.h"
+#include "pressure.h"
 
 enum SenseModes {
     TEMPERATURE,
