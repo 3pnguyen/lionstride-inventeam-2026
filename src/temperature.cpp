@@ -1,4 +1,4 @@
-#include "sensors.h"
+#include "temperature.h"
 
 //-------------------------------------- Change these as neccesary --------------------------------------
 

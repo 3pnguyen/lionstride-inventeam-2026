@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Arduino.h>
-#include "sensors.h"
+#include "temperature.h"
 #include "expander.h"
 #include "multiplexer.h"
 #include "serial.h"

@@ -2,7 +2,6 @@
 
 #include <Arduino.h>
 #include "filter.h"
-#include "matrix.h"
 #include "macros.h"
 
 float readThermistorTemperature( // read thermistor wihtout calibration but with pull-down conpensaton
