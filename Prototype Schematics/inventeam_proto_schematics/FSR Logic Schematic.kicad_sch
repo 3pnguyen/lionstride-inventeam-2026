@@ -5,6 +5,7 @@
 	(uuid "fde62a1e-d76a-4c59-a7be-f6bebc525c23")
 	(paper "User" 381 381)
 	(title_block
+		(title "FSR Logic Schematic")
 		(date "2025-10-26")
 	)
 	(lib_symbols
@@ -16100,7 +16101,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "033c70b6-74f0-432d-bf72-86d24f1f25ad")
-		(property "Reference" "R330"
+		(property "Reference" "R5004"
 			(at 68.58 247.6499 0)
 			(effects
 				(font
@@ -16154,7 +16155,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R330")
+					(reference "R5004")
 					(unit 1)
 				)
 			)
@@ -16170,7 +16171,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0c816644-ff13-4f4d-8598-9320924f5333")
-		(property "Reference" "#PWR055"
+		(property "Reference" "#PWR05022"
 			(at 196.85 186.69 0)
 			(effects
 				(font
@@ -16220,7 +16221,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR055")
+					(reference "#PWR05022")
 					(unit 1)
 				)
 			)
@@ -16236,7 +16237,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0eab3e01-c520-4f11-9e1b-261b755fba7b")
-		(property "Reference" "#PWR065"
+		(property "Reference" "#PWR05032"
 			(at 243.84 97.79 0)
 			(effects
 				(font
@@ -16287,7 +16288,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR065")
+					(reference "#PWR05032")
 					(unit 1)
 				)
 			)
@@ -16302,7 +16303,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0f72cade-700d-40ea-a6bf-ff8d3cc9bafe")
-		(property "Reference" "#PWR067"
+		(property "Reference" "#PWR05034"
 			(at 311.15 213.36 0)
 			(effects
 				(font
@@ -16353,7 +16354,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR067")
+					(reference "#PWR05034")
 					(unit 1)
 				)
 			)
@@ -16369,7 +16370,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0fc60001-b31f-4f6b-aa7d-0b8a5bbbb451")
-		(property "Reference" "R347"
+		(property "Reference" "R5017"
 			(at 236.22 123.19 90)
 			(effects
 				(font
@@ -16421,7 +16422,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R347")
+					(reference "R5017")
 					(unit 1)
 				)
 			)
@@ -16437,7 +16438,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "14c1a21c-21ac-4951-b31e-ec2f8fe48bba")
-		(property "Reference" "R337"
+		(property "Reference" "R5011"
 			(at 129.54 247.6499 0)
 			(effects
 				(font
@@ -16491,7 +16492,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R337")
+					(reference "R5011")
 					(unit 1)
 				)
 			)
@@ -16507,7 +16508,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "180e3aae-74f2-4641-af19-fc654ca37942")
-		(property "Reference" "C20"
+		(property "Reference" "C5009"
 			(at 228.6 193.2939 0)
 			(effects
 				(font
@@ -16561,7 +16562,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "C20")
+					(reference "C5009")
 					(unit 1)
 				)
 			)
@@ -16577,7 +16578,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1ecf558f-fa16-4460-8d98-072c74de7e8c")
-		(property "Reference" "U8"
+		(property "Reference" "U5002"
 			(at 74.5333 180.34 90)
 			(effects
 				(font
@@ -16673,7 +16674,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "U8")
+					(reference "U5002")
 					(unit 1)
 				)
 			)
@@ -16689,7 +16690,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "21b45cb9-d685-43e6-87e8-de8f1570ccb1")
-		(property "Reference" "#PWR052"
+		(property "Reference" "#PWR05019"
 			(at 167.64 199.39 0)
 			(effects
 				(font
@@ -16739,7 +16740,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR052")
+					(reference "#PWR05019")
 					(unit 1)
 				)
 			)
@@ -16755,7 +16756,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "26551431-808b-4592-83e6-9899ba306d71")
-		(property "Reference" "#PWR064"
+		(property "Reference" "#PWR05031"
 			(at 242.57 148.59 0)
 			(effects
 				(font
@@ -16806,7 +16807,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR064")
+					(reference "#PWR05031")
 					(unit 1)
 				)
 			)
@@ -16822,7 +16823,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "272b43c1-692e-4c47-8d78-2780988c358d")
-		(property "Reference" "C22"
+		(property "Reference" "C5011"
 			(at 237.236 83.82 0)
 			(effects
 				(font
@@ -16874,7 +16875,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "C22")
+					(reference "C5011")
 					(unit 1)
 				)
 			)
@@ -16890,7 +16891,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2741065b-5a27-4a8a-90dc-e83ff86bf5eb")
-		(property "Reference" "#PWR062"
+		(property "Reference" "#PWR05029"
 			(at 236.22 273.05 0)
 			(effects
 				(font
@@ -16940,7 +16941,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR062")
+					(reference "#PWR05029")
 					(unit 1)
 				)
 			)
@@ -16956,7 +16957,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2962e972-bec1-4cfb-a2c0-f5e890dc583c")
-		(property "Reference" "#PWR063"
+		(property "Reference" "#PWR05030"
 			(at 236.22 283.21 0)
 			(effects
 				(font
@@ -17006,7 +17007,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR063")
+					(reference "#PWR05030")
 					(unit 1)
 				)
 			)
@@ -17022,7 +17023,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2d9ff33e-06db-413a-aab8-a2ef29fbd87f")
-		(property "Reference" "#PWR047"
+		(property "Reference" "#PWR05014"
 			(at 119.38 209.55 0)
 			(effects
 				(font
@@ -17072,7 +17073,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR047")
+					(reference "#PWR05014")
 					(unit 1)
 				)
 			)
@@ -17088,7 +17089,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2ff9b218-e6a7-4f16-bc0c-fa5a9d0c57f2")
-		(property "Reference" "#FLG06"
+		(property "Reference" "#FLG05001"
 			(at 311.785 137.16 0)
 			(effects
 				(font
@@ -17140,7 +17141,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#FLG06")
+					(reference "#FLG05001")
 					(unit 1)
 				)
 			)
@@ -17156,7 +17157,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "32d130c9-c487-493e-990d-67c0c0a62a6a")
-		(property "Reference" "C18"
+		(property "Reference" "C5007"
 			(at 204.216 171.45 90)
 			(effects
 				(font
@@ -17208,7 +17209,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "C18")
+					(reference "C5007")
 					(unit 1)
 				)
 			)
@@ -17224,7 +17225,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "37a25acd-6a46-4890-995d-c0c830a4038c")
-		(property "Reference" "C12"
+		(property "Reference" "C5001"
 			(at 33.02 195.8339 0)
 			(effects
 				(font
@@ -17278,7 +17279,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "C12")
+					(reference "C5001")
 					(unit 1)
 				)
 			)
@@ -17294,7 +17295,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "43645a77-3b46-43a4-a73b-0848bfa39649")
-		(property "Reference" "#PWR041"
+		(property "Reference" "#PWR05008"
 			(at 81.28 96.52 0)
 			(effects
 				(font
@@ -17345,7 +17346,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR041")
+					(reference "#PWR05008")
 					(unit 1)
 				)
 			)
@@ -17361,7 +17362,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4f06bb0b-878f-4eb5-9b09-6486b5994d71")
-		(property "Reference" "#PWR056"
+		(property "Reference" "#PWR05023"
 			(at 204.47 123.19 0)
 			(effects
 				(font
@@ -17412,7 +17413,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR056")
+					(reference "#PWR05023")
 					(unit 1)
 				)
 			)
@@ -17428,7 +17429,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4f16601b-18f6-4b5c-885b-2b35d27f3bd2")
-		(property "Reference" "R335"
+		(property "Reference" "R5009"
 			(at 109.22 247.6499 0)
 			(effects
 				(font
@@ -17482,7 +17483,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R335")
+					(reference "R5009")
 					(unit 1)
 				)
 			)
@@ -17498,7 +17499,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "50ab2e69-b3e4-4d26-ab06-b51cadcf7c10")
-		(property "Reference" "C16"
+		(property "Reference" "C5005"
 			(at 146.05 171.7039 0)
 			(effects
 				(font
@@ -17552,7 +17553,7 @@
 		(instances
 			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "C16")
+					(reference "C5005")
 					(unit 1)
 				)
 			)
@@ -17568,7 +17569,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "50e3ad07-54ec-4cc8-82d8-fcd220edbf13")
-		(property "Reference" "#PWR038"
+		(property "Reference" "#PWR05005"
 			(at 49.53 80.01 0)
 			(effects
 				(font
@@ -17618,7 +17619,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR038")
+					(reference "#PWR05005")
 					(unit 1)
 				)
 			)
@@ -17634,7 +17635,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "518a3aa4-a77a-4df2-b105-e7b3b4d78d53")
-		(property "Reference" "R339"
+		(property "Reference" "R5013"
 			(at 149.86 247.6499 0)
 			(effects
 				(font
@@ -17688,7 +17689,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R339")
+					(reference "R5013")
 					(unit 1)
 				)
 			)
@@ -17704,7 +17705,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "51bcf5e3-5f03-4c2b-b67d-1125612b1f06")
-		(property "Reference" "C15"
+		(property "Reference" "C5004"
 			(at 115.57 195.8339 0)
 			(effects
 				(font
@@ -17758,7 +17759,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "C15")
+					(reference "C5004")
 					(unit 1)
 				)
 			)
@@ -17774,7 +17775,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "58e8be5e-43b2-4f00-8c4e-ca8a45775f20")
-		(property "Reference" "R328"
+		(property "Reference" "R5002"
 			(at 58.42 247.6499 0)
 			(effects
 				(font
@@ -17828,7 +17829,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R328")
+					(reference "R5002")
 					(unit 1)
 				)
 			)
@@ -17844,7 +17845,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5c6d442c-1624-40be-b89a-3502088b841c")
-		(property "Reference" "R327"
+		(property "Reference" "R5001"
 			(at 48.26 247.6499 0)
 			(effects
 				(font
@@ -17898,7 +17899,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R327")
+					(reference "R5001")
 					(unit 1)
 				)
 			)
@@ -17914,7 +17915,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5d710283-b854-4717-8e01-ddba13396967")
-		(property "Reference" "R338"
+		(property "Reference" "R5012"
 			(at 139.7 247.6499 0)
 			(effects
 				(font
@@ -17968,7 +17969,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R338")
+					(reference "R5012")
 					(unit 1)
 				)
 			)
@@ -17984,7 +17985,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "64a9b361-b0cd-4b87-b885-e09756378d15")
-		(property "Reference" "#PWR075"
+		(property "Reference" "#PWR05038"
 			(at 349.25 152.4 0)
 			(effects
 				(font
@@ -18035,7 +18036,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR075")
+					(reference "#PWR05038")
 					(unit 1)
 				)
 			)
@@ -18051,7 +18052,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6ac8be12-f03a-4dc6-b82c-8c677d31771c")
-		(property "Reference" "U12"
+		(property "Reference" "U5006"
 			(at 213.36 129.54 0)
 			(effects
 				(font
@@ -18124,7 +18125,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "U12")
+					(reference "U5006")
 					(unit 3)
 				)
 			)
@@ -18140,7 +18141,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6acc9bd0-bab5-4c5a-ab6a-fc96bf5649ba")
-		(property "Reference" "#PWR043"
+		(property "Reference" "#PWR05010"
 			(at 85.09 199.39 0)
 			(effects
 				(font
@@ -18190,7 +18191,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR043")
+					(reference "#PWR05010")
 					(unit 1)
 				)
 			)
@@ -18206,7 +18207,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6c8ab7c5-4d0f-42e9-9faa-829d38106f42")
-		(property "Reference" "#PWR040"
+		(property "Reference" "#PWR05007"
 			(at 82.55 115.57 0)
 			(effects
 				(font
@@ -18256,7 +18257,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR040")
+					(reference "#PWR05007")
 					(unit 1)
 				)
 			)
@@ -18272,7 +18273,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6ef767e2-44e7-4945-b3ca-a441f592d137")
-		(property "Reference" "#PWR048"
+		(property "Reference" "#PWR05015"
 			(at 138.43 80.01 0)
 			(effects
 				(font
@@ -18322,7 +18323,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR048")
+					(reference "#PWR05015")
 					(unit 1)
 				)
 			)
@@ -18338,7 +18339,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "731b2664-3a1b-415c-b017-ff572878d0db")
-		(property "Reference" "#PWR039"
+		(property "Reference" "#PWR05006"
 			(at 59.69 182.88 0)
 			(effects
 				(font
@@ -18388,7 +18389,7 @@
 		(instances
 			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR039")
+					(reference "#PWR05006")
 					(unit 1)
 				)
 			)
@@ -18404,7 +18405,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7c6d9b4d-5f94-4cb4-82ca-102c6f10bcb6")
-		(property "Reference" "R346"
+		(property "Reference" "R5016"
 			(at 161.29 160.02 90)
 			(effects
 				(font
@@ -18456,7 +18457,7 @@
 		(instances
 			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R346")
+					(reference "R5016")
 					(unit 1)
 				)
 			)
@@ -18472,7 +18473,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "80ab5854-12a4-473d-9d69-1b6b251345dd")
-		(property "Reference" "U10"
+		(property "Reference" "U5004"
 			(at 157.0833 180.34 90)
 			(effects
 				(font
@@ -18568,7 +18569,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "U10")
+					(reference "U5004")
 					(unit 1)
 				)
 			)
@@ -18584,7 +18585,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "817e16ae-4096-444c-a823-02e4186dcedd")
-		(property "Reference" "U9"
+		(property "Reference" "U5003"
 			(at 171.45 90.0998 90)
 			(effects
 				(font
@@ -18716,7 +18717,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "U9")
+					(reference "U5003")
 					(unit 1)
 				)
 			)
@@ -18732,7 +18733,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "82d26bed-cb84-4ec6-a2d1-607e9ae21fed")
-		(property "Reference" "C13"
+		(property "Reference" "C5002"
 			(at 63.5 171.7039 0)
 			(effects
 				(font
@@ -18786,7 +18787,7 @@
 		(instances
 			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "C13")
+					(reference "C5002")
 					(unit 1)
 				)
 			)
@@ -18802,7 +18803,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8425b47d-1f12-4749-b668-2a16cb5c3884")
-		(property "Reference" "R336"
+		(property "Reference" "R5010"
 			(at 119.38 247.6499 0)
 			(effects
 				(font
@@ -18856,7 +18857,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R336")
+					(reference "R5010")
 					(unit 1)
 				)
 			)
@@ -18873,7 +18874,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "89a78ed2-38c2-44ed-a7e0-a358ba6b6aed")
-		(property "Reference" "C26"
+		(property "Reference" "C5013"
 			(at 353.06 138.6839 0)
 			(effects
 				(font
@@ -18927,7 +18928,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "C26")
+					(reference "C5013")
 					(unit 1)
 				)
 			)
@@ -18943,7 +18944,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8b942e77-7513-487f-8742-8983d5b4824a")
-		(property "Reference" "R345"
+		(property "Reference" "R5015"
 			(at 160.02 247.6499 0)
 			(effects
 				(font
@@ -18997,7 +18998,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R345")
+					(reference "R5015")
 					(unit 1)
 				)
 			)
@@ -19013,7 +19014,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "941e55b1-28da-4217-a286-55119d3f2e88")
-		(property "Reference" "R331"
+		(property "Reference" "R5005"
 			(at 78.74 247.6499 0)
 			(effects
 				(font
@@ -19067,7 +19068,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R331")
+					(reference "R5005")
 					(unit 1)
 				)
 			)
@@ -19083,7 +19084,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "94cdd5b7-c2db-4aa0-afdd-a8678198b00a")
-		(property "Reference" "#PWR049"
+		(property "Reference" "#PWR05016"
 			(at 142.24 182.88 0)
 			(effects
 				(font
@@ -19133,7 +19134,7 @@
 		(instances
 			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR049")
+					(reference "#PWR05016")
 					(unit 1)
 				)
 			)
@@ -19149,7 +19150,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "989daa1c-af0c-478b-8800-368c163d2620")
-		(property "Reference" "#PWR035"
+		(property "Reference" "#PWR05002"
 			(at 25.4 85.09 0)
 			(effects
 				(font
@@ -19199,7 +19200,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR035")
+					(reference "#PWR05002")
 					(unit 1)
 				)
 			)
@@ -19215,7 +19216,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9947d3b9-3b8f-4700-a1b3-11c27111841c")
-		(property "Reference" "U11"
+		(property "Reference" "U5005"
 			(at 208.28 187.9599 0)
 			(effects
 				(font
@@ -19275,7 +19276,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "U11")
+					(reference "U5005")
 					(unit 1)
 				)
 			)
@@ -19291,7 +19292,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9c20a9ed-13bf-4fe0-bf0f-4dced182fb0e")
-		(property "Reference" "R340"
+		(property "Reference" "R5014"
 			(at 148.59 160.02 90)
 			(effects
 				(font
@@ -19343,7 +19344,7 @@
 		(instances
 			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R340")
+					(reference "R5014")
 					(unit 1)
 				)
 			)
@@ -19359,7 +19360,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9cc309fa-2f29-412e-819a-116a9e2ffe70")
-		(property "Reference" "#PWR034"
+		(property "Reference" "#PWR05001"
 			(at 21.59 105.41 0)
 			(effects
 				(font
@@ -19409,7 +19410,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR034")
+					(reference "#PWR05001")
 					(unit 1)
 				)
 			)
@@ -19425,7 +19426,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9dfeac02-8e1c-4a3f-8247-63ff624d0558")
-		(property "Reference" "R332"
+		(property "Reference" "R5006"
 			(at 78.74 160.02 90)
 			(effects
 				(font
@@ -19477,7 +19478,7 @@
 		(instances
 			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R332")
+					(reference "R5006")
 					(unit 1)
 				)
 			)
@@ -19493,7 +19494,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a14510dc-6141-40ab-848c-6c7a5d264c7a")
-		(property "Reference" "#PWR059"
+		(property "Reference" "#PWR05026"
 			(at 217.17 116.84 0)
 			(effects
 				(font
@@ -19544,7 +19545,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR059")
+					(reference "#PWR05026")
 					(unit 1)
 				)
 			)
@@ -19561,7 +19562,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a1e741c4-a982-4979-bd13-db6a33e5ed28")
-		(property "Reference" "R348"
+		(property "Reference" "R5018"
 			(at 237.49 72.39 90)
 			(effects
 				(font
@@ -19613,7 +19614,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R348")
+					(reference "R5018")
 					(unit 1)
 				)
 			)
@@ -19629,7 +19630,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a65409ee-a0f8-442a-b108-464c79c39607")
-		(property "Reference" "#PWR057"
+		(property "Reference" "#PWR05024"
 			(at 212.09 180.34 0)
 			(effects
 				(font
@@ -19679,7 +19680,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR057")
+					(reference "#PWR05024")
 					(unit 1)
 				)
 			)
@@ -19695,7 +19696,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a6c21add-4450-4aa9-a028-0b586f5ee580")
-		(property "Reference" "BT2"
+		(property "Reference" "BT5001"
 			(at 229.87 288.29 90)
 			(effects
 				(font
@@ -19749,7 +19750,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "BT2")
+					(reference "BT5001")
 					(unit 1)
 				)
 			)
@@ -19765,7 +19766,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a914b587-206e-46f9-a83a-c8baf7a738a9")
-		(property "Reference" "C19"
+		(property "Reference" "C5008"
 			(at 210.566 109.22 90)
 			(effects
 				(font
@@ -19817,7 +19818,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "C19")
+					(reference "C5008")
 					(unit 1)
 				)
 			)
@@ -19833,7 +19834,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "adabba54-9d2b-42c0-8053-caf3f189897f")
-		(property "Reference" "C21"
+		(property "Reference" "C5010"
 			(at 235.966 134.62 0)
 			(effects
 				(font
@@ -19885,7 +19886,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "C21")
+					(reference "C5010")
 					(unit 1)
 				)
 			)
@@ -19901,7 +19902,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "adcd850e-1387-4750-838e-bc2dea8e0b11")
-		(property "Reference" "#PWR046"
+		(property "Reference" "#PWR05013"
 			(at 119.38 191.77 0)
 			(effects
 				(font
@@ -19951,7 +19952,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR046")
+					(reference "#PWR05013")
 					(unit 1)
 				)
 			)
@@ -19967,7 +19968,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ae11583d-7dda-4f47-86ec-7d5b7d71e52b")
-		(property "Reference" "R334"
+		(property "Reference" "R5008"
 			(at 99.06 247.6499 0)
 			(effects
 				(font
@@ -20021,7 +20022,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R334")
+					(reference "R5008")
 					(unit 1)
 				)
 			)
@@ -20036,7 +20037,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b529d229-77a3-4186-a710-af1396d907e9")
-		(property "Reference" "U12"
+		(property "Reference" "U5006"
 			(at 224.79 119.38 0)
 			(effects
 				(font
@@ -20106,7 +20107,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "U12")
+					(reference "U5006")
 					(unit 2)
 				)
 			)
@@ -20122,7 +20123,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b5605f2f-0215-4e49-84a7-9dc24b72ac3e")
-		(property "Reference" "R329"
+		(property "Reference" "R5003"
 			(at 66.04 160.02 90)
 			(effects
 				(font
@@ -20174,7 +20175,7 @@
 		(instances
 			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R329")
+					(reference "R5003")
 					(unit 1)
 				)
 			)
@@ -20190,7 +20191,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b9428050-c42e-48a5-920b-f6f9c3c408c7")
-		(property "Reference" "F2"
+		(property "Reference" "F5001"
 			(at 340.36 124.46 90)
 			(effects
 				(font
@@ -20243,7 +20244,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "F2")
+					(reference "F5001")
 					(unit 1)
 				)
 			)
@@ -20259,7 +20260,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bb7bef3f-6158-49ae-95aa-4b6ba4f255d3")
-		(property "Reference" "#PWR037"
+		(property "Reference" "#PWR05004"
 			(at 36.83 209.55 0)
 			(effects
 				(font
@@ -20309,7 +20310,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR037")
+					(reference "#PWR05004")
 					(unit 1)
 				)
 			)
@@ -20325,7 +20326,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c532d95a-180d-466a-9322-d2665a5b2ecf")
-		(property "Reference" "#PWR042"
+		(property "Reference" "#PWR05009"
 			(at 85.09 175.26 0)
 			(effects
 				(font
@@ -20375,7 +20376,7 @@
 		(instances
 			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR042")
+					(reference "#PWR05009")
 					(unit 1)
 				)
 			)
@@ -20391,7 +20392,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c5b5df00-0144-4d72-8513-3b2234c40634")
-		(property "Reference" "U7"
+		(property "Reference" "U5001"
 			(at 82.55 90.0998 90)
 			(effects
 				(font
@@ -20523,7 +20524,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "U7")
+					(reference "U5001")
 					(unit 1)
 				)
 			)
@@ -20539,7 +20540,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c5fdaab9-3e7b-4530-90ea-4f6eee64a529")
-		(property "Reference" "J6"
+		(property "Reference" "J5003"
 			(at 204.47 273.05 0)
 			(effects
 				(font
@@ -20593,7 +20594,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "J6")
+					(reference "J5003")
 					(unit 1)
 				)
 			)
@@ -20609,7 +20610,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ce4e1d67-1f8c-472a-a141-e56fe4ac4c0b")
-		(property "Reference" "#PWR073"
+		(property "Reference" "#PWR05036"
 			(at 335.28 173.99 0)
 			(effects
 				(font
@@ -20659,7 +20660,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR073")
+					(reference "#PWR05036")
 					(unit 1)
 				)
 			)
@@ -20675,7 +20676,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ced0d9db-eba2-4f29-a06f-e2e70a3d638d")
-		(property "Reference" "#PWR066"
+		(property "Reference" "#PWR05033"
 			(at 270.51 173.99 0)
 			(effects
 				(font
@@ -20725,7 +20726,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR066")
+					(reference "#PWR05033")
 					(unit 1)
 				)
 			)
@@ -20741,7 +20742,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d09acdcd-9f62-483d-9970-b0629de8c814")
-		(property "Reference" "#PWR050"
+		(property "Reference" "#PWR05017"
 			(at 161.29 265.43 0)
 			(effects
 				(font
@@ -20791,7 +20792,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR050")
+					(reference "#PWR05017")
 					(unit 1)
 				)
 			)
@@ -20807,7 +20808,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d470ba96-4ca1-47a2-bb4e-39cff9a69095")
-		(property "Reference" "J4"
+		(property "Reference" "J5001"
 			(at 77.47 298.45 0)
 			(effects
 				(font
@@ -20973,7 +20974,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "J4")
+					(reference "J5001")
 					(unit 1)
 				)
 			)
@@ -20988,7 +20989,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "dc111d72-c0d7-452d-b463-1dc2925ad165")
-		(property "Reference" "A2"
+		(property "Reference" "A5001"
 			(at 323.85 195.58 0)
 			(effects
 				(font
@@ -21121,7 +21122,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "A2")
+					(reference "A5001")
 					(unit 1)
 				)
 			)
@@ -21137,7 +21138,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ddf93a39-cf96-41bf-9818-38210165461f")
-		(property "Reference" "#PWR045"
+		(property "Reference" "#PWR05012"
 			(at 114.3 85.09 0)
 			(effects
 				(font
@@ -21187,7 +21188,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR045")
+					(reference "#PWR05012")
 					(unit 1)
 				)
 			)
@@ -21203,7 +21204,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "de5a5d8f-7e74-4dbb-9caa-6ef3e30ccbeb")
-		(property "Reference" "#PWR060"
+		(property "Reference" "#PWR05027"
 			(at 217.17 143.51 0)
 			(effects
 				(font
@@ -21254,7 +21255,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR060")
+					(reference "#PWR05027")
 					(unit 1)
 				)
 			)
@@ -21270,7 +21271,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e0800b2d-6fc4-43ce-8baf-4fea2859f9c0")
-		(property "Reference" "#PWR051"
+		(property "Reference" "#PWR05018"
 			(at 167.64 175.26 0)
 			(effects
 				(font
@@ -21320,7 +21321,7 @@
 		(instances
 			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR051")
+					(reference "#PWR05018")
 					(unit 1)
 				)
 			)
@@ -21337,7 +21338,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e0a36de3-f72e-4fbe-8b78-cd1fcbc00299")
-		(property "Reference" "C25"
+		(property "Reference" "C5012"
 			(at 335.28 138.6839 0)
 			(effects
 				(font
@@ -21391,7 +21392,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "C25")
+					(reference "C5012")
 					(unit 1)
 				)
 			)
@@ -21407,7 +21408,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e0ca59c2-29f4-4e77-9f9b-ab8de87f2564")
-		(property "Reference" "#PWR058"
+		(property "Reference" "#PWR05025"
 			(at 212.09 205.74 0)
 			(effects
 				(font
@@ -21457,7 +21458,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR058")
+					(reference "#PWR05025")
 					(unit 1)
 				)
 			)
@@ -21473,7 +21474,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e225588a-213f-4ca8-b1ee-03277b51fd15")
-		(property "Reference" "#PWR054"
+		(property "Reference" "#PWR05021"
 			(at 170.18 96.52 0)
 			(effects
 				(font
@@ -21524,7 +21525,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR054")
+					(reference "#PWR05021")
 					(unit 1)
 				)
 			)
@@ -21540,7 +21541,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e272fb22-7fd6-48e7-b33d-115754589365")
-		(property "Reference" "C14"
+		(property "Reference" "C5003"
 			(at 86.36 101.8539 0)
 			(effects
 				(font
@@ -21594,7 +21595,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "C14")
+					(reference "C5003")
 					(unit 1)
 				)
 			)
@@ -21610,7 +21611,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e2d1ac44-f81b-451b-a9a3-588f3df98a28")
-		(property "Reference" "C17"
+		(property "Reference" "C5006"
 			(at 175.26 101.8539 0)
 			(effects
 				(font
@@ -21664,7 +21665,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "C17")
+					(reference "C5006")
 					(unit 1)
 				)
 			)
@@ -21680,7 +21681,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e4b121c5-49bc-436c-929c-9f3eeaa8bac4")
-		(property "Reference" "#PWR036"
+		(property "Reference" "#PWR05003"
 			(at 36.83 191.77 0)
 			(effects
 				(font
@@ -21730,7 +21731,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR036")
+					(reference "#PWR05003")
 					(unit 1)
 				)
 			)
@@ -21746,7 +21747,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e5eee9dd-3f2f-4bc2-9d15-7f6d24dc6711")
-		(property "Reference" "J5"
+		(property "Reference" "J5002"
 			(at 124.46 327.6599 0)
 			(effects
 				(font
@@ -21803,7 +21804,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "J5")
+					(reference "J5002")
 					(unit 1)
 				)
 			)
@@ -21818,7 +21819,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e62817ca-bb50-48ec-81a9-d8520d13a21f")
-		(property "Reference" "#PWR074"
+		(property "Reference" "#PWR05037"
 			(at 349.25 127 0)
 			(effects
 				(font
@@ -21869,7 +21870,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR074")
+					(reference "#PWR05037")
 					(unit 1)
 				)
 			)
@@ -21885,7 +21886,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ed2406f5-78d9-4744-afc8-7193c0f49bbb")
-		(property "Reference" "#PWR053"
+		(property "Reference" "#PWR05020"
 			(at 171.45 115.57 0)
 			(effects
 				(font
@@ -21935,7 +21936,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR053")
+					(reference "#PWR05020")
 					(unit 1)
 				)
 			)
@@ -21951,7 +21952,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ee7ce4aa-9263-4cd2-86ba-3421288bb469")
-		(property "Reference" "R333"
+		(property "Reference" "R5007"
 			(at 88.9 247.6499 0)
 			(effects
 				(font
@@ -22005,7 +22006,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "R333")
+					(reference "R5007")
 					(unit 1)
 				)
 			)
@@ -22021,7 +22022,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f054c7af-2396-439f-88c8-24e5db49c23b")
-		(property "Reference" "#PWR044"
+		(property "Reference" "#PWR05011"
 			(at 110.49 105.41 0)
 			(effects
 				(font
@@ -22071,7 +22072,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR044")
+					(reference "#PWR05011")
 					(unit 1)
 				)
 			)
@@ -22086,7 +22087,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "fa2c7285-3be3-42ca-b289-5692c91bcc1a")
-		(property "Reference" "U12"
+		(property "Reference" "U5006"
 			(at 226.06 68.58 0)
 			(effects
 				(font
@@ -22156,7 +22157,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "U12")
+					(reference "U5006")
 					(unit 1)
 				)
 			)
@@ -22172,7 +22173,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "fc9ad33e-940e-40c1-8c07-e01fb4c01d45")
-		(property "Reference" "#PWR072"
+		(property "Reference" "#PWR05035"
 			(at 331.47 152.4 0)
 			(effects
 				(font
@@ -22223,7 +22224,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR072")
+					(reference "#PWR05035")
 					(unit 1)
 				)
 			)
@@ -22239,7 +22240,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fe278779-edce-4932-b7c4-49e142ee51f1")
-		(property "Reference" "#PWR061"
+		(property "Reference" "#PWR05028"
 			(at 224.79 205.74 0)
 			(effects
 				(font
@@ -22289,7 +22290,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/f09511e2-753d-46a9-b050-26ae7a792d82"
-					(reference "#PWR061")
+					(reference "#PWR05028")
 					(unit 1)
 				)
 			)

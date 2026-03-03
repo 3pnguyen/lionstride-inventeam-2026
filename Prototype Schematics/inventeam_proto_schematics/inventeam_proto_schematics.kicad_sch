@@ -5,7 +5,7 @@
 	(uuid "b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a")
 	(paper "User" 457.2 254)
 	(title_block
-		(title "Overview")
+		(title "Root Schematic")
 		(date "2025-10-26")
 		(rev "1/1/2026")
 	)
@@ -5912,7 +5912,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b3a5de5e-90bb-40f7-9518-422e345d5490")
-		(property "Reference" "SW1"
+		(property "Reference" "SW1001"
 			(at 158.75 26.67 0)
 			(effects
 				(font
@@ -5976,7 +5976,7 @@
 		(instances
 			(project "Inventeam_Project_V3"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a"
-					(reference "SW1")
+					(reference "SW1001")
 					(unit 1)
 				)
 			)
@@ -6428,7 +6428,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "Matrix_Columns.kicad_sch"
+		(property "Sheetfile" "Thermistor Logic Schematic.kicad_sch"
 			(at 181.61 148.59 0)
 			(effects
 				(font
@@ -6900,7 +6900,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "Thermistor_Matrix.kicad_sch"
+		(property "Sheetfile" "Thermistor Matrix Schematic.kicad_sch"
 			(at 181.61 225.3746 0)
 			(effects
 				(font

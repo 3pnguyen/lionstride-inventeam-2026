@@ -26,4 +26,5 @@
 * v15 - 1.25.26
 	* v15 minor 1 - 2.13.26
 	* v15 minor 2 - 2.19.26
-* v16 - 2.22.26
+* v16 - 2.22.26: Added RC filters and pull-down resistors between MUX drain pins and OP AMP non-inverting inputs
+	* v16 minor 1 - 3.2.26: Fixed reference designator conflicts and updated file names
