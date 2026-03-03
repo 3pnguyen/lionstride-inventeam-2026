@@ -2,7 +2,9 @@
 
 ## Branch for the schematic files of the circuit and device
 
-## Prototype version timestamps:
+## Prototype changelog:
+
+(Version descriptions have been added since V16 minor 1, so older version descriptions may be inaccurate.)
 
 * v1 - 10.25.25
 * v2 - 10.26.25
@@ -21,10 +23,10 @@
 	* v13 minor 2 - 12.26.25
 * v14 - 1.1.26
 	* v14 minor 1 - 1.2.26
-	* v14 minor 2 - 1.9.26
-	* v14 minor 3 - 1.10.26
-* v15 - 1.25.26
-	* v15 minor 1 - 2.13.26
-	* v15 minor 2 - 2.19.26
+	* v14 minor 2 - 1.9.26: Combine row and column headers into one
+	* v14 minor 3 - 1.10.26: Removed external LED in favor of code
+* v15 - 1.25.26: Added back the second matrix for pressure, created a logic schematic for pressure too
+	* v15 minor 1 - 2.13.26: Change decoupler on ref. IC output from 1uf to 10uf (no recording because I forgot)
+	* v15 minor 2 - 2.19.26: Added missing row 12 on the main header
 * v16 - 2.22.26: Added RC filters and pull-down resistors between MUX drain pins and OP AMP non-inverting inputs
 	* v16 minor 1 - 3.2.26: Fixed reference designator conflicts and updated file names
