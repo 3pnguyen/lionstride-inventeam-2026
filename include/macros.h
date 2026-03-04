@@ -7,6 +7,8 @@
 #define MATRIX_COLUMNS 26
 #define MATRIX_ROWS 12
 
+#define MATRIX_SWITCH_TIME 14000 // microseconds
+
 #define MATRIX_ADC_1 A2
 #define MATRIX_ADC_2 A3
 #define ADC_SAMPLES 15

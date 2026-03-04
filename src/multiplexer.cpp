@@ -55,7 +55,7 @@ int getRefOutput(bool filter) {
   _muxPinSelect(MUX_EN_1);
   _muxPinSelect(MUX_EN_2, 7);
 
-  delayMicroseconds(5000); // good time to wait for parasitic voltage, will expose SWITCH_TIME macro and use that if needed
+  delayMicroseconds(MATRIX_SWITCH_TIME); 
 
   int code_ref;
   if (filter) code_ref = ADCMeanFilter(MATRIX_ADC_2, ADC_SAMPLES);
