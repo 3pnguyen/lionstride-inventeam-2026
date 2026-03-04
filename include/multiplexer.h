@@ -2,6 +2,7 @@
 
 #include <Arduino.h>
 #include "macros.h"
+#include "filter.h"
 
 static inline void writeEnablePin(unsigned int enPin, bool enable) {
 #if MUX_ENABLE_ACTIVE_LOW
@@ -14,6 +15,8 @@ static inline void writeEnablePin(unsigned int enPin, bool enable) {
 void setupRows();
 
 void activateRow(int row = -1);
+
+int getRefOutput(bool filter = true); // new function to get the output from the reference IC
 
 // ------------------------- Ai-gen (Alice & Ivette) Debug functions -----------------------------------------
 

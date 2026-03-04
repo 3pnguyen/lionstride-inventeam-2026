@@ -51,6 +51,18 @@ void activateRow(int row) {
   else _muxPinSelect(MUX_EN_2, row - MUX_PINS);
 }
 
+int getRefOutput(bool filter) {
+  _muxPinSelect(MUX_EN_1);
+  _muxPinSelect(MUX_EN_2, 7);
+
+  delayMicroseconds(5000); // good time to wait for parasitic voltage, will expose SWITCH_TIME macro and use that if needed
+
+  int code_ref;
+  if (filter) code_ref = ADCMeanFilter(MATRIX_ADC_2, ADC_SAMPLES);
+  else code_ref = analogRead(MATRIX_ADC_2);
+  return code_ref;
+}
+
 // ------------------------- Ai-gen Debug functions -----------------------------------------
 
 void debugTMUXControlLines(Stream& out, uint16_t delayMs) {
