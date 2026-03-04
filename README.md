@@ -2,6 +2,8 @@
 
 ## Branch for the schematic files of the circuit and device
 
+![KiCad](https://img.shields.io/badge/kicad-%23314CB0.svg?style=for-the-badge&logo=kicad&logoColor=white)
+
 <!-- Badeges from https://gprm.itsvg.in and https://github.com/Ileriayo/markdown-badges  -->
 
 ## Prototype changelog:
