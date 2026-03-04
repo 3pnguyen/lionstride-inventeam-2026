@@ -1045,16 +1045,6 @@
 	)
 	(wire
 		(pts
-			(xy 130.81 77.47) (xy 130.81 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "68ef72fe-86f8-400f-9b54-875bb574a93e")
-	)
-	(wire
-		(pts
 			(xy 149.86 147.32) (xy 149.86 154.94)
 		)
 		(stroke
@@ -1102,16 +1092,6 @@
 			(type default)
 		)
 		(uuid "6e91f6bc-f719-42bc-9683-a4fcd52db50e")
-	)
-	(wire
-		(pts
-			(xy 128.27 86.36) (xy 128.27 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6eddeb3f-2189-4075-aa5e-77adda0c5923")
 	)
 	(wire
 		(pts
@@ -1305,6 +1285,16 @@
 	)
 	(wire
 		(pts
+			(xy 130.81 77.47) (xy 130.81 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9bad6f0a-2127-4123-ad2e-4fa5a278ff95")
+	)
+	(wire
+		(pts
 			(xy 285.75 198.12) (xy 307.34 198.12)
 		)
 		(stroke
@@ -1462,6 +1452,16 @@
 			(type default)
 		)
 		(uuid "c0012edf-a438-47ce-9bbe-837d5d7fa5cb")
+	)
+	(wire
+		(pts
+			(xy 128.27 74.93) (xy 128.27 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c11bf55a-198d-4c8d-a7cd-1bb68f0aba12")
 	)
 	(wire
 		(pts
@@ -6419,7 +6419,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "9f4817f9-c513-4659-982a-bb656752ed3c")
-		(property "Sheetname" "Thermistor Logic Schematic"
+		(property "Sheetname" "Logic Schematic (Temperature)"
 			(at 181.61 85.471 0)
 			(effects
 				(font
@@ -6428,7 +6428,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "Thermistor Logic Schematic.kicad_sch"
+		(property "Sheetfile" "Logic Schematic.kicad_sch"
 			(at 181.61 148.59 0)
 			(effects
 				(font
@@ -7304,7 +7304,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
 			(type solid)
@@ -7312,9 +7311,9 @@
 		(fill
 			(color 0 0 0 0.0000)
 		)
-		(uuid "f09511e2-753d-46a9-b050-26ae7a792d82")
-		(property "Sheetname" "FSR Logic Schematic"
-			(at 60.96 85.6484 0)
+		(uuid "cce3bfa4-7555-4887-9571-c1a2b294f16b")
+		(property "Sheetname" "Logic Schematic (Pressure)"
+			(at 60.96 85.471 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7322,8 +7321,8 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "FSR Logic Schematic.kicad_sch"
-			(at 60.96 147.9046 0)
+		(property "Sheetfile" "Logic Schematic.kicad_sch"
+			(at 60.96 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7331,59 +7330,9 @@
 				(justify left top)
 			)
 		)
-		(pin "BAT+" output
-			(at 110.49 86.36 90)
-			(uuid "c5b9c341-9c4c-4e05-b2b1-84b6c29b09d8")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "MCU_BAT+" input
-			(at 90.17 86.36 90)
-			(uuid "d1c646d9-169b-481e-bbd7-c3074807890d")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "UART_GND" passive
-			(at 133.35 86.36 90)
-			(uuid "422027bb-be40-4c78-9e04-f023a95ce7c1")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "UART_TX" output
-			(at 130.81 86.36 90)
-			(uuid "96e3517b-a408-4496-8411-59ab9058e201")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "UART_RX" input
-			(at 128.27 86.36 90)
-			(uuid "d6f0924b-a281-4d54-bff7-61ce2610427f")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
 		(pin "COL_1" output
 			(at 91.44 147.32 270)
-			(uuid "22d7dbf0-b955-4561-8181-0bd2e7b9006c")
+			(uuid "b4035080-cabc-4679-9c15-e7fa0af502a2")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7393,37 +7342,7 @@
 		)
 		(pin "COL_2" output
 			(at 93.98 147.32 270)
-			(uuid "669a67c0-893e-4914-b879-3bf0b281809a")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "COL_26" output
-			(at 154.94 147.32 270)
-			(uuid "7dcd549d-5add-41a8-b45c-beb728ff1fd8")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "ROW_1" input
-			(at 60.96 134.62 180)
-			(uuid "96156d52-82f1-41a4-828e-7879bd2f5cdb")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "ROW_12" input
-			(at 60.96 106.68 180)
-			(uuid "636045d3-b03f-49c7-9183-c723bcfd48d7")
+			(uuid "afdc89f0-4d13-4540-8900-7cb6c758a4bc")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7433,7 +7352,7 @@
 		)
 		(pin "COL_3" output
 			(at 96.52 147.32 270)
-			(uuid "0452781d-de9b-450b-8f27-46569f6b4552")
+			(uuid "a5f121f5-203e-4fbc-9c50-c837674a1fe2")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7443,7 +7362,7 @@
 		)
 		(pin "COL_4" output
 			(at 99.06 147.32 270)
-			(uuid "a6857377-7b6a-418b-abcf-7fd0e3baa523")
+			(uuid "c35766c9-f8dc-4ae5-9ec6-b1c44c646088")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7453,7 +7372,7 @@
 		)
 		(pin "COL_5" output
 			(at 101.6 147.32 270)
-			(uuid "899413c6-0ff6-4e86-af02-685c03bfba45")
+			(uuid "6e5fb154-9d41-46f1-9782-a348d4307deb")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7463,7 +7382,7 @@
 		)
 		(pin "COL_6" output
 			(at 104.14 147.32 270)
-			(uuid "0f4260a9-282c-45c0-adb0-37e3837c196c")
+			(uuid "0eb9bfd7-cfdc-4c1c-a285-9b87258118ab")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7473,7 +7392,7 @@
 		)
 		(pin "COL_7" output
 			(at 106.68 147.32 270)
-			(uuid "97bdec12-c069-48a7-a89d-5f3ee7b913f5")
+			(uuid "b5d82e55-4b30-48ab-aac8-48d7e53f0181")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7483,7 +7402,7 @@
 		)
 		(pin "COL_8" output
 			(at 109.22 147.32 270)
-			(uuid "2c277ecc-9bc0-4e1b-a00f-1498c6962416")
+			(uuid "e3f6fb53-fca2-4ccc-838f-b8a2daa6e73c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7493,7 +7412,7 @@
 		)
 		(pin "COL_9" output
 			(at 111.76 147.32 270)
-			(uuid "01cd9fab-cb2e-400d-8e87-8eca0b3bd7f6")
+			(uuid "3afe33db-3d2b-4b91-8368-8f72e244953a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7503,57 +7422,7 @@
 		)
 		(pin "COL_10" output
 			(at 114.3 147.32 270)
-			(uuid "512c0eba-43bf-465a-a3c2-85f39e5ce9e6")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "COL_25" output
-			(at 152.4 147.32 270)
-			(uuid "bc615e7a-edda-4506-9930-9d73f96cafda")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "COL_24" output
-			(at 149.86 147.32 270)
-			(uuid "ee209785-33cd-44a8-ab9f-be3f9decc5e8")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "ROW_2" input
-			(at 60.96 132.08 180)
-			(uuid "d686e1a5-f878-423e-b901-9e2347881603")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "ROW_3" input
-			(at 60.96 129.54 180)
-			(uuid "e48b473c-0c73-45fd-8f84-095838ac2a68")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "ROW_4" input
-			(at 60.96 127 180)
-			(uuid "2b242dcd-139c-4387-a201-22d530695e62")
+			(uuid "9f8cc49e-a35a-4fae-af7a-2738e30a46e7")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7563,7 +7432,7 @@
 		)
 		(pin "COL_11" output
 			(at 116.84 147.32 270)
-			(uuid "e7c14c93-9250-4c80-a812-4ff0e75b1fe9")
+			(uuid "9e5a6ce2-d0fa-41d8-89b5-bb8b2a4de1a1")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7573,7 +7442,7 @@
 		)
 		(pin "COL_12" output
 			(at 119.38 147.32 270)
-			(uuid "ce54af69-6634-428f-9356-7022a5e8555d")
+			(uuid "00f25095-2e34-4e90-9adc-40cc923d0ca2")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7583,7 +7452,7 @@
 		)
 		(pin "COL_13" output
 			(at 121.92 147.32 270)
-			(uuid "13d42f49-45d5-44d2-a94b-583d29740465")
+			(uuid "bd7711ce-b54c-48b4-9315-46f0f5e6c9d5")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7593,7 +7462,7 @@
 		)
 		(pin "COL_14" output
 			(at 124.46 147.32 270)
-			(uuid "6e3e240d-9052-4f2d-9c3a-3a93fde09ff3")
+			(uuid "a0f55163-7376-43f7-b848-4a9aae0fc3e6")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7603,7 +7472,7 @@
 		)
 		(pin "COL_15" output
 			(at 127 147.32 270)
-			(uuid "c2cb2927-eeef-4ad3-86e0-e9e71ef11dd5")
+			(uuid "e1010bd3-94e9-4580-bee7-57da146cb8f0")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7613,7 +7482,7 @@
 		)
 		(pin "COL_16" output
 			(at 129.54 147.32 270)
-			(uuid "885c1820-16bb-4ddc-b3ed-116ea3c28aac")
+			(uuid "d3402d5f-8eb0-4f3f-be95-ba98370f39eb")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7623,7 +7492,7 @@
 		)
 		(pin "COL_17" output
 			(at 132.08 147.32 270)
-			(uuid "6164e16c-8ab8-4f6b-8eba-750ea50ec3b2")
+			(uuid "4fb918e0-59e0-4d7f-8723-4a57defae321")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7633,7 +7502,7 @@
 		)
 		(pin "COL_18" output
 			(at 134.62 147.32 270)
-			(uuid "60ed1bb3-d84f-495e-9476-9b6a04f7d1b7")
+			(uuid "db4da2f9-b1b7-41e1-b8d4-34332f71ae3f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7643,7 +7512,7 @@
 		)
 		(pin "COL_19" output
 			(at 137.16 147.32 270)
-			(uuid "d3322b1a-0f9e-4d46-b7e0-50f9e9dbcc31")
+			(uuid "22ff59c4-f1a6-4f35-80ee-4512a12e5414")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7653,7 +7522,7 @@
 		)
 		(pin "COL_20" output
 			(at 139.7 147.32 270)
-			(uuid "1a23449a-cafa-43bc-8b25-c7a9ae4ba765")
+			(uuid "6e8fefff-4883-4cb0-bdb0-5e6f69f83c84")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7663,7 +7532,7 @@
 		)
 		(pin "COL_21" output
 			(at 142.24 147.32 270)
-			(uuid "035646c2-aafb-4d2e-bb9c-e0904a282234")
+			(uuid "a14a39c9-91ce-4dbd-86c6-1093cf7f419d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7673,7 +7542,7 @@
 		)
 		(pin "COL_22" output
 			(at 144.78 147.32 270)
-			(uuid "b7fc15b8-1b83-42a9-a1fb-9984ad820163")
+			(uuid "f54f1f2f-8a79-4d89-8e53-21461b3c5466")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7683,7 +7552,77 @@
 		)
 		(pin "COL_23" output
 			(at 147.32 147.32 270)
-			(uuid "277fcdc3-ffa3-4d2d-8c01-2734192722d1")
+			(uuid "a4a14585-66b2-4c92-aad6-948854197f33")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "COL_24" output
+			(at 149.86 147.32 270)
+			(uuid "3aba7a9a-ccb1-4f01-aaf5-9d8c9a253be5")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "COL_25" output
+			(at 152.4 147.32 270)
+			(uuid "4ca9aa36-6cd4-4e1b-bfee-db46eb059d74")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "COL_26" output
+			(at 154.94 147.32 270)
+			(uuid "8ff8fa17-b1c4-40ef-a6c0-c89718989d2c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "ROW_1" input
+			(at 60.96 134.62 180)
+			(uuid "a88b3d6d-a1dd-4915-bebd-945c2274ea2f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "ROW_2" input
+			(at 60.96 132.08 180)
+			(uuid "3b3ec2fa-ad8f-452d-a345-687b4f7597a1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "ROW_3" input
+			(at 60.96 129.54 180)
+			(uuid "3daa537d-c236-45c9-90fa-80ee9b31e1d7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "ROW_4" input
+			(at 60.96 127 180)
+			(uuid "fcaa1cb7-9011-457b-a6e7-992a57879622")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7693,17 +7632,7 @@
 		)
 		(pin "ROW_5" input
 			(at 60.96 124.46 180)
-			(uuid "8ce35506-aa86-4b3e-a4a3-82953d5d1ee9")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "ROW_11" input
-			(at 60.96 109.22 180)
-			(uuid "e320cc99-986f-4cdc-bb7e-e15c46505f02")
+			(uuid "1cd8786e-c00e-4dde-b907-c2e188e89b5c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7713,7 +7642,7 @@
 		)
 		(pin "ROW_6" input
 			(at 60.96 121.92 180)
-			(uuid "d7e3ec90-4775-41d5-9d81-9956e8111e70")
+			(uuid "524fc628-cf24-4a9c-8798-8c8fd9d12d8d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7723,7 +7652,7 @@
 		)
 		(pin "ROW_7" input
 			(at 60.96 119.38 180)
-			(uuid "958a05ec-2ada-4a21-9f68-ee9941c66369")
+			(uuid "39ee3180-cb85-4082-8d21-f197cfe39cf6")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7733,7 +7662,7 @@
 		)
 		(pin "ROW_8" input
 			(at 60.96 116.84 180)
-			(uuid "4e16bcf3-de39-4c8a-9d05-3d92de67ab90")
+			(uuid "ff0565e9-e973-4d32-8534-20c9574f738f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7743,7 +7672,7 @@
 		)
 		(pin "ROW_9" input
 			(at 60.96 114.3 180)
-			(uuid "93a7ae32-b666-47b9-8331-0aa243827280")
+			(uuid "77c70788-ba46-4515-876e-3c23e3853a52")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7753,7 +7682,7 @@
 		)
 		(pin "ROW_10" input
 			(at 60.96 111.76 180)
-			(uuid "69edb9ea-7078-44e8-bde5-f86471075e9e")
+			(uuid "3ca168eb-a701-4c14-a4e7-ffa259a3f335")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7761,10 +7690,80 @@
 				(justify left)
 			)
 		)
+		(pin "ROW_11" input
+			(at 60.96 109.22 180)
+			(uuid "7e1d338f-b0bd-4004-a646-bbc7b17337a8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "ROW_12" input
+			(at 60.96 106.68 180)
+			(uuid "03a3aeb6-5b3e-4815-9314-ab54fe1f90e0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BAT+" output
+			(at 110.49 86.36 90)
+			(uuid "06b657a0-c022-46b5-bdc3-0011fb07bebb")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "MCU_BAT+" input
+			(at 90.17 86.36 90)
+			(uuid "957bec43-b14a-45d6-b5fe-3f2ae6e2e572")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "UART_GND" passive
+			(at 133.35 86.36 90)
+			(uuid "d512ee45-9a15-456f-a9ba-d86c54760c35")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "UART_RX" input
+			(at 128.27 86.36 90)
+			(uuid "bdd1d07c-6270-414b-8c63-fa26b47dd6ef")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "UART_TX" output
+			(at 130.81 86.36 90)
+			(uuid "a261c27a-0e08-4d04-ab24-89e97fd4683c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "inventeam_proto_schematics"
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a"
-					(page "5")
+					(page "3")
 				)
 			)
 		)

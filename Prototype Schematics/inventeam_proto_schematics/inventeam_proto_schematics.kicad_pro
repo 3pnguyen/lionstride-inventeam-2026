@@ -441,7 +441,11 @@
     ],
     [
       "9f4817f9-c513-4659-982a-bb656752ed3c",
-      "Thermistor Logic Schematic"
+      "Logic Schematic (Temperature)"
+    ],
+    [
+      "cce3bfa4-7555-4887-9571-c1a2b294f16b",
+      "Logic Schematic (Pressure)"
     ],
     [
       "b1139b37-b633-4c06-bafe-e72eba9e83bf",
@@ -450,10 +454,6 @@
     [
       "944fb250-97c7-477e-8794-e29afee24260",
       "FSR Matrix Schematic"
-    ],
-    [
-      "f09511e2-753d-46a9-b050-26ae7a792d82",
-      "FSR Logic Schematic"
     ]
   ],
   "text_variables": {}
