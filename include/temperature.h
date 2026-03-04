@@ -3,6 +3,7 @@
 #include <Arduino.h>
 #include "filter.h"
 #include "macros.h"
+#include "multiplexer.h" // to get ref. IC output
 
 float readThermistorTemperature( // read thermistor wihtout calibration but with pull-down conpensaton
     int adc_code_sensor,

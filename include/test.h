@@ -160,7 +160,7 @@ static inline void test() {
                 "GND ADC: " +
                 String(analogRead(ADC_GND_PIN)) +
                 ", REF ADC: " +
-                String(analogRead(ADC_REF_PIN)) +
+                String(getRefOutput(false)) +
                 ", Sensor ADC: " +
                 String(analogRead(MATRIX_ADC_1))
               );
@@ -173,7 +173,7 @@ static inline void test() {
             "GND ADC: " +
             String(analogRead(ADC_GND_PIN)) +
             ", REF ADC: " +
-            String(analogRead(ADC_REF_PIN)) +
+            String(getRefOutput(false)) +
             ", Sensor ADC: " +
             String(analogRead(MATRIX_ADC_1))
           );

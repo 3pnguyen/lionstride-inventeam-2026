@@ -19,7 +19,6 @@ float matrixData[MATRIX_ROWS][MATRIX_COLUMNS];
 char instructionBuffer[INSTRUCTIONS_DATA_LENGTH];
 
 void setupMatrix() {
-  pinMode(ADC_REF_PIN, INPUT);
   pinMode(ADC_GND_PIN, INPUT);
 
   setupRows();

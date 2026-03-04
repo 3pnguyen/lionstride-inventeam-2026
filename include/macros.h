@@ -18,7 +18,6 @@
 #define MUX_ENABLE_ACTIVE_LOW 0 //TMUX1208 is active high
 
 // ------------------------------------------------------- Sensors ------------------------------------------------------- 
-#define ADC_REF_PIN A4
 #define ADC_GND_PIN A1
 
 #define PULL_DOWN_R1 1.012e+6f
