@@ -2,6 +2,8 @@
 
 ## Branch for the schematic files of the circuit and device
 
+<!-- Badeges from https://gprm.itsvg.in and https://github.com/Ileriayo/markdown-badges  -->
+
 ## Prototype changelog:
 
 (Version descriptions have been added since V16 minor 1, so older version descriptions may be inaccurate.)
