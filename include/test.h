@@ -4,13 +4,11 @@
 #include "bluetooth.h"
 #include "serial.h"
 #include "matrix.h"
-#include "filter.h"
 #include "macros.h" 
 
 static String input;
 static int inputRow;
 static int inputColumn;
-static IntervalTimer hardwareTimeout(60000);
 
 /* ----------------- Testing commands -----------------
 
@@ -27,7 +25,7 @@ static IntervalTimer hardwareTimeout(60000);
   - User input column and row
 
 * test adc: Tests ADC outputs
-  - User input column, row, and "stop" to exit the loop (60 seconds timeout)
+  - User input column and row
 
 * debug mcp1: Tests expander 1
 
@@ -147,37 +145,19 @@ static inline void test() {
       } else if (input.equals("test adc")) { // to test expander and multiplexer
         if (!getMatrixInput()) return;
         
+        int code_ref = getRefOutput(false);
+
         activateColumn(inputColumn);
         activateRow(inputRow);
-        hardwareTimeout.reset();
 
-        #ifndef WEB_MODE
-          do {
-            if (Serial.available() > 0) {
-              getInput();
-
-              Serial.println(
-                "GND ADC: " +
-                String(analogRead(ADC_GND_PIN)) +
-                ", REF ADC: " +
-                String(getRefOutput(false)) +
-                ", Sensor ADC: " +
-                String(analogRead(MATRIX_ADC_1))
-              );
-            }
-
-            delay(100);
-          } while (!hardwareTimeout.isReady() && input != "stop");
-        #else
-          Serial.println(
-            "GND ADC: " +
-            String(analogRead(ADC_GND_PIN)) +
-            ", REF ADC: " +
-            String(getRefOutput(false)) +
-            ", Sensor ADC: " +
-            String(analogRead(MATRIX_ADC_1))
-          );
-        #endif
+        Serial.println(
+          "GND ADC: " +
+          String(analogRead(ADC_GND_PIN)) +
+          ", REF ADC: " +
+          String(code_ref) +
+          ", Sensor ADC: " +
+          String(analogRead((inputRow < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2))
+        );
 
         activateColumn();
         activateRow();
