@@ -6,6 +6,10 @@
 
 <!-- Badeges from https://gprm.itsvg.in and https://github.com/Ileriayo/markdown-badges  -->
 
+## Purpose
+
+This branch holds the KiCad files for the schematic of our circuit. In terms of prototyping, it is for representing the layout and connections. As we go deeper, this branch could also hold PCB files for a finalized version of our prototype.
+
 ## Prototype changelog:
 
 (Version descriptions have been added since V16 minor 1, so older version descriptions may be inaccurate.)
