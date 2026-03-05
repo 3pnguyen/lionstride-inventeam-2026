@@ -16,7 +16,7 @@ void setupRows();
 
 void activateRow(int row = -1);
 
-int getRefOutput(bool filter = true); // new function to get the output from the reference IC
+int getRefOutput(bool filter = true); // new function (as of 3/4) to get the output from the reference IC
 
 // ------------------------- Ai-gen (Alice & Ivette) Debug functions -----------------------------------------
 
