@@ -128,9 +128,11 @@ float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, Sens
     else data = readFSRNormalizedFromCodes(code_sensor);
   }
 
-  if(!disable) {
+  if(disable) {
     activateColumn();
     activateRow();
+    chosenColumn.firstValue = -1;
+    chosenRow.firstValue = -1;
     chosenColumn.secondValue = -1;
     chosenRow.secondValue = -1;
   }
