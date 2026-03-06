@@ -3,7 +3,7 @@
 //-------------------------------------- Change these as neccesary --------------------------------------
 
 #define INSTRUCTIONS_DATA_LENGTH 100 // also a lot of extra space
-#define PRESSURE_TIMEOUT 2000
+#define PRESSURE_TIMEOUT 10000 // will clear the buffer completely after this time
 
 //-------------------------------------------------------------------------------------------------------
 
