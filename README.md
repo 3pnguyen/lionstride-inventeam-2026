@@ -13,6 +13,7 @@ This code is almost like the website version of the app, but this frontend code 
 ## Changelog for code
 
 * 2.28.2026- started and finished first version of the UI (in 7 hours)
+* 3.8.2026 - made website fully scalable for size
 
 ## Images
 

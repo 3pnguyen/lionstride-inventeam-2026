@@ -45,8 +45,7 @@ p {
     background-color: #FFFFFF;
     padding: 20px;
     border-radius: 10px;
-    height: 20px;
-    width: 96vw;
+    height: 3vh;
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -95,7 +94,7 @@ p {
     background-color: #FFFFFF;
     padding: 20px;
     border-radius: 10px;
-    width: 300px;
+    width: 20vw;
 }
 
 #matrix-console {
@@ -153,7 +152,7 @@ p {
     background-color: #FFFFFF;
     padding: 20px;
     border-radius: 10px;
-    width: fit-content;
+    width: 20vw;
 }
 
 #command-console {
@@ -194,14 +193,14 @@ p {
     background-color: #FFFFFF;
     padding: 20px;
     border-radius: 10px;
-    width: fit-content;
+    width: 40vw;
 }
 
 #output {
     border: black 2px solid;
     background-color: rgb(247, 247, 247);
     height: 700px;
-    width: 700px;
+    width: 100%;
     overflow-wrap: break-word;
     overflow-y: scroll;
     border-radius: 20px;
@@ -233,7 +232,7 @@ p {
     background-color: #FFFFFF;
     padding: 20px;
     border-radius: 10px;
-    width: 350px;
+    width: 20vw;
 }
 
 #about-text {
