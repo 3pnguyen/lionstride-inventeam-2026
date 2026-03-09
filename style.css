@@ -11,6 +11,7 @@ Button active: #adfcaa
 body {
     background-color: #ffeeee;
     font-family: 'Inter', sans-serif;
+    padding: 0vh 1vw;
 }
 
 button {
@@ -20,70 +21,74 @@ button {
 #main {
     display: flex;
     flex-direction: row;
-    gap: 20px;
-    translate: 0px 10px;
+    gap: 1vw;
+    height: 90vh;
+    padding-top: 1vh;
 }
 
 h1 {
     text-align: center;
+    font-size: 2.5vh;
 }
 
 #title {
     text-align: center;
     background-color: #FFFFFF;
-    padding: 10px;
+    padding: 1vh 1vw;
     border-radius: 10px;
 }
 
 p {
     font-weight: bold;
+    font-size: 1.4vh;
 }
 
 /*------------------------------------------- Connect controls -------------------------------------------*/
 
 #connect-controls {
     background-color: #FFFFFF;
-    padding: 20px;
+    padding: 1vh 2vw;
     border-radius: 10px;
     height: 3vh;
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 1vw;
     justify-content: center;
     align-items: center;
 }
 
 #connect {
     background-color: #ff2b39;
-    height: 30px;
-    width: 75px;
+    height: 3vh;
+    width: 9.5vh;
     border-radius: 5px;
     border: none;
+    font-size: 1.4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
 #connect:hover {
     background-color: #B00320;
-    translate: 0px -4px;
+    translate: 0px -0.3vh;
     cursor: pointer;
 }
 
 #connect:active {
     background-color: #adfcaa;
-    translate: 0px -1px;
+    translate: 0px 0.2vh;
     cursor: pointer;
-}
-
-#connect-status {
-    font-size: 20px;
 }
 
 /*------------------------------------------- Matrix console & control -------------------------------------------*/
 
 .square {
-    height: 22px;
-    width: 22px;
+    height: 100%;
+    width: 100%;
     background-color: #c4b708;
-    border-radius: 10px;
+    border-radius: 0.45vw;
 }
 
 .square.active {
@@ -92,57 +97,76 @@ p {
 
 #matrix-controls {
     background-color: #FFFFFF;
-    padding: 20px;
+    padding: 2vh 2vw;
     border-radius: 10px;
     width: 20vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: center;
+}
+
+#matrix-inputs {
+    padding: 1vh 1vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vh;
 }
 
 #matrix-console {
     background-color: black;
-    width: fit-content;
-    padding: 10px;
-    border-radius: 7px;
+    width: 2.5vw;
+    height: 50vh;
+    padding: 1.5vh 0.8vw;
+    border-radius: 0.5vw;
     display: grid;
-    grid-template-columns: repeat(2, 22px);
-    grid-template-rows: repeat(20, 22px);
+    grid-template-columns: repeat(2, 0.5fr);
+    grid-template-rows: repeat(20, 1fr);
     grid-auto-flow: column;
-    gap: 6px;
-    translate: 110px 50px;
+    gap: 0.4vh;
 }
 
 #rowInput {
-    width: 75px;
-    height: 20px;
+    width: 4vw;
+    height: 3vh;
     border-radius: 10px;
-    border: 1px solid black;
+    border: 0.2vh solid black;
+    font-size: 1.4vh;
 
 }
 
 #columnInput {
-    width: 75px;
-    height: 20px;
+    width: 4vw;
+    height: 3vh;
     border-radius: 10px;
-    border: 1px solid black;
+    border: 0.2vh solid black;
+    font-size: 1.4vh;
 }
 
 #submit {
     background-color: #ff2b39;
-    height: 30px;
-    width: 75px;
+    height: 4vh;
+    width: 4vw;
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    font-size: 1.4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
 #submit:hover {
     background-color: #B00320;
-    translate: 0px -4px;
+    translate: 0px -0.3vh;
     cursor: pointer;
 }
 
 #submit:active {
     background-color: #adfcaa;
-    translate: 0px -1px;
+    translate: 0px 0.2vh;
     cursor: pointer;
 }
 
@@ -150,7 +174,7 @@ p {
 
 #command-controls {
     background-color: #FFFFFF;
-    padding: 20px;
+    padding: 2vh 2vw;
     border-radius: 10px;
     width: 20vw;
 }
@@ -158,83 +182,98 @@ p {
 #command-console {
     display: grid;
     grid-auto-flow: row;
-    gap: 6px;
+    gap: 0.7vh;
+    padding-top: 3vh;
 }
 
 .command-button {
     background-color: #ff2b39;
-    height: 40px;
+    height: 4vh;
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    font-size: 1.4vh;
 }
 
 .command-button:hover {
     background-color: #B00320;
-    translate: 0px -4px;
+    translate: 0px -0.3vh;
     cursor: pointer;
 }
 
 .command-button:active {
     background-color: #adfcaa;
-    translate: 0px -1px;
+    translate: 0px 0.2vh;
     cursor: pointer;
 }
 
 #command-input {
-    height: 40px;
+    height: 4vh;
     border-radius: 10px;
-    border: 2px solid black;
+    border: 0.2vh solid black;
+    font-size: 1.4vh;
 }
 
 /*------------------------------------------- Output console -------------------------------------------*/
 
 #output-console {
     background-color: #FFFFFF;
-    padding: 20px;
+    padding: 2vh 2vw;
     border-radius: 10px;
     width: 40vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: center;
 }
 
 #output {
-    border: black 2px solid;
+    border: 0.2vh solid black;
     background-color: rgb(247, 247, 247);
-    height: 700px;
+    height: 70vh;
     width: 100%;
     overflow-wrap: break-word;
     overflow-y: scroll;
-    border-radius: 20px;
-    padding: 10px;
+    padding: 1vw;
     box-sizing: border-box;
     font-family: Consolas, "Courier New", monospace;
 }
 
 .output-entry {
-    margin: 0 0 8px;
+    margin: 0 0 2vh;
     white-space: pre-wrap;
 }
 
 .output-entry.command {
     font-weight: 700;
     background-color: #eef6ff;
-    border-left: 4px solid #2f7de1;
-    padding: 6px 8px;
-    border-radius: 6px;
+    border-left: 0.4vw solid #2f7de1;
+    padding: 0.8vh 1vw;
+    border-radius: 1vh;
 }
 
 .output-entry.device {
-    padding-left: 6px;
+    padding-left: 1vw;
 }
 
 /*------------------------------------------- About -------------------------------------------*/
 
 #about-console {
     background-color: #FFFFFF;
-    padding: 20px;
+    padding: 2vh 2vw;
     border-radius: 10px;
     width: 20vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: center;
 }
 
 #about-text {
-    font-size: 20px;
+    padding: 2vh 1vw;
+}
+
+#logo {
+    width: 100%;
+    height: auto;
 }

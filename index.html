@@ -21,10 +21,14 @@
         <div id="matrix-controls">
             <h1>Matrix Controls</h1>
             <p>Enter row and column:</p>
-            <input type="number" id="rowInput">
-            <input type="number" id="columnInput">
-            <button id="submit">Submit</button>
+            <div id="matrix-inputs">
+                <input type="number" id="rowInput">
+                <input type="number" id="columnInput">
+                <button id="submit">Submit</button>
+            </div>
+            <p>(For prototype board) -> 1st IO Expander up here</p>
             <div id="matrix-console"></div>
+            <p>(For prototype board) -> 2nd Multiplexer down here</p>
         </div>
 
         <div id="command-controls">
@@ -50,12 +54,13 @@
 
         <div id="output-console">
             <h1>Output Console</h1>
+            <p>(Random output when intially connecting is completely fine)</p>
             <div id="output"></div>
         </div>
 
         <div id="about-console">
             <h1>About</h1>
-            <img src="assets/lionstride_logo.png" alt="Logo" width="350">
+            <img src="assets/lionstride_logo.png" alt="Logo" id="logo" width="350">
             <p id="about-text">
                 This is a simple UI to help with debugging the matrix. It is totally possible to run debugging right inside the serial monitor, but the UI makes it possible for our teamates to manage our circuit easier.
             </p>
