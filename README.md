@@ -7,18 +7,17 @@
 <!-- Badeges from https://gprm.itsvg.in and https://github.com/Ileriayo/markdown-badges  -->
 
 ## Socials
-| :-- | :-- |
 | ![Wix](https://img.shields.io/badge/wix-000?style=for-the-badge&logo=wix&logoColor=white) | https://kcle102.wixsite.com/my-site |
+| :-- | :-- |
 | ![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white) | https://www.instagram.com/lionstride_inventeam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw== |
 
 ## Layout
 Source code and other resources are in branches:
 
-| :-: | :-: |
 | **Branch** | **Purpose** | 
 | :-- | :-- |
-| main | Overview of repository |
-| app-source | Source code for the app |
-| device-schematic | Schematics of the device |
-| device-source | Source code for the device |
-| website-source | Source code for the website/debugger UI |
+| [main]() | Overview of repository |
+| [app-source](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/app-source) | Source code for the app |
+| [device-schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic) | Schematics of the device |
+| [device-source](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-source) | Source code for the device |
+| [website-source](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/website-source) | Source code for the website/debugger UI |
