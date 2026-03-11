@@ -16,7 +16,7 @@ Source code and other resources are in branches:
 
 | **Branch** | **Purpose** | 
 | :-- | :-- |
-| [main]() | Overview of repository |
+| main | Overview of repository |
 | [app-source](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/app-source) | Source code for the app |
 | [device-schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic) | Schematics of the device |
 | [device-source](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-source) | Source code for the device |
