@@ -7,6 +7,13 @@ let port;
 let reader;
 let writer;
 let isReadLoopRunning = false;
+let waitingForStartAck = false;
+let startRetryCount = 0;
+let startRetryTimer = null;
+
+const START_DELAY_MS = 800;
+const START_RETRY_INTERVAL_MS = 800;
+const START_RETRY_MAX = 5;
 
 function setConnectStatus(message) {
   if (connectStatus) {
@@ -33,10 +40,16 @@ async function connectSerial() {
     port.readable.pipeTo(decoder.writable);
     reader = decoder.readable.getReader();
 
+    try {
+      await port.setSignals({ dataTerminalReady: false, requestToSend: false });
+    } catch (e) {
+      console.log("setSignals not supported or failed", e);
+    }
+
     setConnectStatus("Connected");
     console.log("Connected.");
-    sendCommand("start");
     startReadLoop();
+    scheduleStartSequence();
     return true;
   } catch (e) {
     console.log(e);
@@ -117,6 +130,47 @@ function sendCommand(text, commandOutput = true) {
     appendCommandOutput(text);
   }
   writer.write(`${text}\n`);
+}
+
+function scheduleStartSequence() {
+  if (!writer) {
+    return;
+  }
+
+  waitingForStartAck = true;
+  startRetryCount = 0;
+
+  const trySendStart = () => {
+    if (!writer || !waitingForStartAck) {
+      return;
+    }
+
+    if (startRetryCount >= START_RETRY_MAX) {
+      waitingForStartAck = false;
+      startRetryTimer = null;
+      return;
+    }
+
+    sendCommand("start", false);
+    startRetryCount += 1;
+    startRetryTimer = setTimeout(trySendStart, START_RETRY_INTERVAL_MS);
+  };
+
+  startRetryTimer = setTimeout(trySendStart, START_DELAY_MS);
+}
+
+function handleStartAck(text) {
+  if (!waitingForStartAck || !text) {
+    return;
+  }
+
+  if (String(text).includes("Testing begun")) {
+    waitingForStartAck = false;
+    if (startRetryTimer) {
+      clearTimeout(startRetryTimer);
+      startRetryTimer = null;
+    }
+  }
 }
 
 // ------------------------------------------- Matrix console & control -------------------------------------------
@@ -339,6 +393,7 @@ async function startReadLoop() {
         break;
       }
 
+      handleStartAck(value ?? "");
       appendDeviceOutput(value ?? "");
     } catch (e) {
       console.log(e);
@@ -349,4 +404,3 @@ async function startReadLoop() {
 
   isReadLoopRunning = false;
 }
-
