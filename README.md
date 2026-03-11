@@ -2,7 +2,7 @@
 
 ## Branch for the schematic files of the circuit and device
 
-![KiCad](https://img.shields.io/badge/kicad-%23314CB0.svg?style=for-the-badge&logo=kicad&logoColor=white)
+[ ![KiCad](https://img.shields.io/badge/kicad-%23314CB0.svg?style=for-the-badge&logo=kicad&logoColor=white) ](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/device-schematic/README.md)
 
 <!-- Badeges from https://gprm.itsvg.in and https://github.com/Ileriayo/markdown-badges  -->
 
@@ -22,7 +22,7 @@ This branch holds the KiCad files for the schematic of our circuit. In terms of 
 * V6 - 11.5.25: Revert back to one matrix and increase matrix size with more hardware
 * V7 - 11.5.25: Revisions of V6 with better and more hardware
 * V8 - 11.6.25: KiCad representation of V7
-* V9 - 11.12.25: Seperated V8 setup into hierarchical sheeets for modular setup
+* V9 - 11.12.25: Separated V8 setup into hierarchical sheets for modular setup
 * V10 - 11.14.25: Moved matrix into hierarchical sheet + more revisions
 * V11 - 11.20.25: Refined hierarchical schematics more
 * V12 - 11.27.25: More refinement w/ filtering on the ADCs
