@@ -7,9 +7,9 @@
 <!-- Badeges from https://gprm.itsvg.in and https://github.com/Ileriayo/markdown-badges  -->
 
 ## Socials
-| ![Wix](https://img.shields.io/badge/wix-000?style=for-the-badge&logo=wix&logoColor=white) | https://kcle102.wixsite.com/my-site |
+| ![Wix](https://img.shields.io/badge/wix-000?style=for-the-badge&logo=wix&logoColor=white) | [Website](https://kcle102.wixsite.com/my-site) |
 | :-- | :-- |
-| ![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white) | https://www.instagram.com/lionstride_inventeam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw== |
+| ![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white) | [Instagram](https://www.instagram.com/lionstride_inventeam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==) |
 
 ## Layout
 Source code and other resources are in branches:
