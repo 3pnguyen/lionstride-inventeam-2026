@@ -6,7 +6,7 @@
 
 <!-- Badeges from https://gprm.itsvg.in and https://github.com/Ileriayo/markdown-badges  -->
 
-[Latest images of the prototype](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Prototype%20Schematics/Schematic%20Versions)
+[Latest images of the prototype](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Prototype%20Schematics/Schematic%20Versions/Schematic%20V17)
 
 ## Purpose
 
