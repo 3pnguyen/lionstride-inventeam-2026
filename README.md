@@ -6,6 +6,8 @@
 
 <!-- Badeges from https://gprm.itsvg.in and https://github.com/Ileriayo/markdown-badges  -->
 
+[Latest images of the prototype](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Prototype%20Schematics/Schematic%20Versions)
+
 ## Purpose
 
 This branch holds the KiCad files for the schematic of our circuit. In terms of prototyping, it is for representing the layout and connections. As we go deeper, this branch could also hold PCB files for a finalized version of our prototype.
