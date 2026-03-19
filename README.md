@@ -12,7 +12,7 @@
 
 This branch holds the KiCad files for the schematic of our circuit. In terms of prototyping, it is for representing the layout and connections. As we go deeper, this branch could also hold PCB files for a finalized version of our prototype.
 
-## Prototype changelog:
+## Prototype design changelog:
 
 (Version descriptions have been added since V16 minor 1, so older version descriptions may be inaccurate.)
 
@@ -41,3 +41,8 @@ This branch holds the KiCad files for the schematic of our circuit. In terms of 
 * V16 - 2.22.26: Added RC filters and pull-down resistors between MUX drain pins and OP AMP non-inverting inputs
 	* V16 minor 1 - 3.2.26: Fixed reference designator conflicts and updated file names
 * V17 - 3.3.26: Made universal version of logic schematic and moved reference IC to spare MUX pin
+
+
+## Finalized design chengelog:
+
+* V1 - Initialized and finished the initial PCB design schematic for the Logic schematic. (Two of the prototype Logic schematic + little extra)
