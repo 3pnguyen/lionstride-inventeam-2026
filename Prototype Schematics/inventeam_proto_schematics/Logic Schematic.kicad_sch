@@ -6395,10 +6395,6 @@
 		(at 304.8 177.8)
 		(uuid "f3f73cdd-0801-45dc-9e55-d5e542099b00")
 	)
-	(no_connect
-		(at 83.82 332.74)
-		(uuid "fde6067d-fa08-49e8-bc63-8fea2888b8fa")
-	)
 	(wire
 		(pts
 			(xy 139.7 190.5) (xy 139.7 193.04)
@@ -7861,6 +7857,16 @@
 	)
 	(wire
 		(pts
+			(xy 104.14 332.74) (xy 104.14 339.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78e6c1c2-cb37-49e1-8eb1-2f0a6a9a749b")
+	)
+	(wire
+		(pts
 			(xy 161.29 114.3) (xy 161.29 116.84)
 		)
 		(stroke
@@ -8038,6 +8044,16 @@
 			(type default)
 		)
 		(uuid "86630c9e-d2cc-4542-9b41-c79f1068c3db")
+	)
+	(wire
+		(pts
+			(xy 83.82 332.74) (xy 104.14 332.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "872e3a6d-1a81-47f6-bd6c-3af0fe0a1b73")
 	)
 	(wire
 		(pts
@@ -17897,6 +17913,76 @@
 				)
 				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/cce3bfa4-7555-4887-9571-c1a2b294f16b"
 					(reference "#PWR03030")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 104.14 339.09 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "413009fc-b8c3-4c6d-9bb5-d2d6201ca701")
+		(property "Reference" "#PWR01"
+			(at 104.14 345.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 104.14 344.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 104.14 339.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 104.14 339.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 104.14 339.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a1d003e7-de38-40ae-b933-9970fa346927")
+		)
+		(instances
+			(project ""
+				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/9f4817f9-c513-4659-982a-bb656752ed3c"
+					(reference "#PWR01")
+					(unit 1)
+				)
+				(path "/b2b47a1d-b0e5-4b64-b5c3-0417d2d1887a/cce3bfa4-7555-4887-9571-c1a2b294f16b"
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)

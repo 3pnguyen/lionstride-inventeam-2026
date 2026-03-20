@@ -27,3 +27,4 @@
 * V16 - 2.22.26: Added RC filters and pull-down resistors between MUX drain pins and OP AMP non-inverting inputs
 	* V16 minor 1 - 3.2.26: Fixed reference designator conflicts and updated file names
 * V17 - 3.3.26: Made universal version of logic schematic and moved reference IC to spare MUX pin
+	* V17 minor 1 - 3.19.26 - grounded one of the pins on the header
