@@ -39,3 +39,4 @@ X = (not the main code but related)
 * 3.3.2026 - Seperated pressure and temperature conversion code for more clarity
 * 3.4.2026 - Created new function to fetch reference IC output at its new location on one of the multiplexer's input pins
 * 3.5.2026 - Fixed bug in one of the test commands where only around half of the matrix can be read + fixed other small bugs (mainly in the matrix scanning code for pressure)
+* 3.19.2026 - Change 1M resistor macros in favor of new 1M precision resistors
