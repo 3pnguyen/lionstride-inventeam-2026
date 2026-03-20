@@ -24294,7 +24294,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 432.054 183.134 90)
 			(effects
 				(font
@@ -24500,7 +24500,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 142.494 183.134 90)
 			(effects
 				(font
@@ -27898,7 +27898,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SOD-123F"
 			(at 287.02 255.27 0)
 			(effects
 				(font
@@ -33089,7 +33089,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_DO-201_P15.24mm_Horizontal"
 			(at 76.2 412.75 0)
 			(effects
 				(font
@@ -33711,7 +33711,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_Xinya_XY308-2.54-4P_1x04_P2.54mm_Horizontal"
 			(at 229.87 426.72 0)
 			(effects
 				(font
@@ -36619,7 +36619,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 358.394 183.134 90)
 			(effects
 				(font
@@ -37117,7 +37117,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 68.834 183.134 90)
 			(effects
 				(font
@@ -40134,7 +40134,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_SOD-123F"
 			(at 576.58 255.27 0)
 			(effects
 				(font
