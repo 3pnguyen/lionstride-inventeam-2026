@@ -8,7 +8,7 @@
 
 [Latest images of the prototype](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Prototype%20Schematics/Schematic%20Versions/Schematic%20V17)
 
-[Latest images of the finalized logic schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/PCB%20Final%20Schematic/Schematic%20Versions/Schematic%20V01/V1%20minor%201%20-%203.18)
+[Latest images of the finalized logic schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Logic%20Schematic/Schematic%20Versions/Schematic%20V01/V1%20minor%201%20-%203.18)
 
 ## Purpose
 
