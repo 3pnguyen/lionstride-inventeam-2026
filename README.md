@@ -10,6 +10,8 @@
 
 [Latest images of the finalized logic schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Logic%20Schematic/Schematic%20Versions/Schematic%20V01/V1%20minor%202%20-%203.19)
 
+Latest images of the finalized thermistor schematic
+
 ## Purpose
 
 This branch holds the KiCad files for the schematic of our circuit. In terms of prototyping, it is for representing the layout and connections. As we go deeper, this branch could also hold PCB files for a finalized version of our prototype.
@@ -19,3 +21,5 @@ This branch holds the KiCad files for the schematic of our circuit. In terms of 
 [Changelog for the prototype](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/device-schematic/Prototype%20Schematics/changelog.md)
 
 [Changelog for the finalized logic schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/device-schematic/Finalized%20Logic%20Schematic/changelog.md)
+
+Changelog for the finalized thermistor schematic
