@@ -51,7 +51,13 @@
           "min_clearance": 0.5
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -180,7 +186,11 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
+      "track_widths": [
+        0.0,
+        0.2,
+        0.5
+      ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -207,7 +217,12 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
@@ -625,6 +640,110 @@
     [
       "4f3142e3-7fb4-4601-9ff7-b6e436ad86cb",
       "Root"
+    ],
+    [
+      "19e84cb6-3a68-487d-9cf4-1f92af9fd9c8",
+      "Thermistor Column Cell"
+    ],
+    [
+      "babad684-5834-44a0-9a6d-c65f7e4680b6",
+      "Thermistor Column Cell1"
+    ],
+    [
+      "59dd9bdb-2076-408c-8515-c88066cb78f6",
+      "Thermistor Column Cell2"
+    ],
+    [
+      "ee65e4f3-53fc-436d-975f-1acfa4b399cf",
+      "Thermistor Column Cell3"
+    ],
+    [
+      "eab9fbc8-68d7-42ef-982c-4a2d95019fb3",
+      "Thermistor Column Cell4"
+    ],
+    [
+      "5f62fdbe-902f-4b97-bb5b-ad432b076155",
+      "Thermistor Column Cell6"
+    ],
+    [
+      "c4c8ef48-22a9-4a1c-bc4d-9fda515d7045",
+      "Thermistor Column Cell5"
+    ],
+    [
+      "f0ca6e90-bf64-4133-8532-7f7945982e07",
+      "Thermistor Column Cell7"
+    ],
+    [
+      "e60628cf-4aca-412e-ae28-781ee74dd84b",
+      "Thermistor Column Cell8"
+    ],
+    [
+      "6029eb02-d221-4731-848a-31e51f07209d",
+      "Thermistor Column Cell9"
+    ],
+    [
+      "1b4552dd-3842-4d29-a83a-dd9790d51ef1",
+      "Thermistor Column Cell10"
+    ],
+    [
+      "7a844d44-524d-4b47-9805-775d3ea93810",
+      "Thermistor Column Cell11"
+    ],
+    [
+      "f2e7841a-2929-49dc-9f67-fbd79c5909a9",
+      "Thermistor Column Cell12"
+    ],
+    [
+      "3b7c6af2-7782-4cee-9e7c-0a5108f4dd07",
+      "Thermistor Column Cell13"
+    ],
+    [
+      "a953555c-be8d-4df4-8c17-e79e566ee98e",
+      "Thermistor Column Cell14"
+    ],
+    [
+      "fdfb45e3-05db-4d61-9c37-2be12be3e84e",
+      "Thermistor Column Cell16"
+    ],
+    [
+      "798a96d5-4126-46de-933e-10bd37425596",
+      "Thermistor Column Cell15"
+    ],
+    [
+      "34c6d013-a660-4b7b-bf94-86e3fce561a8",
+      "Thermistor Column Cell17"
+    ],
+    [
+      "f37dad17-87a6-417a-9bb5-f296269a1551",
+      "Thermistor Column Cell18"
+    ],
+    [
+      "7e2f700f-4d82-4385-b5fa-609ecf1078ae",
+      "Thermistor Column Cell19"
+    ],
+    [
+      "6f454347-b162-4c9e-b32b-e8c834d63501",
+      "Thermistor Column Cell20"
+    ],
+    [
+      "006bb390-32aa-4b7c-ad8e-29524a54446c",
+      "Thermistor Column Cell21"
+    ],
+    [
+      "0423a5ab-5a8a-4c70-8573-de27f0b0db43",
+      "Thermistor Column Cell22"
+    ],
+    [
+      "36880328-2870-4453-a410-f0b6554c1757",
+      "Thermistor Column Cell23"
+    ],
+    [
+      "bb76919d-7495-47df-82e4-f97093c7c39e",
+      "Thermistor Column Cell24"
+    ],
+    [
+      "9b4acb1f-5532-4d61-a437-eb53dcec8f53",
+      "Thermistor Column Cell25"
     ]
   ],
   "text_variables": {}
