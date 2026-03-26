@@ -10,7 +10,7 @@
 
 [Latest images of the finalized logic schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Logic%20Schematic/Schematic%20Versions/Schematic%20V01/V1%20minor%202%20-%203.19)
 
-[Latest images of the finalized thermistor schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Thermistor%20Schematic/Schematic%20Versions/Schematic%20V01)
+[Latest images of the finalized thermistor schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Thermistor%20Schematic/Schematic%20Versions/Schematic%20V02)
 
 ## Purpose
 
