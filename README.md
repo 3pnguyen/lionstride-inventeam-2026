@@ -6,11 +6,11 @@
 
 <!-- Badeges from https://gprm.itsvg.in and https://github.com/Ileriayo/markdown-badges  -->
 
-[Latest images of the prototype](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Prototype%20Schematics/Schematic%20Versions/Schematic%20V17/v17.1%20-%203.19.26)
+[Latest images of the prototype (V17.1)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Prototype%20Schematics/Schematic%20Versions/Schematic%20V17/v17.1%20-%203.19.26)
 
-[Latest images of the finalized logic schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Logic%20Schematic/Schematic%20Versions/Schematic%20V01/V1.2%20-%203.19)
+[Latest images of the finalized logic schematic (V1.2)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Logic%20Schematic/Schematic%20Versions/Schematic%20V01/V1.2%20-%203.19)
 
-[Latest images of the finalized thermistor schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Thermistor%20Schematic/Schematic%20Versions/Schematic%20V02)
+[Latest images of the finalized thermistor schematic (V2)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Thermistor%20Schematic/Schematic%20Versions/Schematic%20V02)
 
 <!-- %20 is used as a space -->
 
