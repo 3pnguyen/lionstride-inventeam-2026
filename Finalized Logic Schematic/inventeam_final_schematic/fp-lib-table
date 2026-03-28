@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "X16_GF100_PPTC")(type "KiCad")(uri "${KIPRJMOD}/X16_GF100_PPTC.pretty")(options "")(descr ""))
+)
