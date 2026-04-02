@@ -3,15 +3,20 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include "macros.h"
+#include "matrix.h"
 
 enum MCP_DEVICE {
     MCP1,
-    MCP2
+    MCP2,
+    MCP3,
+    MCP4
 };
 
 void setupColumns();
 
-void activateColumn(int column = -1);
+void deactivateColumns();
+
+void activateColumn(SenseModes type = TEMPERATURE, int column = -1);
 
 // ------------------------- Ai-gen (Alice & Ivette) Debug functions -----------------------------------------
 

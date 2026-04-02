@@ -17,6 +17,8 @@
 #define EXPANDER_CLOCK 5
 #define EXPANDER_C_SELECT_1 12
 #define EXPANDER_C_SELECT_2 13
+#define EXPANDER_C_SELECT_3 16
+#define EXPANDER_C_SELECT_4 17
 
 #define GPIOAB_PINS 8
 
@@ -34,7 +36,7 @@ const uint8_t GPIOAB_HexCodes[8] =
   0x02, // GPA1 / GPB1
   0x01  // GPA0 / GPB0
 };
-int cSelectPins[] = {EXPANDER_C_SELECT_1, EXPANDER_C_SELECT_2};
+int cSelectPins[] = {EXPANDER_C_SELECT_1, EXPANDER_C_SELECT_2, EXPANDER_C_SELECT_3, EXPANDER_C_SELECT_4};
 
 void _cSelect(MCP_DEVICE dev);
 void _cDeselect(MCP_DEVICE dev);
@@ -44,21 +46,35 @@ uint8_t _readRegister(MCP_DEVICE dev, uint8_t reg);
 void setupColumns() {
   pinMode(EXPANDER_C_SELECT_1, OUTPUT);
   pinMode(EXPANDER_C_SELECT_2, OUTPUT);
+  pinMode(EXPANDER_C_SELECT_3, OUTPUT);
+  pinMode(EXPANDER_C_SELECT_4, OUTPUT);
 
   SPI.begin(EXPANDER_CLOCK, EXPANDER_MISO, EXPANDER_MOSI);
 
   _cDeselect(MCP1);
   _cDeselect(MCP2);
+  _cDeselect(MCP3);
+  _cDeselect(MCP4);
 
-  _writeRegister(MCP1, IODIRA, 0x00);
+  _writeRegister(MCP1, IODIRA, 0x00); // set all as input
   _writeRegister(MCP1, IODIRB, 0x00);
-  _writeRegister(MCP1, OLATA, 0x00);
+  _writeRegister(MCP1, OLATA, 0x00); // initialize all as low
   _writeRegister(MCP1, OLATB, 0x00);
 
   _writeRegister(MCP2, IODIRA, 0x00);
   _writeRegister(MCP2, IODIRB, 0x00);
   _writeRegister(MCP2, OLATA, 0x00);
   _writeRegister(MCP2, OLATB, 0x00);
+
+  _writeRegister(MCP3, IODIRA, 0x00);
+  _writeRegister(MCP3, IODIRB, 0x00);
+  _writeRegister(MCP3, OLATA, 0x00);
+  _writeRegister(MCP3, OLATB, 0x00);
+
+  _writeRegister(MCP4, IODIRA, 0x00);
+  _writeRegister(MCP4, IODIRB, 0x00);
+  _writeRegister(MCP4, OLATA, 0x00);
+  _writeRegister(MCP4, OLATB, 0x00);
 }
 
 void _cSelect(MCP_DEVICE dev) { digitalWrite(cSelectPins[dev], LOW); }
@@ -88,19 +104,30 @@ uint8_t _readRegister(MCP_DEVICE dev, uint8_t reg) {
   return val;
 }
 
-void activateColumn(int column) {
-  _writeRegister(MCP1, OLATA, 0x00);
+void deactivateColumns() {
+  _writeRegister(MCP1, OLATA, 0x00); // disable all columns 
   _writeRegister(MCP1, OLATB, 0x00);
   _writeRegister(MCP2, OLATA, 0x00);
   _writeRegister(MCP2, OLATB, 0x00);
+  _writeRegister(MCP3, OLATA, 0x00);
+  _writeRegister(MCP3, OLATB, 0x00);
+  _writeRegister(MCP4, OLATA, 0x00);
+  _writeRegister(MCP4, OLATB, 0x00);
+}
+
+void activateColumn(SenseModes type, int column) {
+  deactivateColumns();
+
+  MCP_DEVICE firstColumns = (type == TEMPERATURE) ? MCP1 : MCP3;
+  MCP_DEVICE secondColumns = (type == TEMPERATURE) ? MCP2 : MCP4;
 
   // exception cases
-  if (column == 20) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[2]); return; }
-  else if (column == 21) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[3]); return; }
-  else if (column == 22) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[4]); return; }
-  else if (column == 23) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[5]); return; }
-  else if (column == 24) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[6]); return; }
-  else if (column == 25) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[7]); return; }
+  if (column == 20) { _writeRegister(secondColumns, OLATB, GPIOAB_HexCodes[2]); return; }
+  else if (column == 21) { _writeRegister(secondColumns, OLATB, GPIOAB_HexCodes[3]); return; }
+  else if (column == 22) { _writeRegister(secondColumns, OLATB, GPIOAB_HexCodes[4]); return; }
+  else if (column == 23) { _writeRegister(secondColumns, OLATB, GPIOAB_HexCodes[5]); return; }
+  else if (column == 24) { _writeRegister(secondColumns, OLATB, GPIOAB_HexCodes[6]); return; }
+  else if (column == 25) { _writeRegister(secondColumns, OLATB, GPIOAB_HexCodes[7]); return; }
 
   if (column < 0) return;
 
@@ -108,13 +135,13 @@ void activateColumn(int column) {
   
   if (column < EXPANDER_PINS) {
     int index = column;
-    if (column < GPIOAB_PINS) _writeRegister(MCP1, OLATA, GPIOAB_HexCodes[index]);
-    else _writeRegister(MCP1, OLATB, GPIOAB_HexCodes[index - GPIOAB_PINS]);
+    if (column < GPIOAB_PINS) _writeRegister(firstColumns, OLATA, GPIOAB_HexCodes[index]);
+    else _writeRegister(firstColumns, OLATB, GPIOAB_HexCodes[index - GPIOAB_PINS]);
 
   } else {
     int index = column - EXPANDER_PINS;
-    if (index < GPIOAB_PINS) _writeRegister(MCP2, OLATA, GPIOAB_HexCodes[index]);
-    else _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[index - GPIOAB_PINS]);
+    if (index < GPIOAB_PINS) _writeRegister(secondColumns, OLATA, GPIOAB_HexCodes[index]);
+    else _writeRegister(secondColumns, OLATB, GPIOAB_HexCodes[index - GPIOAB_PINS]);
 
   }
 }
