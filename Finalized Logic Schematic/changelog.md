@@ -6,3 +6,4 @@
 	* V1.3 - 3.27.26: Change header type on schematic, change 2A PPTC to 1A, added extra 0.1uf decoupler to USB C output, and finished assigning footprints
 	* V1.4 - 3.28.26: Add 1x02 male header to make powering circuit more flexible + added missing decoupling for LM66100 ICs
 * V2 - 3.31.2026: Made several optimizations and improvements including: Reording decouplers relative to IC(s), reording PPTC + TVS + decouplers relative to MCUs/sources, removing extra test points, moving the ADC RC filter next to the ADC for better filtering, and using hierarchal sheets again for the matrices logic
+* V3 - 4.1.2026: Simplified schematic by removing USB C circuit, one ESP, and battery circuit. One ESP will be designated to drive two matrices
