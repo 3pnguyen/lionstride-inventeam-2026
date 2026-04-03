@@ -27,13 +27,9 @@ static int inputColumn;
 * test adc: Tests ADC outputs
   - User input column and row
 
-* debug mcp1: Tests expander 1
+* debug mcps: Tests all expanders
 
-* debug mcp2: Tests expander 2
-
-* walk mcp1: Tests expander 1
-
-* walk mcp2: Tests expander 2
+* walk mcps: Tests all expanders
 
 * debug rows: Tests both multiplexers
 
@@ -86,8 +82,8 @@ static inline void test() {
         Serial.println("Invalid input! Disabling columns and rows.");
         inputColumn = -1;
         inputRow = -1;
-        activateColumn();
-        activateRow();
+        deactivateColumns();
+        deactivateRows();
         return false;
       }
 
@@ -105,7 +101,7 @@ static inline void test() {
 
       } else if (input.equals("pressure")) { // to test matrix, sensor, and filter
         Serial.println("Pressure matrix:");
-        scanMatrix(PRESSURE_PRIMARY, READ_BY_ROWS);
+        scanMatrix(PRESSURE, READ_BY_ROWS);
         Serial.println(matrixBuffer);
 
       } else if (input.equals("battery")) { // to test battery
@@ -118,8 +114,6 @@ static inline void test() {
             scanMatrixIndividual(
               inputColumn,
               inputRow,
-              0, //ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES),
-              -1, //ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES),
               TEMPERATURE,
               true
             )
@@ -134,8 +128,6 @@ static inline void test() {
             scanMatrixIndividual(
               inputColumn,
               inputRow,
-              0, //ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES),
-              -1, //ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES),
               PRESSURE,
               true
             )
@@ -145,34 +137,35 @@ static inline void test() {
       } else if (input.equals("test adc")) { // to test expander and multiplexer
         if (!getMatrixInput()) return;
         
-        int code_ref = getRefOutput(false);
+        int codeRefTemperature = getRefOutput(TEMPERATURE, false);
+        int codeRefPressure = getRefOutput(PRESSURE, false);
 
-        activateColumn(inputColumn);
-        activateRow(inputRow);
+        activateColumn(TEMPERATURE, inputColumn);
+        activateRow(TEMPERATURE, inputRow);
+        activateColumn(PRESSURE, inputColumn);
+        activateRow(PRESSURE, inputRow);
 
         Serial.println(
           "GND ADC: " +
           String(analogRead(ADC_GND_PIN)) +
-          ", REF ADC: " +
-          String(code_ref) +
-          ", Sensor ADC: " +
-          String(analogRead((inputRow < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2))
+          ", REF (TEMPERATURE) ADC: " +
+          String(codeRefTemperature) +
+          ", REF (PRESSURE) ADC: " +
+          String(codeRefPressure) +
+          ", Temperature ADC reading: " +
+          String(analogRead((inputRow < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2)) + 
+          ", Pressure ADC reading: " +
+          String(analogRead((inputRow < MUX_PINS) ? MATRIX_ADC_3 : MATRIX_ADC_4))
         );
 
-        activateColumn();
-        activateRow();
+        deactivateColumns();
+        deactivateRows();
 
-      } else if (input.equals("debug mcp1")) { // to test expander
-        debugMCPConnection(MCP1);
+      } else if (input.equals("debug mcps")) { // to test expander 
+        debugMCPConnections();
 
-      } else if (input.equals("debug mcp2")) { // to test expander
-        debugMCPConnection(MCP2);
-
-      } else if (input.equals("walk mcp1")) { // to test expander
-        debugMCPWalkOutputs(MCP1);
-
-      } else if (input.equals("walk mcp2")) { // to test expander
-        debugMCPWalkOutputs(MCP2);
+      } else if (input.equals("walk mcps")) { // to test expander 
+        debugMCPWalkAllOutputs();
 
       } else if (input.equals("debug rows")) { // to test multiplexer
         debugTMUXControlLines();
@@ -185,14 +178,16 @@ static inline void test() {
         
       } else if (input.equals("i matrix")) { // to test matrix
         if (!getMatrixInput()) return;
-        activateColumn(inputColumn);
-        activateRow(inputRow);
+        activateColumn(TEMPERATURE, inputColumn);
+        activateRow(TEMPERATURE, inputRow);
+        activateColumn(PRESSURE, inputColumn);
+        activateRow(PRESSURE, inputRow);
 
-        Serial.println("Individual column and row activated.");
+        Serial.println("Individual column and row activated on both matrices.");
 
       } else if (input.equals("d matrix")) { // to test matrix
-        activateColumn();
-        activateRow();
+        deactivateColumns();
+        deactivateRows();
         
         Serial.println("Matrix deactivated.");
 

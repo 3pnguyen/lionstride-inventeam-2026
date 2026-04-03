@@ -7,6 +7,8 @@
 #define MUX_A2_PIN 15
 #define MUX_EN_1 33
 #define MUX_EN_2 27
+#define MUX_EN_3 23
+#define MUX_EN_4 22
 
 //-------------------------------------------------------------------------------------------------------
 
@@ -18,9 +20,13 @@ void setupRows() {
   pinMode(MUX_A2_PIN, OUTPUT);
   pinMode(MUX_EN_1, OUTPUT);
   pinMode(MUX_EN_2, OUTPUT);
+  pinMode(MUX_EN_3, OUTPUT);
+  pinMode(MUX_EN_4, OUTPUT);
 
   writeEnablePin(MUX_EN_1, false);
   writeEnablePin(MUX_EN_2, false);
+  writeEnablePin(MUX_EN_3, false);
+  writeEnablePin(MUX_EN_4, false);
 
   digitalWrite(MUX_A0_PIN, LOW);
   digitalWrite(MUX_A1_PIN, LOW);
@@ -39,27 +45,58 @@ void _muxPinSelect(unsigned int enable_pin, int select_pin) {
   }
 }
 
-void activateRow(int row) {
+void deactivateRows() {
   _muxPinSelect(MUX_EN_1);
   _muxPinSelect(MUX_EN_2);
+  _muxPinSelect(MUX_EN_3);
+  _muxPinSelect(MUX_EN_4);
+}
+
+void deactivateRows(SenseModes type) {
+  if (type == TEMPERATURE) {
+    _muxPinSelect(MUX_EN_1);
+    _muxPinSelect(MUX_EN_2);
+  } else {
+    _muxPinSelect(MUX_EN_3);
+    _muxPinSelect(MUX_EN_4);
+  }
+}
+
+void activateRow(SenseModes type, int row) {
+  deactivateRows(type);
 
   if (row < 0) return;
 
   if (row >= MATRIX_ROWS) return;
 
-  if (row < MUX_PINS) _muxPinSelect(MUX_EN_1, row);
-  else _muxPinSelect(MUX_EN_2, row - MUX_PINS);
+  if (type == TEMPERATURE) {
+    if (row < MUX_PINS) _muxPinSelect(MUX_EN_1, row);
+    else _muxPinSelect(MUX_EN_2, row - MUX_PINS);
+  } else {
+    if (row < MUX_PINS) _muxPinSelect(MUX_EN_3, row);
+    else _muxPinSelect(MUX_EN_4, row - MUX_PINS);
+  }
 }
 
-int getRefOutput(bool filter) {
-  _muxPinSelect(MUX_EN_1);
-  _muxPinSelect(MUX_EN_2, 7);
+int getRefOutput(SenseModes type, bool filter) {
+  if (type == TEMPERATURE) {
+    _muxPinSelect(MUX_EN_1);
+    _muxPinSelect(MUX_EN_2, 7);
+  } else {
+    _muxPinSelect(MUX_EN_3);
+    _muxPinSelect(MUX_EN_4, 7);
+  }
 
   delayMicroseconds(MATRIX_SWITCH_TIME); 
 
   int code_ref;
-  if (filter) code_ref = ADCMeanFilter(MATRIX_ADC_2, ADC_SAMPLES);
-  else code_ref = analogRead(MATRIX_ADC_2);
+  if (type == TEMPERATURE) {
+    if (filter) code_ref = ADCMeanFilter(MATRIX_ADC_2, ADC_SAMPLES);
+    else code_ref = analogRead(MATRIX_ADC_2);
+  } else {
+    if (filter) code_ref = ADCMeanFilter(MATRIX_ADC_4, ADC_SAMPLES);
+    else code_ref = analogRead(MATRIX_ADC_4);
+  }
   return code_ref;
 }
 
@@ -68,9 +105,10 @@ int getRefOutput(bool filter) {
 void debugTMUXControlLines(Stream& out, uint16_t delayMs) {
   out.println("---- TMUX1208 control-line test ----");
   out.println("row, EN1, EN2, A2, A1, A0");
+  out.println("Temperature rows: ");
 
   for (int row = -1; row < MATRIX_ROWS; row++) {
-    activateRow(row);
+    activateRow(TEMPERATURE, row);
     delay(delayMs);
 
     out.print(row); out.print(", ");
@@ -81,5 +119,19 @@ void debugTMUXControlLines(Stream& out, uint16_t delayMs) {
     out.println(digitalRead(MUX_A0_PIN));
   }
 
-  activateRow(-1);
+  out.println("Pressure rows: ");
+
+  for (int row = -1; row < MATRIX_ROWS; row++) {
+    activateRow(PRESSURE, row);
+    delay(delayMs);
+
+    out.print(row); out.print(", ");
+    out.print(digitalRead(MUX_EN_3)); out.print(", ");
+    out.print(digitalRead(MUX_EN_4)); out.print(", ");
+    out.print(digitalRead(MUX_A2_PIN)); out.print(", ");
+    out.print(digitalRead(MUX_A1_PIN)); out.print(", ");
+    out.println(digitalRead(MUX_A0_PIN));
+  }
+
+  deactivateRows();
 }

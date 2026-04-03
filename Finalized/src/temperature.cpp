@@ -178,7 +178,7 @@ float readThermistorTemperature(
 
 void debugSensorMath(int adcSampleValue, Stream& out) {
     int adcGnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
-    int adcRef = getRefOutput();
+    int adcRef = getRefOutput(TEMPERATURE);
 
     // Path 1: "test math" expects raw 12-bit ADC conversion (no calibration offsets).
     float rawVoltage = _adcCodeToVoltage(adcSampleValue, VCC); 

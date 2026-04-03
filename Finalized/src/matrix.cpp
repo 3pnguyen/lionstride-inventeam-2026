@@ -10,8 +10,8 @@
 void _formatMatrixData(SenseModes mode, IndexingModes readMatrixBy);
 
 IntervalTimer pressureTimeout(PRESSURE_TIMEOUT);
-Debounce<int> chosenColumn(-1);
-Debounce<int> chosenRow(-1);
+//Debounce<int> chosenColumn(-1);
+//Debounce<int> chosenRow(-1);
 
 char matrixBuffer[MATRIX_DATA_LENGTH];
 float matrixData[MATRIX_ROWS][MATRIX_COLUMNS]; 
@@ -25,116 +25,80 @@ void setupMatrix() {
 }
 
 void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
-  if (mode == TEMPERATURE) {
-    for (int column = 0; column < MATRIX_COLUMNS; column++) {
-      activateColumn(column);
+  for (int column = 0; column < MATRIX_COLUMNS; column++) {
+    activateColumn(mode, column);
+    delayMicroseconds(MATRIX_SWITCH_TIME);
+
+    //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
+    //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
+
+    for (int row = 0; row < MATRIX_ROWS; row++) {
+      activateRow(mode, row);
       delayMicroseconds(MATRIX_SWITCH_TIME);
 
-      //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
-      //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
-
-      for (int row = 0; row < MATRIX_ROWS; row++) {
-        activateRow(row);
-        delayMicroseconds(MATRIX_SWITCH_TIME);
-
-        int code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
-        float data = readThermistorTemperature(code_sensor, (row < MUX_PINS) ? PULL_DOWN_R1 : PULL_DOWN_R2);
-
-        matrixData[row][column] = data;
+      int code_sensor;
+      float data;
+      if (mode == TEMPERATURE) {
+        code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
+        data = readThermistorTemperature(code_sensor, PULL_DOWN_R);
+      } else {
+        code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_3 : MATRIX_ADC_4, ADC_SAMPLES);
+        data = readFSRNormalizedFromCodes(code_sensor);
       }
+
+      matrixData[row][column] = data;
     }
-
-    activateColumn();
-    activateRow();
-
-  } else if (mode == PRESSURE) {
-    instructionBuffer[0] = '\0';
-    pressureTimeout.reset();
-
-    for (int column = 0; column < MATRIX_COLUMNS; column++) {
-      //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
-      //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
-
-      for (int row = 0; row < MATRIX_ROWS; row++) {
-        if (pressureTimeout.isReady()) {
-          matrixBuffer[0] = '\0';
-          snprintf(matrixBuffer, sizeof(matrixBuffer), "timeout");
-          return;
-        }
-
-        snprintf(
-          instructionBuffer, 
-          sizeof(instructionBuffer), 
-          "scan matrix individual,%d,%d,%d,%d,p,%s",
-          column,
-          row,
-          0,
-          -1,
-          (column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1) ? "true" : "false"
-        );
-
-        sendMessage(instructionBuffer);
-
-        char cellBuffer[32];
-        cellBuffer[0] = '\0';
-        if (!receiveMessagesPrimary(cellBuffer, sizeof(cellBuffer))) {
-          matrixData[row][column] = 0.0;
-        } else {
-          float data = atof(cellBuffer);
-          matrixData[row][column] = data;
-        }
-      }
-    }
-  } else if (mode == PRESSURE_PRIMARY) {
-    for (int column = 0; column < MATRIX_COLUMNS; column++) {
-      activateColumn(column);
-      delayMicroseconds(MATRIX_SWITCH_TIME);
-
-      //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
-      //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
-
-      for (int row = 0; row < MATRIX_ROWS; row++) {
-        activateRow(row);
-        delayMicroseconds(MATRIX_SWITCH_TIME);
-
-        int code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
-        float data = readFSRNormalizedFromCodes(code_sensor);
-
-        matrixData[row][column] = data;
-      }
-    }
-
-    activateColumn();
-    activateRow();
   }
+
+  deactivateColumns();
+  deactivateRows();
 
   _formatMatrixData(mode, readMatrixBy);
 }
 
-float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, SenseModes mode, bool disable) {
-  activateColumn(column);
-  if (chosenColumn.hasChanged(column)) delayMicroseconds(MATRIX_SWITCH_TIME);
+float scanMatrixIndividual(int column, int row, SenseModes mode, bool disable) {
+  activateColumn(mode, column);
+  delayMicroseconds(MATRIX_SWITCH_TIME);
 
-  activateRow(row);
-  if (chosenRow.hasChanged(row)) delayMicroseconds(MATRIX_SWITCH_TIME);
+  activateRow(mode, row);
+  delayMicroseconds(MATRIX_SWITCH_TIME);
 
-  int code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
+  int code_sensor;
   float data;
-  if (code_ref >= 0) {
-    if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, code_gnd, code_ref, (row < MUX_PINS) ? PULL_DOWN_R1 : PULL_DOWN_R2);
-    else data = readFSRNormalizedFromCodes(code_sensor, code_gnd, code_ref);
-  } else {
-    if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, (row < MUX_PINS) ? PULL_DOWN_R1 : PULL_DOWN_R2);
-    else data = readFSRNormalizedFromCodes(code_sensor);
-  }
+
+  if (mode == TEMPERATURE) code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
+  else code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_3 : MATRIX_ADC_4, ADC_SAMPLES);
+
+  if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, PULL_DOWN_R);
+  else data = readFSRNormalizedFromCodes(code_sensor);
 
   if(disable) {
-    activateColumn();
-    activateRow();
-    chosenColumn.firstValue = -1;
-    chosenRow.firstValue = -1;
-    chosenColumn.secondValue = -1;
-    chosenRow.secondValue = -1;
+    deactivateColumns();
+    deactivateRows();
+  }
+
+  return data;
+}
+
+float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, SenseModes mode, bool disable) {
+  activateColumn(mode, column);
+  delayMicroseconds(MATRIX_SWITCH_TIME);
+
+  activateRow(mode, row);
+  delayMicroseconds(MATRIX_SWITCH_TIME);
+
+  int code_sensor;
+  float data;
+
+  if (mode == TEMPERATURE) code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
+  else code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_3 : MATRIX_ADC_4, ADC_SAMPLES);
+
+  if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, code_gnd, code_ref, PULL_DOWN_R);
+  else data = readFSRNormalizedFromCodes(code_sensor, code_gnd, code_ref);
+
+  if(disable) {
+    deactivateColumns();
+    deactivateRows();
   }
 
   return data;

@@ -115,8 +115,22 @@ void deactivateColumns() {
   _writeRegister(MCP4, OLATB, 0x00);
 }
 
+void deactivateColumns(SenseModes type) {
+  if (type == TEMPERATURE) {
+  _writeRegister(MCP1, OLATA, 0x00);
+  _writeRegister(MCP1, OLATB, 0x00);
+  _writeRegister(MCP2, OLATA, 0x00);
+  _writeRegister(MCP2, OLATB, 0x00);
+  } else {
+  _writeRegister(MCP3, OLATA, 0x00);
+  _writeRegister(MCP3, OLATB, 0x00);
+  _writeRegister(MCP4, OLATA, 0x00);
+  _writeRegister(MCP4, OLATB, 0x00);
+  }
+}
+
 void activateColumn(SenseModes type, int column) {
-  deactivateColumns();
+  deactivateColumns(type);
 
   MCP_DEVICE firstColumns = (type == TEMPERATURE) ? MCP1 : MCP3;
   MCP_DEVICE secondColumns = (type == TEMPERATURE) ? MCP2 : MCP4;
@@ -187,6 +201,15 @@ bool debugMCPConnection(MCP_DEVICE dev, Stream& out) {
   return ok;
 }
 
+bool debugMCPConnections(Stream& out) {
+  bool ok = true;
+  ok &= debugMCPConnection(MCP1, out);
+  ok &= debugMCPConnection(MCP2, out);
+  ok &= debugMCPConnection(MCP3, out);
+  ok &= debugMCPConnection(MCP4, out);
+  return ok;
+}
+
 void debugMCPWalkOutputs(MCP_DEVICE dev, Stream& out, uint16_t delayMs) {
   _writeRegister(dev, IODIRA, 0x00);
   _writeRegister(dev, IODIRB, 0x00);
@@ -209,4 +232,15 @@ void debugMCPWalkOutputs(MCP_DEVICE dev, Stream& out, uint16_t delayMs) {
 
   _writeRegister(dev, OLATA, 0x00);
   _writeRegister(dev, OLATB, 0x00);
+}
+
+void debugMCPWalkAllOutputs(Stream& out, uint16_t delayMs) {
+  debugMCPWalkOutputs(MCP1, out, delayMs);
+  Serial.println();
+  debugMCPWalkOutputs(MCP2, out, delayMs);
+  Serial.println();
+  debugMCPWalkOutputs(MCP3, out, delayMs);
+  Serial.println();
+  debugMCPWalkOutputs(MCP4, out, delayMs);
+  Serial.println();
 }

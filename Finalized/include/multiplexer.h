@@ -3,6 +3,7 @@
 #include <Arduino.h>
 #include "macros.h"
 #include "filter.h"
+#include "matrix.h"
 
 static inline void writeEnablePin(unsigned int enPin, bool enable) {
 #if MUX_ENABLE_ACTIVE_LOW
@@ -14,9 +15,13 @@ static inline void writeEnablePin(unsigned int enPin, bool enable) {
 
 void setupRows();
 
-void activateRow(int row = -1);
+void deactivateRows();
 
-int getRefOutput(bool filter = true); // new function (as of 3/4) to get the output from the reference IC
+void deactivateRows(SenseModes type); // for deactivating rows for a specific matrix
+
+void activateRow(SenseModes type = TEMPERATURE, int row = -1);
+
+int getRefOutput(SenseModes type, bool filter = true); // new function (as of 3/4) to get the output from the reference IC
 
 // ------------------------- Ai-gen (Alice & Ivette) Debug functions -----------------------------------------
 
