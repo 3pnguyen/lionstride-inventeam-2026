@@ -5,7 +5,7 @@
 #include "matrix.h"
 #include "battery.h"
 #include "filter.h"
-#include "macros.h"
+#include "global.h"
 
 enum EspModes { 
     PRIMARY,

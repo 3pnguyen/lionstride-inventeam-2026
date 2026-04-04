@@ -2,9 +2,8 @@
 
 #include <Arduino.h>
 #include "bluetooth.h"
-#include "serial.h"
 #include "matrix.h"
-#include "macros.h" 
+#include "global.h" 
 
 static String input;
 static int inputRow;

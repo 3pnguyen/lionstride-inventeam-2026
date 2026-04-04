@@ -1,21 +1,14 @@
 #include <Arduino.h>
 #include "bluetooth.h"
-#include "serial.h"
 #include "matrix.h"
 #include "test.h"
-#include "macros.h" //optimization
-
-EspModes mode;
+#include "global.h" //optimization
 
 void setup() {
   setupMatrix();
 
   #ifndef TEST
-    pinMode(DISCOVER_PIN, INPUT_PULLUP);
-    mode = discoverMode();
-
-    if(mode == PRIMARY) setupBluetooth();
-    setupSerialCommunication();
+    setupBluetooth();
   #else
     setupTest();
   #endif
@@ -23,7 +16,7 @@ void setup() {
 
 void loop() {
   #ifndef TEST
-    ((mode == PRIMARY) ? handleBluetoothCommands : receiveMessagesSecondary)();
+    handleBluetoothCommands();
   #else
     test();
   #endif

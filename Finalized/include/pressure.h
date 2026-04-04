@@ -2,7 +2,7 @@
 
 #include <Arduino.h>
 #include "filter.h"
-#include "macros.h"
+#include "global.h"
 
 float readFSRNormalizedFromCodes(
     int adc_code_sensor,

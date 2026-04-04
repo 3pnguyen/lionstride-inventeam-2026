@@ -25,8 +25,7 @@ enum MCP_DEVICE {
 
 enum SenseModes {
     TEMPERATURE,
-    PRESSURE,
-    PRESSURE_PRIMARY
+    PRESSURE
 };
 
 enum IndexingModes {

@@ -41,3 +41,5 @@ X = (not the main code but related)
 * 3.5.2026 - Fixed bug in one of the test commands where only around half of the matrix can be read + fixed other small bugs (mainly in the matrix scanning code for pressure)
 * 3.19.2026 - Change 1M resistor macros in favor of new 1M precision resistors
 * 4.1.2026 - Created alternative version to original code for V3 of the Logic schematic (uses one ESP for two matrices)
+* 4.2.2026 - Modified most of the code for alternative version
+* 4.3.2026 - Minor work on alternative version

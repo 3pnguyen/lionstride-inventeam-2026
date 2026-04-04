@@ -4,9 +4,8 @@
 #include "temperature.h"
 #include "expander.h"
 #include "multiplexer.h"
-#include "serial.h"
 #include "filter.h"
-#include "macros.h"
+#include "global.h"
 #include "pressure.h"
 
 extern char matrixBuffer[MATRIX_DATA_LENGTH];

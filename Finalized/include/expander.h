@@ -2,8 +2,7 @@
 
 #include <Arduino.h>
 #include <SPI.h>
-#include "macros.h"
-#include "matrix.h"
+#include "global.h"
 
 void setupColumns();
 

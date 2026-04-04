@@ -1,9 +1,8 @@
 #pragma once
 
 #include <Arduino.h>
-#include "macros.h"
+#include "global.h"
 #include "filter.h"
-#include "matrix.h"
 
 static inline void writeEnablePin(unsigned int enPin, bool enable) {
 #if MUX_ENABLE_ACTIVE_LOW

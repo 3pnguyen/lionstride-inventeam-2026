@@ -9,7 +9,7 @@
 
 void _formatMatrixData(SenseModes mode, IndexingModes readMatrixBy);
 
-IntervalTimer pressureTimeout(PRESSURE_TIMEOUT);
+//IntervalTimer pressureTimeout(PRESSURE_TIMEOUT);
 //Debounce<int> chosenColumn(-1);
 //Debounce<int> chosenRow(-1);
 
