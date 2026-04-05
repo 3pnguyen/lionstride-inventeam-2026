@@ -7,6 +7,19 @@
 <!-- Badeges from https://gprm.itsvg.in and https://github.com/Ileriayo/markdown-badges  -->
 <!-- All badges link to the README: https://github.com/3pnguyen/lionstride-inventeam-2026/blob/main/README.md -->
 
+<div align="center">
+    <table>
+        <tr>
+            <td><img src="display-images/app.png" width="350" /></td>
+            <td><img src="display-images/device-pcb.png" width="350" /></td>
+        </tr>
+        <tr>
+            <td><img src="display-images/website-in-use.png" width="350" /></td>
+            <td><img src="display-images/device-prototype-schematic.png" width="350" /></td>
+        </tr>
+    </table>
+</div>
+
 ## Socials
 [![Wix](https://img.shields.io/badge/wix-000?style=for-the-badge&logo=wix&logoColor=white)](https://kcle102.wixsite.com/my-site) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/lionstride_inventeam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
 
