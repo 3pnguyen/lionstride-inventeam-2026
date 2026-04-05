@@ -10,12 +10,12 @@
 <div align="center">
     <table>
         <tr>
-            <td><img src="display-images/app.png" width="350" /></td>
-            <td><img src="display-images/device-pcb.png" width="350" /></td>
+            <td><img src="display-images/app.png" width="450" /></td>
+            <td><img src="display-images/device-pcb.png" width="450" /></td>
         </tr>
         <tr>
-            <td><img src="display-images/website-in-use.png" width="350" /></td>
-            <td><img src="display-images/device-prototype-schematic.png" width="350" /></td>
+            <td><img src="display-images/website-in-use.png" width="450" /></td>
+            <td><img src="display-images/device-prototype-schematic.png" width="450" /></td>
         </tr>
     </table>
 </div>
