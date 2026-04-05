@@ -1,21 +1,9 @@
 #include "matrix.h"
 
-//-------------------------------------- Change these as neccesary --------------------------------------
-
-#define INSTRUCTIONS_DATA_LENGTH 100 // also a lot of extra space
-#define PRESSURE_TIMEOUT 10000 // will clear the buffer completely after this time
-
-//-------------------------------------------------------------------------------------------------------
-
 void _formatMatrixData(SenseModes mode, IndexingModes readMatrixBy);
-
-//IntervalTimer pressureTimeout(PRESSURE_TIMEOUT);
-//Debounce<int> chosenColumn(-1);
-//Debounce<int> chosenRow(-1);
 
 char matrixBuffer[MATRIX_DATA_LENGTH];
 float matrixData[MATRIX_ROWS][MATRIX_COLUMNS]; 
-char instructionBuffer[INSTRUCTIONS_DATA_LENGTH];
 
 void setupMatrix() {
   pinMode(ADC_GND_PIN, INPUT);

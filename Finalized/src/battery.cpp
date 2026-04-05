@@ -9,12 +9,10 @@
 #define VREF 3.3f
 
 #define BAT_VD_PIN A13 //internal analog pin for the internal voltage divider (for HUZZAH32)
-#define IND_LED_PIN 13 //chosen pin for an external LED (if the pin is changed, make sure it has PWM)
 
 //-------------------------------------------------------------------------------------------------------
 
 int _batteryPercent();
-void _indicateBatteryLED(int percent);
 
 int _batteryPercent() { 
   pinMode(BAT_VD_PIN, INPUT);
@@ -38,16 +36,9 @@ int _batteryPercent() {
   return 0;
 }
 
-void _indicateBatteryLED(int percent) {
-  pinMode(IND_LED_PIN, OUTPUT);
-  analogWrite(IND_LED_PIN, (int) ((percent / 100.0f) * 255.0f));
-}
-
-int battery(bool print_serial) {
+int battery(bool print_serial) { // wrapper function that adds serial printing
   int percent = _batteryPercent();
 
-  //_indicateBatteryLED(percent);
-  
   if (print_serial && Serial) Serial.println("Battery percentage: " + String(percent) + "%");
   return percent;
 }

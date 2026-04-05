@@ -43,9 +43,6 @@ enum IndexingModes {
 
 #define PULL_DOWN_R 1.0e+6f // represents all 4 pull-down resistors
 
-// ------------------------------------------------------- Serial -------------------------------------------------------
-#define DISCOVER_PIN 21 
-
 // ------------------------------------------------------- Pressure & Temperature -------------------------------------------------------
 #define VCC 3.3f
 #define VREF_IC 2.36681318681f //should be 2.5V
