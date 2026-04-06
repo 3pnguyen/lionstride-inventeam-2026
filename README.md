@@ -10,6 +10,10 @@
     <table>
         <tr>
             <td><img src="https://github.com/3pnguyen/lionstride-inventeam-2026/blob/main/display-images/website-empty.png" width="450" /></td>
+            <td><img src="https://github.com/3pnguyen/lionstride-inventeam-2026/blob/main/display-images/website-empty-dark.png" width="450" /></td>
+        </tr>
+        <tr>
+            <td><img src="https://github.com/3pnguyen/lionstride-inventeam-2026/blob/main/display-images/websirte-in-use-dark.png" width="450" /></td>
             <td><img src="https://github.com/3pnguyen/lionstride-inventeam-2026/blob/main/display-images/website-in-use.png" width="450" /></td>
         </tr>
     </table>
