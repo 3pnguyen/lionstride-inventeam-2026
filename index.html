@@ -26,9 +26,9 @@
                 <input type="number" id="columnInput">
                 <button id="submit">Submit</button>
             </div>
-            <p>(For prototype board) -> 1st IO Expander up here</p>
+            <p>1st IO Expander up here</p>
             <div id="matrix-console"></div>
-            <p>(For prototype board) -> 2nd Multiplexer down here</p>
+            <p>2nd Multiplexer down here</p>
         </div>
 
         <div id="command-controls">
@@ -64,6 +64,19 @@
             <p id="about-text">
                 This is a simple UI to help with debugging the matrix. It is totally possible to run debugging right inside the serial monitor, but the UI makes it possible for our teamates to manage our circuit easier.
             </p>
+
+            <h1>Settings</h1>
+            <p>Dark Mode</p>
+            <label class="switch">
+                <input type="checkbox" id="dark-mode-toggle">
+                <span class="slider round"></span>
+            </label>
+
+            <p>Single MCU design (for PCB board)</p>
+            <label class="switch">
+                <input type="checkbox" id="single-mcu-toggle">
+                <span class="slider round"></span>
+            </label>
         </div>
     </div>
 

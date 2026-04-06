@@ -27,3 +27,4 @@ This code is almost like the website version of the app, but this frontend code 
 * 4.5.2026 - Quality of life updates
     * Made improvements to the Javascript by seperating main.js into seperate files (making the website something I actually want to code)
     * Now hosts this website through GitHub Pages
+    * Settings panel w/ dark mode & ability to test both the prototype board and PCB board
