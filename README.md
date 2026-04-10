@@ -25,7 +25,7 @@
 
 ## Purpose
 
-This branch holds the KiCad files for the schematic of our circuit. In terms of prototyping, it is for representing the layout and connections. As we go deeper, this branch could also hold PCB files for a finalized version of our prototype.
+This branch holds all of the KiCad files of our schematics and electrical designs. Our prototype schematic holds everything, and is the main design that has gone through the most change. As we transition from a prototype build to a finished product, parts of our prototype become "finalized." Finalized schematics seperate into their own folder with their own changelogs and PCB design. Even those schematics undergo some significant change indicated by their version number.
 
 ## Changelogs
 
