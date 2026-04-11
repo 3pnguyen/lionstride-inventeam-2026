@@ -1,0 +1,43 @@
+name: FootBox
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  url_launcher: ^6.2.5
+  flutter_blue_plus: ^1.31.15
+  permission_handler: ^12.0.1
+  flutter_bluetooth_serial: ^0.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo.png"
+  app_name: "FootBox"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo.png
+    - assets/menu_icon.png
+    - assets/left_foot.png
+    - assets/right_foot.png
+  fonts:
+    - family: ShortStack
+      fonts:
+        - asset: assets/fonts/Lexend-VariableFont_wght.ttf
+
+  # ============================
