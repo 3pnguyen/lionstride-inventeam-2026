@@ -359,12 +359,24 @@
           "label": "Datasheet",
           "name": "Datasheet",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
-      "name": "Default Editing",
+      "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
     },
@@ -416,6 +428,106 @@
     [
       "f23677c3-8c33-4463-a2bf-903b84cfadbd",
       "Column Cell"
+    ],
+    [
+      "a2883ccf-a388-4f55-a97c-3ce82e45e068",
+      "Column Cell1"
+    ],
+    [
+      "b184aad6-f4cf-4d24-8461-abd80b740a63",
+      "Column Cell2"
+    ],
+    [
+      "8a7f2b6a-6c2b-4b23-a361-326ed89bc52c",
+      "Column Cell3"
+    ],
+    [
+      "bc0d46e5-b69a-44a0-9064-37bb5cb998b2",
+      "Column Cell4"
+    ],
+    [
+      "5816756e-fd9d-4076-b0e8-be59da14af71",
+      "Column Cell5"
+    ],
+    [
+      "407d8a8f-9008-4f0a-a3d7-4ae7b0009683",
+      "Column Cell6"
+    ],
+    [
+      "87924250-abce-4a1f-9af0-314df0968fd6",
+      "Column Cell7"
+    ],
+    [
+      "b085da78-9229-4f89-8c41-b4792d91a40f",
+      "Column Cell8"
+    ],
+    [
+      "077602b2-9c4c-4167-9b09-61bcd18a15d4",
+      "Column Cell9"
+    ],
+    [
+      "932f923b-f604-4497-b1c0-aaa974e9914e",
+      "Column Cell10"
+    ],
+    [
+      "15f87c33-90c4-439c-abc5-70dfbb448043",
+      "Column Cell11"
+    ],
+    [
+      "11921d44-7d9b-446c-90f4-ef3eeb82b643",
+      "Column Cell12"
+    ],
+    [
+      "a81babd7-de0a-43b2-8c10-f7b3df4e1271",
+      "Column Cell13"
+    ],
+    [
+      "33b95e0c-3309-480e-981c-1e5196eadaa2",
+      "Column Cell14"
+    ],
+    [
+      "ab2ad125-4083-41b4-bd51-bcc31c3f81f2",
+      "Column Cell15"
+    ],
+    [
+      "fb9a1b33-ba57-42d5-a06f-b05a86c42a5b",
+      "Column Cell16"
+    ],
+    [
+      "f78c65ec-50af-488a-ac08-6bf0fe4b3de2",
+      "Column Cell17"
+    ],
+    [
+      "36e54192-e819-4d4f-8aa4-a730ae2d0dca",
+      "Column Cell18"
+    ],
+    [
+      "f77a2d23-a52d-4611-b994-87d2f268d574",
+      "Column Cell19"
+    ],
+    [
+      "91852f1b-2e01-49c3-aa27-1cf1d91c46ec",
+      "Column Cell20"
+    ],
+    [
+      "a3b19cc7-e2a7-4476-872a-1817ec7d52fa",
+      "Column Cell21"
+    ],
+    [
+      "6e4fe75e-1529-48b5-9c20-bd39e608c615",
+      "Column Cell22"
+    ],
+    [
+      "45d735ba-4f45-4aea-a94f-7dcde4569f51",
+      "Column Cell23"
+    ],
+    [
+      "4128887b-6d1d-4473-914d-d2cbc3fa6b3d",
+      "Column Cell24"
+    ],
+    [
+      "14461ceb-e7ff-4906-8641-d74e39735052",
+      "Column Cell25"
     ]
   ],
   "text_variables": {}
