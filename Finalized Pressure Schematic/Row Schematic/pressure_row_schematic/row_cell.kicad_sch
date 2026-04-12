@@ -4719,7 +4719,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0cf94436-22db-4526-b057-f100c85c62d6")
-		(property "Reference" "TP"
+		(property "Reference" "TP?"
 			(at 24.13 34.29 0)
 			(effects
 				(font
@@ -4780,6 +4780,10 @@
 				)
 				(path "/e39b7473-fb25-4371-8fdc-05ae0c233266/19efb2eb-5351-4ad1-b584-2b6fcc3f7b28"
 					(reference "TP53")
+					(unit 1)
+				)
+				(path "/e39b7473-fb25-4371-8fdc-05ae0c233266/32a90ac2-0c66-426c-b2ef-ef7dc129a741"
+					(reference "TP?")
 					(unit 1)
 				)
 				(path "/e39b7473-fb25-4371-8fdc-05ae0c233266/3606f757-c1b9-46d4-8d73-dc3b87b02a72"

@@ -4,6 +4,10 @@
 	(generator_version "9.0")
 	(uuid "e39b7473-fb25-4371-8fdc-05ae0c233266")
 	(paper "User" 152.4 254)
+	(title_block
+		(title "Pressure Row Schematic")
+		(date "2026-04-11")
+	)
 	(lib_symbols
 		(symbol "Connector_Generic:Conn_01x12"
 			(pin_names
