@@ -13,3 +13,7 @@
 ## Purpose 
 
 The app is used to remotely control the device via Bluetooth. After receiving data, it will process and store it. 
+
+## Changelog for the code
+
+* 4.10.26 - Initialization of the app on the repository
