@@ -21,6 +21,10 @@
 
 [Latest images of the finalized thermistor schematic (V2)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Thermistor%20Schematic/Schematic%20Versions/Schematic%20V02)
 
+[Latest images of the finalized pressure [column] schematic (V1)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Pressure%20Schematic/Column%20Schematic/Schematic%20Versions/Schematic%20V01)
+
+[Latest images of the finalized pressure [row] schematic (V1)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Pressure%20Schematic/Row%20Schematic/Schematic%20Versions/Schematic%20V01)
+
 <!-- %20 is used as a space -->
 
 ## Purpose
@@ -34,3 +38,5 @@ This branch holds all of the KiCad files of our schematics and electrical design
 [Changelog for the finalized logic schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/device-schematic/Finalized%20Logic%20Schematic/changelog.md)
 
 [Changelog for the finalized thermistor schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/device-schematic/Finalized%20Thermistor%20Schematic/changelog.md)
+
+[Changelog for the finalized pressure schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/device-schematic/Finalized%20Pressure%20Schematic/changelog.md)
