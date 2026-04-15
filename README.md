@@ -44,3 +44,4 @@ X = (not the main code but related)
 * 4.2.2026 - Modified most of the code for alternative version
 * 4.3.2026 - Minor work on alternative version
 * 4.4.2026 - Finished modifying prototype code for finalized Logic schematic
+* 4.14.2026 - (For prototype) Modified code for a transimpedance amplifier setup (TIA) while preserving the original voltage divider setup w/ a toggable macro in the .ini file

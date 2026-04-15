@@ -23,16 +23,27 @@
 //-------------------------------------------------------------------------------------------------------
 
 SPISettings MCPSPISettings(CLOCK_SPEED, MSBFIRST, SPI_MODE0);
-const uint8_t GPIOAB_HexCodes[8] =
+const uint8_t GPIOAB_HexCodes[2][GPIOAB_PINS] =
 {
-  0x80, // GPA7 / GPB7
-  0x40, // GPA6 / GPB6
-  0x20, // GPA5 / GPB5
-  0x10, // GPA4 / GPB4
-  0x08, // GPA3 / GPB3
-  0x04, // GPA2 / GPB2
-  0x02, // GPA1 / GPB1
-  0x01  // GPA0 / GPB0
+  {
+    0x80, // GPA7 / GPB7 (10000000)
+    0x40, // GPA6 / GPB6 (01000000)
+    0x20, // GPA5 / GPB5 (00100000)
+    0x10, // GPA4 / GPB4 (00010000)
+    0x08, // GPA3 / GPB3 (00001000)
+    0x04, // GPA2 / GPB2 (00000100)
+    0x02, // GPA1 / GPB1 (00000010)
+    0x01  // GPA0 / GPB0 (00000001)
+  }, {
+    0x7F, // GPA7 / GPB7 (01111111)
+    0xBF, // GPA6 / GPB6 (10111111)
+    0xDF, // GPA5 / GPB5 (11011111)
+    0xEF, // GPA4 / GPB4 (11101111)
+    0xF7, // GPA3 / GPB3 (11110111)
+    0xFB, // GPA2 / GPB2 (11111011)
+    0xFD, // GPA1 / GPB1 (11111101)
+    0xFE  // GPA0 / GPB0 (11111110)
+  }
 };
 int cSelectPins[] = {EXPANDER_C_SELECT_1, EXPANDER_C_SELECT_2};
 
@@ -88,19 +99,19 @@ uint8_t _readRegister(MCP_DEVICE dev, uint8_t reg) {
   return val;
 }
 
-void activateColumn(int column) {
-  _writeRegister(MCP1, OLATA, 0x00);
-  _writeRegister(MCP1, OLATB, 0x00);
-  _writeRegister(MCP2, OLATA, 0x00);
-  _writeRegister(MCP2, OLATB, 0x00);
+void activateColumn(int column, bool invert) {
+  _writeRegister(MCP1, OLATA, (invert) ? 0xFF : 0x00);
+  _writeRegister(MCP1, OLATB, (invert) ? 0xFF : 0x00);
+  _writeRegister(MCP2, OLATA, (invert) ? 0xFF : 0x00);
+  _writeRegister(MCP2, OLATB, (invert) ? 0xFF : 0x00);
 
   // exception cases
-  if (column == 20) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[2]); return; }
-  else if (column == 21) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[3]); return; }
-  else if (column == 22) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[4]); return; }
-  else if (column == 23) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[5]); return; }
-  else if (column == 24) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[6]); return; }
-  else if (column == 25) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[7]); return; }
+  if (column == 20) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[invert][2]); return; }
+  else if (column == 21) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[invert][3]); return; }
+  else if (column == 22) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[invert][4]); return; }
+  else if (column == 23) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[invert][5]); return; }
+  else if (column == 24) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[invert][6]); return; }
+  else if (column == 25) { _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[invert][7]); return; }
 
   if (column < 0) return;
 
@@ -108,13 +119,13 @@ void activateColumn(int column) {
   
   if (column < EXPANDER_PINS) {
     int index = column;
-    if (column < GPIOAB_PINS) _writeRegister(MCP1, OLATA, GPIOAB_HexCodes[index]);
-    else _writeRegister(MCP1, OLATB, GPIOAB_HexCodes[index - GPIOAB_PINS]);
+    if (column < GPIOAB_PINS) _writeRegister(MCP1, OLATA, GPIOAB_HexCodes[invert][index]);
+    else _writeRegister(MCP1, OLATB, GPIOAB_HexCodes[invert][index - GPIOAB_PINS]);
 
   } else {
     int index = column - EXPANDER_PINS;
-    if (index < GPIOAB_PINS) _writeRegister(MCP2, OLATA, GPIOAB_HexCodes[index]);
-    else _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[index - GPIOAB_PINS]);
+    if (index < GPIOAB_PINS) _writeRegister(MCP2, OLATA, GPIOAB_HexCodes[invert][index]);
+    else _writeRegister(MCP2, OLATB, GPIOAB_HexCodes[invert][index - GPIOAB_PINS]);
 
   }
 }

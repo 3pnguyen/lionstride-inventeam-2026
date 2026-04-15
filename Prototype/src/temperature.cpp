@@ -197,3 +197,54 @@ void debugSensorMath(int adcSampleValue, Stream& out) {
     out.println("Raw path -> Voltage: " + String(rawVoltage) + "V, Resistance: " + String(rawResistance) + " ohms, Temperature: " + String(rawTemperatureF) + " degrees F");
     out.println("Calibrated path -> Voltage: " + String(calibratedVoltage) + "V, Resistance: " + String(calibratedResistance) + " ohms, Temperature: " + String(calibratedTemperatureF) + " degrees F");
 }
+
+// ------------------------- TIA functions -----------------------------------------
+
+float _tiaVoltageToResistance(
+    float v_out,
+    float v_bias,
+    float r_feedback,
+    float v_offset
+) {
+    float v_tia = v_out - v_offset;
+    if (v_tia <= 0.0f || v_bias <= 0.0f || r_feedback <= 0.0f) {
+        return NAN;
+    }
+
+    return (v_bias * r_feedback) / v_tia;
+}
+
+
+float readThermistorTemperatureTIA(
+    int adc_code_sensor,
+    bool fahrenheit
+) {
+    float v_out = _adcCodeToVoltage(adc_code_sensor, VCC);
+
+    float r_therm = _tiaVoltageToResistance(
+        v_out,
+        VCC,
+        TIA_FEEDBACK_R
+    );
+
+    float tempC = _resistanceToTemperatureC(r_therm);
+    return fahrenheit ? (tempC * 9.0f / 5.0f + 32.0f) : tempC;
+}
+
+float readThermistorTemperatureTIA(
+    int adc_code_sensor,
+    int adc_code_gnd,
+    int adc_code_ref,
+    bool fahrenheit
+) {
+    float v_out = _adcCodeToVoltage(adc_code_sensor, adc_code_gnd, adc_code_ref, VREF_IC);
+
+    float r_therm = _tiaVoltageToResistance(
+        v_out,
+        VCC,
+        TIA_FEEDBACK_R
+    );
+
+    float tempC = _resistanceToTemperatureC(r_therm);
+    return fahrenheit ? (tempC * 9.0f / 5.0f + 32.0f) : tempC;
+}
