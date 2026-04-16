@@ -17,6 +17,8 @@
 
 We leverage DeepWiki to create dynamic documentation that changes with us. Click the badge to visit!
 
+## Gallery
+
 <div align="center">
     <table>
         <tr>
