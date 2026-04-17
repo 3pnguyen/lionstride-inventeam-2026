@@ -1,0 +1,185 @@
+#include "matrix.h"
+
+//-------------------------------------- Change these as neccesary --------------------------------------
+
+#define INSTRUCTIONS_DATA_LENGTH 100 // also a lot of extra space
+#define PRESSURE_TIMEOUT 10000 // will clear the buffer completely after this time
+
+//-------------------------------------------------------------------------------------------------------
+
+void _formatMatrixData(SenseModes mode, IndexingModes readMatrixBy);
+
+IntervalTimer pressureTimeout(PRESSURE_TIMEOUT);
+Debounce<int> chosenColumn(-1);
+Debounce<int> chosenRow(-1);
+
+char matrixBuffer[MATRIX_DATA_LENGTH];
+float matrixData[MATRIX_ROWS][MATRIX_COLUMNS]; 
+char instructionBuffer[INSTRUCTIONS_DATA_LENGTH];
+
+void setupMatrix() {
+  pinMode(ADC_GND_PIN, INPUT);
+
+  setupRows();
+  setupColumns();
+}
+
+void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
+  if (mode == TEMPERATURE) {
+    for (int column = 0; column < MATRIX_COLUMNS; column++) {
+      activateColumn(column);
+      delayMicroseconds(MATRIX_SWITCH_TIME);
+
+      //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
+      //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
+
+      for (int row = 0; row < MATRIX_ROWS; row++) {
+        activateRow(row);
+        delayMicroseconds(MATRIX_SWITCH_TIME);
+
+        int code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
+        float data = readThermistorTemperature(code_sensor, (row < MUX_PINS) ? PULL_DOWN_R1 : PULL_DOWN_R2);
+
+        matrixData[row][column] = data;
+      }
+    }
+
+    activateColumn();
+    activateRow();
+
+  } else if (mode == PRESSURE) {
+    instructionBuffer[0] = '\0';
+    pressureTimeout.reset();
+
+    for (int column = 0; column < MATRIX_COLUMNS; column++) {
+      //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
+      //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
+
+      for (int row = 0; row < MATRIX_ROWS; row++) {
+        if (pressureTimeout.isReady()) {
+          matrixBuffer[0] = '\0';
+          snprintf(matrixBuffer, sizeof(matrixBuffer), "timeout");
+          return;
+        }
+
+        snprintf(
+          instructionBuffer, 
+          sizeof(instructionBuffer), 
+          "scan matrix individual,%d,%d,%d,%d,p,%s",
+          column,
+          row,
+          0,
+          -1,
+          (column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1) ? "true" : "false"
+        );
+
+        sendMessage(instructionBuffer);
+
+        char cellBuffer[32];
+        cellBuffer[0] = '\0';
+        if (!receiveMessagesPrimary(cellBuffer, sizeof(cellBuffer))) {
+          matrixData[row][column] = 0.0;
+        } else {
+          float data = atof(cellBuffer);
+          matrixData[row][column] = data;
+        }
+      }
+    }
+  } else if (mode == PRESSURE_PRIMARY) {
+    for (int column = 0; column < MATRIX_COLUMNS; column++) {
+      activateColumn(column);
+      delayMicroseconds(MATRIX_SWITCH_TIME);
+
+      //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
+      //int code_gnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
+
+      for (int row = 0; row < MATRIX_ROWS; row++) {
+        activateRow(row);
+        delayMicroseconds(MATRIX_SWITCH_TIME);
+
+        int code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
+        float data = readFSRNormalizedFromCodes(code_sensor);
+
+        matrixData[row][column] = data;
+      }
+    }
+
+    activateColumn();
+    activateRow();
+  }
+
+  _formatMatrixData(mode, readMatrixBy);
+}
+
+float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, SenseModes mode, bool disable) {
+  activateColumn(column);
+  if (chosenColumn.hasChanged(column)) delayMicroseconds(MATRIX_SWITCH_TIME);
+
+  activateRow(row);
+  if (chosenRow.hasChanged(row)) delayMicroseconds(MATRIX_SWITCH_TIME);
+
+  int code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
+  float data;
+  if (code_ref >= 0) {
+    if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, code_gnd, code_ref, (row < MUX_PINS) ? PULL_DOWN_R1 : PULL_DOWN_R2);
+    else data = readFSRNormalizedFromCodes(code_sensor, code_gnd, code_ref);
+  } else {
+    if (mode == TEMPERATURE) data = readThermistorTemperature(code_sensor, (row < MUX_PINS) ? PULL_DOWN_R1 : PULL_DOWN_R2);
+    else data = readFSRNormalizedFromCodes(code_sensor);
+  }
+
+  if(disable) {
+    activateColumn();
+    activateRow();
+    chosenColumn.firstValue = -1;
+    chosenRow.firstValue = -1;
+    chosenColumn.secondValue = -1;
+    chosenRow.secondValue = -1;
+  }
+
+  return data;
+}
+
+void _formatMatrixData(SenseModes mode, IndexingModes readMatrixBy) {
+  matrixBuffer[0] = '\0';
+
+  if (readMatrixBy == READ_BY_COLUMNS) {
+    for (int column = 0; column < MATRIX_COLUMNS; column++) {
+      for (int row = 0; row < MATRIX_ROWS; row++) {
+        char dataBuffer[16];
+        float data = matrixData[row][column];
+
+        if (mode == TEMPERATURE) {
+          if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.2f", data);
+          else snprintf(dataBuffer, sizeof(dataBuffer), "NaN");
+        } else {
+          if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", data);
+          else snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", 0.0);
+        }
+
+        strlcat(matrixBuffer, dataBuffer, sizeof(matrixBuffer));
+
+        if (!(column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
+      }
+    }
+  } else {
+    for (int row = 0; row < MATRIX_ROWS; row++) {
+      for (int column = 0; column < MATRIX_COLUMNS; column++) {
+        char dataBuffer[16];
+        float data = matrixData[row][column];
+
+        if (mode == TEMPERATURE) {
+          if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.2f", data);
+          else snprintf(dataBuffer, sizeof(dataBuffer), "NaN");
+        } else {
+          if (!isnan(data)) snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", data);
+          else snprintf(dataBuffer, sizeof(dataBuffer), "%.1f", 0.0);
+        }
+
+        strlcat(matrixBuffer, dataBuffer, sizeof(matrixBuffer));
+
+        if (!(column == MATRIX_COLUMNS - 1 && row == MATRIX_ROWS - 1)) strlcat(matrixBuffer, " ", sizeof(matrixBuffer));
+      }
+    }
+  }
+}
