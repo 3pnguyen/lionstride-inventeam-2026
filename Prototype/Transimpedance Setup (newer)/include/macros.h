@@ -24,8 +24,7 @@
 
 // ------------------------------------------------------- Pressure & Temperature -------------------------------------------------------
 #define VCC 3.3f
-#define VREF_IC 2.36681318681f //should be 2.5V
-#define FIXED_R 10000.0f
+#define VREF_IC 0.8f // the output of the ref. IC after the TIA 
 #define MAX_ADC_CODE 4095.0f
 
 #define TIA_FEEDBACK_R 5100.0f
