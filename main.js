@@ -17,6 +17,6 @@ settings.js - for initializing and handling the settings
 */
 
 initMatrix();
+initSettings();
 initCommands();
 initConnectionControls();
-initSettings();

@@ -1,18 +1,11 @@
 import {
     darkModeToggle, 
-    singleMCUToggle,
-    debugRowsCommand,
-    debugMcp1Command,
-    debugMcp2Command,
-    walkMcp1Command,
-    walkMcp2Command,
-    debugMCPsCommand,
-    walkMCPsCommand
+    commandSetSelect
 } from "./elements.js";
-import { initCommands } from "./commands.js";
+import { initCommands, setCommandSet } from "./commands.js";
 
 export function initSettings() {
-    if (!darkModeToggle || !singleMCUToggle) {
+    if (!darkModeToggle || !commandSetSelect) {
         return;
     };
 
@@ -24,27 +17,10 @@ export function initSettings() {
         }
     });
 
-    singleMCUToggle.addEventListener("change", () => {
-        if (singleMCUToggle.checked) {
-            debugMcp1Command.remove();
-            debugMcp2Command.remove();
-            walkMcp1Command.remove();
-            walkMcp2Command.remove();
-            
-            debugRowsCommand.parentNode.insertBefore(debugMCPsCommand, debugRowsCommand);
-            debugRowsCommand.parentNode.insertBefore(walkMCPsCommand, debugRowsCommand);
+    setCommandSet(commandSetSelect.value);
 
-        } else {
-            debugRowsCommand.parentNode.insertBefore(debugMcp1Command, debugRowsCommand);
-            debugRowsCommand.parentNode.insertBefore(debugMcp2Command, debugRowsCommand);
-            debugRowsCommand.parentNode.insertBefore(walkMcp1Command, debugRowsCommand);
-            debugRowsCommand.parentNode.insertBefore(walkMcp2Command, debugRowsCommand);
-
-            debugMCPsCommand.remove();
-            walkMCPsCommand.remove();
-
-        }
-
-        initCommands(); // to bind new commands
+    commandSetSelect.addEventListener("change", async () => {
+        setCommandSet(commandSetSelect.value);
+        await initCommands();
     });
 }

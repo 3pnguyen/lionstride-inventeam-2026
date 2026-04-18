@@ -34,20 +34,6 @@
         <div id="command-controls">
             <h1>Command Controls</h1>
             <div id="command-console">
-                <button id="temperature" class="command-button">Scan for temperature</button>
-                <button id="pressure" class="command-button"> Scan for pressure</button>
-                <button id="battery" class="command-button">Check the battery level</button>
-                <button id="i-temperature" class="command-button">Individually scan for temperature</button>
-                <button id="i-pressure" class="command-button">Individually scan for pressure</button>
-                <button id="test-adc" class="command-button">Check the ADC outputs</button>
-                <button id="debug-mcp1" class="command-button">Check connections on MCP1</button>
-                <button id="debug-mcp2" class="command-button">Check connections on MCP2</button>
-                <button id="walk-mcp1" class="command-button">Walk MCP1</button>
-                <button id="walk-mcp2" class="command-button">Walk MCP2</button>
-                <button id="debug-rows" class="command-button">Check connections on rows + both TMUXs</button>
-                <button id="test-math" class="command-button">Test conversion math</button>
-                <button id="i-matrix" class="command-button">Individually turn on one part of matrix</button>
-                <button id="d-matrix" class="command-button">Disable entire matrix</button>
                 <input type="text" id="command-input" placeholder="Custom command here">
             </div>
         </div>
@@ -72,11 +58,12 @@
                 <span class="slider round"></span>
             </label>
 
-            <p>Single MCU design (for PCB board)</p>
-            <label class="switch">
-                <input type="checkbox" id="single-mcu-toggle">
-                <span class="slider round"></span>
-            </label>
+            <p>Board configuration</p>
+            <select id="command-set-select">
+                <option value="prototype-vd">Prototype VD</option>
+                <option value="prototype-tia">Prototype TIA</option>
+                <option value="finalized">Finalized PCB</option>
+            </select>
         </div>
     </div>
 

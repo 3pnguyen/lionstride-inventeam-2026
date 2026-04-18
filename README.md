@@ -19,6 +19,8 @@
     </table>
 </div>
 
+(Images of update 4.5.2026)
+
 ## Purpose
 
 This code is almost like the website version of the app, but this frontend code is used for getting raw output and debugging the ESP32s and circuits. It communicates to the ESP32 via serial communication and runs the exact same commands as you would in the serial monitor withtin PlatformIO. Using PlatformIO is more complicated for everyone one to use, so the debugger UI should make it easier on our teamates to use. [You can click here to enter it.](https://3pnguyen.github.io/lionstride-inventeam-2026/)
@@ -32,3 +34,4 @@ This code is almost like the website version of the app, but this frontend code 
     * Made improvements to the Javascript by seperating main.js into seperate files (making the website something I actually want to code)
     * Now hosts this website through GitHub Pages
     * Settings panel w/ dark mode & ability to test both the prototype board and PCB board
+* 4.18.2026 - Following the introduction of another configuration to test, configurations are now stored in a JSON file. The settings section now uses a drop-down menu 

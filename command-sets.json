@@ -1,0 +1,47 @@
+{
+    "prototype-vd" : [
+        { "id": "temperature", "command": "temperature", "log": "Scan for temperature", "needsMatrixInput": false },
+        { "id": "pressure", "command": "pressure", "log": "Scan for pressure", "needsMatrixInput": false },
+        { "id": "battery", "command": "battery", "log": "Check the battery level", "needsMatrixInput": false },
+        { "id": "i-temperature", "command": "i temperature", "log": "Individually scan for temperature", "needsMatrixInput": true },
+        { "id": "i-pressure", "command": "i pressure", "log": "Individually scan for pressure", "needsMatrixInput": true },
+        { "id": "test-adc", "command": "test adc", "log": "Check the ADC outputs", "needsMatrixInput": true },
+        { "id": "debug-mcp1", "command": "debug mcp1", "log": "Check connections on MCP1", "needsMatrixInput": false }, 
+        { "id": "debug-mcp2", "command": "debug mcp2", "log": "Check connections on MCP2", "needsMatrixInput": false },
+        { "id": "walk-mcp1", "command": "walk mcp1", "log": "Walking MCP1", "needsMatrixInput": false },
+        { "id": "walk-mcp2", "command": "walk mcp2", "log": "Walking MCP2", "needsMatrixInput": false },
+        { "id": "debug-rows", "command": "debug rows", "log": "Check connections on rows + both TMUXs", "needsMatrixInput": false },
+        { "id": "test-math", "command": "test math", "log": "Testing conversion math", "needsMatrixInput": false },
+        { "id": "i-matrix", "command": "i matrix", "log": "Individually turn on one part of matrix", "needsMatrixInput": true },
+        { "id": "d-matrix", "command": "d matrix", "log": "Disable entire matrix", "needsMatrixInput": false }
+    ],
+
+    "prototype-tia" : [
+        { "id": "temperature", "command": "temperature", "log": "Scan for temperature", "needsMatrixInput": false },
+        { "id": "pressure", "command": "pressure", "log": "Scan for pressure", "needsMatrixInput": false },
+        { "id": "battery", "command": "battery", "log": "Check the battery level", "needsMatrixInput": false },
+        { "id": "i-temperature", "command": "i temperature", "log": "Individually scan for temperature", "needsMatrixInput": true },
+        { "id": "i-pressure", "command": "i pressure", "log": "Individually scan for pressure", "needsMatrixInput": true },
+        { "id": "test-adc", "command": "test adc", "log": "Check the ADC outputs", "needsMatrixInput": true },
+        {"id": "debug-columns", "command": "debug columns", "log": "Check connections on columns", "needsMatrixInput": false },
+        { "id": "debug-rows", "command": "debug rows", "log": "Check connections on rows + both TMUXs", "needsMatrixInput": false },
+        { "id": "test-math", "command": "test math", "log": "Testing conversion math", "needsMatrixInput": false },
+        { "id": "i-matrix", "command": "i matrix", "log": "Individually turn on one part of matrix", "needsMatrixInput": true },
+        { "id": "d-matrix", "command": "d matrix", "log": "Disable entire matrix", "needsMatrixInput": false }
+    ],
+
+    "finalized" : [
+        { "id": "temperature", "command": "temperature", "log": "Scan for temperature", "needsMatrixInput": false },
+        { "id": "pressure", "command": "pressure", "log": "Scan for pressure", "needsMatrixInput": false },
+        { "id": "battery", "command": "battery", "log": "Check the battery level", "needsMatrixInput": false },
+        { "id": "i-temperature", "command": "i temperature", "log": "Individually scan for temperature", "needsMatrixInput": true },
+        { "id": "i-pressure", "command": "i pressure", "log": "Individually scan for pressure", "needsMatrixInput": true },
+        { "id": "test-adc", "command": "test adc", "log": "Check the ADC outputs", "needsMatrixInput": true },
+        { "id": "debug-mcps", "command": "debug mcps", "log": "Check connections on all MCPs", "needsMatrixInput": false }, 
+        { "id": "walk-mcps", "command": "walk mcps", "log": "Walking all MCPs", "needsMatrixInput": false },
+        { "id": "debug-rows", "command": "debug rows", "log": "Check connections on rows + both TMUXs", "needsMatrixInput": false },
+        { "id": "test-math", "command": "test math", "log": "Testing conversion math", "needsMatrixInput": false },
+        { "id": "i-matrix", "command": "i matrix", "log": "Individually turn on one part of matrix", "needsMatrixInput": true },
+        { "id": "d-matrix", "command": "d matrix", "log": "Disable entire matrix", "needsMatrixInput": false }
+    ]
+}
