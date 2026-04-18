@@ -1,4 +1,4 @@
-#include "expander.h"
+#include "mcp23s17.h"
 
 //-------------------------------------- Change these as neccesary --------------------------------------
 

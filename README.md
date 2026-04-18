@@ -10,16 +10,23 @@
 
 This code is the firmware that we load into ESP32s. It's main purpose is to collect data from the matrix and send it over to the app. It collects data from the matrix by giving special commands to electrical componenets on our schematic, to close a circuit on a certain thermistor that we want. It will read data through analog, and store it for when it needs to send it over to the companion app w/ Bluetooth. While it reads raw data, it is also filtering and calibrating each value in the background.
 
+## Terminology
+
+* "Prototype" - The firmware for our prototype circuits 
+    * "Voltage Divider setup" - The original design of measuring temperature & pressure w/ voltage dividers
+    * "Transimpedance setup" - The newer design of measuring using a transimpedance (TIA) op-amp
+* "Finalized" - The firmware for our circuit using a customized PCB
+
 ## Changelog for code
 
 X = (not the main code but related)
 
 * 1.2.2026 - started the code
 * 1.10.2026 - first major version (temperature scanning, battery, Bluetooth, etc.)
-* X1.10.2026 - Bluetooth test code w/ ESP DEVKIT
+* X 1.10.2026 - Bluetooth test code w/ ESP DEVKIT
 * 1.22.2026 - second major version (added force sensing)
 * 1.26.2026 - third major version (UART to have two ESPs communicate w/ each other and have one set to each matrix)
-* X1.27.2026 - UART test code for ESP DEVKITs
+* X 1.27.2026 - UART test code for ESP DEVKITs
 * 1.29.2026 - minor improvements (removed unnecessary variables in header files, removed prototypes of helper functions into CPP files for clarity, added debug code for UART and Bluetooth)
 * 2.1.2026 - major improvement where primary receiving UART ESP can timeout if awaiting too long and can now print error messages for that (for both the main and UART testing code)
 * 2.2.2026 - minor fix in the battery code fallback w/ UART (final update before PlatformIO switch)
@@ -46,4 +53,4 @@ X = (not the main code but related)
 * 4.4.2026 - Finished modifying prototype code for finalized Logic schematic
 * 4.14.2026 - (For prototype) Modified code for a transimpedance amplifier setup (TIA) while preserving the original voltage divider setup w/ a toggable macro in the .ini file
 * 4.16.2026 - (For prototype) Created two seperate versions for the prototype. (Older voltage divider setup & newer TIA setup)
-* 4.17.2026 - (For prototype, TIA) Removed experimental macro and old temperature code, changed TIA reference from GND to 1.65V
+* 4.17.2026 - (For prototype, TIA) Removed experimental macro and old temperature (voltage divider) code, changed TIA reference from GND to 1.65V, modified how reference IC is treated in conversion math, renamed expander + multiplexer header/cpp files to their specific part name (for future component changes)

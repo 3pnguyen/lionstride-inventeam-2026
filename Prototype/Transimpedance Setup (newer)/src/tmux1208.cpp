@@ -1,4 +1,4 @@
-#include "multiplexer.h"
+#include "tmux1208.h"
 
 //-------------------------------------- Change these as neccesary --------------------------------------
 

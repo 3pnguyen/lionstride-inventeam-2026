@@ -6,11 +6,13 @@
 static constexpr float SH_A = 0.0011252935711115418f;
 static constexpr float SH_B = 0.0002347147730973799f;
 static constexpr float SH_C = 8.565018940064752e-08f; //Steinhart-Hart values for the chosen thermistor
+static constexpr float TIA_PATH_REF_EXPECTED_VOUT = VREF_IC; // expected TIA output when the mux selects the reference channel
 
 //-------------------------------------------------------------------------------------------------------
 
 float _adcCodeToVoltage(int adc_code, float vin); // base conversion function for ADC code to voltage, assuming ideal linear relationship and no calibration offsets
 float _adcCodeToVoltage(int adc_code, int adc_code_gnd, int adc_code_ref, float vref = VREF_IC); // conversion function for ADC code to voltage, applying calibration offsets from GND and REF ADC readings
+float _applyTiaPathReference(float v_out, float v_ref_measured, float v_ref_expected, float v_tia_ref = TIA_VIRTUAL_REF);
 float _tiaVoltageToResistance(float v_out, float v_excitation, float r_feedback, float v_tia_ref = TIA_VIRTUAL_REF);
 float _resistanceToTemperatureC(float r_therm);
 
@@ -38,6 +40,23 @@ float _adcCodeToVoltage(
 
     // Corrected voltage
     return (adc_code - b) / a;
+}
+
+float _applyTiaPathReference(
+    float v_out,
+    float v_ref_measured,
+    float v_ref_expected,
+    float v_tia_ref
+) {
+    float measured_delta = v_ref_measured - v_tia_ref;
+    float expected_delta = v_ref_expected - v_tia_ref;
+    if (measured_delta == 0.0f) {
+        return v_out;
+    }
+
+    // Scale around the TIA virtual reference so the shared mux/TIA path is calibrated
+    // by a known reference channel instead of treating that channel like a direct ADC ref.
+    return v_tia_ref + ((v_out - v_tia_ref) * expected_delta / measured_delta);
 }
 
 float _tiaVoltageToResistance(
@@ -93,10 +112,17 @@ float readThermistorTemperatureTIA(
     int adc_code_ref,
     bool fahrenheit
 ) {
-    float v_out = _adcCodeToVoltage(adc_code_sensor, adc_code_gnd, adc_code_ref, VREF_IC);
+    float v_out = _adcCodeToVoltage(adc_code_sensor, adc_code_gnd, (int)MAX_ADC_CODE, VCC);
+    float v_ref = _adcCodeToVoltage(adc_code_ref, adc_code_gnd, (int)MAX_ADC_CODE, VCC);
+    float calibrated_v_out = _applyTiaPathReference(
+        v_out,
+        v_ref,
+        TIA_PATH_REF_EXPECTED_VOUT,
+        TIA_VIRTUAL_REF
+    );
 
     float r_therm = _tiaVoltageToResistance(
-        v_out,
+        calibrated_v_out,
         VCC,
         TIA_FEEDBACK_R,
         TIA_VIRTUAL_REF
@@ -119,14 +145,22 @@ void debugSensorMath(int adcSampleValue, Stream& out) {
     float rawTemperatureF = rawTemperatureC * 9.0f / 5.0f + 32.0f;
 
     // Path 2: calibrated ADC-to-TIA conversion using live GND/REF ADC readings.
-    float calibratedVoltage = _adcCodeToVoltage(adcSampleValue, adcGnd, adcRef);
+    float adcAdjustedVoltage = _adcCodeToVoltage(adcSampleValue, adcGnd, (int)MAX_ADC_CODE, VCC);
+    float refPathVoltage = _adcCodeToVoltage(adcRef, adcGnd, (int)MAX_ADC_CODE, VCC);
+    float calibratedVoltage = _applyTiaPathReference(
+        adcAdjustedVoltage,
+        refPathVoltage,
+        TIA_PATH_REF_EXPECTED_VOUT,
+        TIA_VIRTUAL_REF
+    );
     float calibratedResistance = _tiaVoltageToResistance(calibratedVoltage, VCC, TIA_FEEDBACK_R, TIA_VIRTUAL_REF);
     float calibratedTemperatureF = readThermistorTemperatureTIA(adcSampleValue, adcGnd, adcRef, true);
 
     out.println("Debugging sensor math...");
     out.println("The inputed ADC sample value is: " + String(adcSampleValue));
     out.println("Calibration inputs -> GND ADC: " + String(adcGnd) + ", REF ADC: " + String(adcRef));
+    out.println("Shared-TIA reference target output: " + String(TIA_PATH_REF_EXPECTED_VOUT) + "V");
     out.println("TIA virtual reference: " + String(TIA_VIRTUAL_REF) + "V");
     out.println("Raw path -> Voltage: " + String(rawVoltage) + "V, Resistance: " + String(rawResistance) + " ohms, Temperature: " + String(rawTemperatureF) + " degrees F");
-    out.println("Calibrated path -> Voltage: " + String(calibratedVoltage) + "V, Resistance: " + String(calibratedResistance) + " ohms, Temperature: " + String(calibratedTemperatureF) + " degrees F");
+    out.println("Calibrated path -> ADC-adjusted voltage: " + String(adcAdjustedVoltage) + "V, REF path voltage: " + String(refPathVoltage) + "V, Corrected voltage: " + String(calibratedVoltage) + "V, Resistance: " + String(calibratedResistance) + " ohms, Temperature: " + String(calibratedTemperatureF) + " degrees F");
 }
