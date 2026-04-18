@@ -3,7 +3,7 @@
 #include <Arduino.h>
 #include "filter.h"
 #include "macros.h"
-#include "tmux1208.h" // to get ref. IC output
+#include "row.h" // to get ref. IC output
 
 float readThermistorTemperatureTIA(
     int adc_code_sensor,

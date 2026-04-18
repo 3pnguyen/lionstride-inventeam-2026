@@ -2,8 +2,8 @@
 
 #include <Arduino.h>
 #include "temperature.h"
-#include "mcp23s17.h"
-#include "tmux1208.h"
+#include "column.h"
+#include "row.h"
 #include "serial.h"
 #include "filter.h"
 #include "macros.h"

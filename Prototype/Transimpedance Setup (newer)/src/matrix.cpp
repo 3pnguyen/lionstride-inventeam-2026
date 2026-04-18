@@ -20,8 +20,8 @@ char instructionBuffer[INSTRUCTIONS_DATA_LENGTH];
 void setupMatrix() {
   pinMode(ADC_GND_PIN, INPUT);
 
-  setupRows();
-  setupColumns();
+  setupTmux1208();
+  setupMax14661();
 }
 
 void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {

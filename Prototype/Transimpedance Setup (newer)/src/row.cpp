@@ -1,4 +1,4 @@
-#include "tmux1208.h"
+#include "row.h"
 
 //-------------------------------------- Change these as neccesary --------------------------------------
 
@@ -12,7 +12,7 @@
 
 void _muxPinSelect(unsigned int enable_pin, int select_pin = -1);
 
-void setupRows() {
+void setupTmux1208() {
   pinMode(MUX_A0_PIN, OUTPUT);
   pinMode(MUX_A1_PIN, OUTPUT);
   pinMode(MUX_A2_PIN, OUTPUT);

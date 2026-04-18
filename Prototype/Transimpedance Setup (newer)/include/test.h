@@ -27,15 +27,9 @@ static int inputColumn;
 * test adc: Tests ADC outputs
   - User input column and row
 
-* debug mcp1: Tests expander 1
+* debug columns: Tests both MAX14661s
 
-* debug mcp2: Tests expander 2
-
-* walk mcp1: Tests expander 1
-
-* walk mcp2: Tests expander 2
-
-* debug rows: Tests both multiplexers
+* debug rows: Tests both TMUX1208s
 
 * test math: Tests the conversion math from ADC to voltage, resistance, and temperature
 
@@ -162,18 +156,8 @@ static inline void test() {
         activateColumn();
         activateRow();
 
-      } else if (input.equals("debug mcp1")) { // to test expander
-        debugMCPConnection(MCP1);
-
-      } else if (input.equals("debug mcp2")) { // to test expander
-        debugMCPConnection(MCP2);
-
-      } else if (input.equals("walk mcp1")) { // to test expander
-        debugMCPWalkOutputs(MCP1);
-
-      } else if (input.equals("walk mcp2")) { // to test expander
-        debugMCPWalkOutputs(MCP2);
-
+      } else if (input.equals("debug columns")) { // to test expander
+        debugMaxWalkOutputs();
       } else if (input.equals("debug rows")) { // to test multiplexer
         debugTMUXControlLines();
 

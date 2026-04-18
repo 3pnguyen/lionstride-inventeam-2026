@@ -12,7 +12,7 @@ static inline void writeEnablePin(unsigned int enPin, bool enable) {
 #endif
 }
 
-void setupRows();
+void setupTmux1208();
 
 void activateRow(int row = -1);
 
