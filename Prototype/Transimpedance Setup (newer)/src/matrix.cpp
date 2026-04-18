@@ -38,12 +38,7 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
         delayMicroseconds(MATRIX_SWITCH_TIME);
 
         int code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
-        float data = 
-          #ifndef EXPERIMENTAL_MODE
-            readThermistorTemperature(code_sensor, (row < MUX_PINS) ? PULL_DOWN_R1 : PULL_DOWN_R2);
-          #else
-            readThermistorTemperatureTIA(code_sensor);
-          #endif
+        float data = readThermistorTemperatureTIA(code_sensor);
 
         matrixData[row][column] = data;
       }
@@ -126,24 +121,10 @@ float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, Sens
   int code_sensor = ADCMeanFilter((row < MUX_PINS) ? MATRIX_ADC_1 : MATRIX_ADC_2, ADC_SAMPLES);
   float data;
   if (code_ref >= 0) {
-    if (mode == TEMPERATURE) {
-      data = 
-        #ifndef EXPERIMENTAL_MODE
-          readThermistorTemperature(code_sensor, code_gnd, code_ref, (row < MUX_PINS) ? PULL_DOWN_R1 : PULL_DOWN_R2);
-        #else
-          readThermistorTemperatureTIA(code_sensor, code_gnd, code_ref);
-        #endif
-    }
+    if (mode == TEMPERATURE) data = readThermistorTemperatureTIA(code_sensor, code_gnd, code_ref);
     else data = readFSRNormalizedFromCodes(code_sensor, code_gnd, code_ref);
   } else {
-    if (mode == TEMPERATURE) {
-      data = 
-        #ifndef EXPERIMENTAL_MODE
-          readThermistorTemperature(code_sensor, (row < MUX_PINS) ? PULL_DOWN_R1 : PULL_DOWN_R2);
-        #else
-          readThermistorTemperatureTIA(code_sensor);
-        #endif
-    }
+    if (mode == TEMPERATURE) data = readThermistorTemperatureTIA(code_sensor);
     else data = readFSRNormalizedFromCodes(code_sensor);
   }
 

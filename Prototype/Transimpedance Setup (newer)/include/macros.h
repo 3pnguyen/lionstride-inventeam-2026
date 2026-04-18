@@ -22,9 +22,6 @@
 // ------------------------------------------------------- Sensors ------------------------------------------------------- 
 #define ADC_GND_PIN A1
 
-#define PULL_DOWN_R1 1.0e+6f
-#define PULL_DOWN_R2 1.0e+6f
-
 // ------------------------------------------------------- Serial -------------------------------------------------------
 #define DISCOVER_PIN 21 
 
@@ -35,6 +32,7 @@
 #define MAX_ADC_CODE 4095.0f
 
 #define TIA_FEEDBACK_R 5100.0f
+#define TIA_VIRTUAL_REF 1.65f // set to the divider/reference voltage at the TIA non-inverting input
 
 // ------------------------------------------------------- Test -------------------------------------------------------
 

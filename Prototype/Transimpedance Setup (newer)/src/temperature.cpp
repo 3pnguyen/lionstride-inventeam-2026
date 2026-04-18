@@ -11,11 +11,8 @@ static constexpr float SH_C = 8.565018940064752e-08f; //Steinhart-Hart values fo
 
 float _adcCodeToVoltage(int adc_code, float vin); // base conversion function for ADC code to voltage, assuming ideal linear relationship and no calibration offsets
 float _adcCodeToVoltage(int adc_code, int adc_code_gnd, int adc_code_ref, float vref = VREF_IC); // conversion function for ADC code to voltage, applying calibration offsets from GND and REF ADC readings
-float _voltageToResistance(float v_meas, float vcc, float r_fixed);
-float _voltageToResistanceCompensated(float v_meas, float vcc, float r_fixed, float r_pull);
+float _tiaVoltageToResistance(float v_out, float v_excitation, float r_feedback, float v_tia_ref = TIA_VIRTUAL_REF);
 float _resistanceToTemperatureC(float r_therm);
-float _readSensorResistanceFromCodes(int adc_code_sensor, float vcc, float r_fixed, float r_pull); // simplified version of the function that does not use calibration
-float _readSensorResistanceFromCodes(int adc_code_sensor, int adc_code_gnd, int adc_code_ref, float vref, float vcc, float r_fixed, float r_pull); // function that computes the sensor resistance from ADC codes, applying calibration offsets and pull-down compensation
 
 float _adcCodeToVoltage(int adc_code, float vin) {
     // Assuming a simple linear relationship: voltage = (adc_code / max_adc_code) * vref
@@ -43,34 +40,19 @@ float _adcCodeToVoltage(
     return (adc_code - b) / a;
 }
 
-float _voltageToResistance(
-    float v_meas,
-    float vcc,
-    float r_fixed
+float _tiaVoltageToResistance(
+    float v_out,
+    float v_excitation,
+    float r_feedback,
+    float v_tia_ref
 ) {
-    if (v_meas <= 0.0f || v_meas >= vcc) {
-        return 0.0f;  // invalid
+    float v_sensor = v_excitation - v_tia_ref;
+    float v_feedback = fabsf(v_out - v_tia_ref);
+    if (v_sensor <= 0.0f || v_feedback <= 0.0f || r_feedback <= 0.0f) {
+        return NAN;
     }
 
-    // Divider model: thermistor on top (to VCC), fixed resistor on bottom (to GND)
-    return r_fixed * (vcc - v_meas) / v_meas;
-}
-
-float _voltageToResistanceCompensated(
-    float v_meas,
-    float vcc,
-    float r_fixed,
-    float r_pull
-) {
-    // sanity checks
-    if (!(v_meas > 0.0f && v_meas < vcc)) return NAN;
-    if (!(r_fixed > 0.0f && r_pull > 0.0f)) return NAN;
-
-    // Pull-down is parallel to the fixed bottom resistor.
-    float r_bottom = (r_fixed * r_pull) / (r_fixed + r_pull);
-    float Rt = r_bottom * (vcc - v_meas) / v_meas;
-    if (!isfinite(Rt) || Rt <= 0.0f) return NAN;
-    return Rt;
+    return (v_sensor * r_feedback) / v_feedback;
 }
 
 float _resistanceToTemperatureC(
@@ -88,133 +70,6 @@ float _resistanceToTemperatureC(
     return tempK - 273.15f;
 }
 
-float _readSensorResistanceFromCodes(
-    int adc_code_sensor,
-    float vcc,
-    float r_fixed,
-    float r_pull
-) {
-    float v_meas = _adcCodeToVoltage(adc_code_sensor, vcc);
-    if (!(v_meas > 0.0f && v_meas < vcc)) {
-        return NAN;
-    }
-
-    if (r_pull > 0.0f) {
-        float rt = _voltageToResistanceCompensated(v_meas, vcc, r_fixed, r_pull);
-        if (isfinite(rt) && rt > 0.0f) return rt;
-        // fallback to uncompensated if compensated failed
-    }
-
-    return _voltageToResistance(v_meas, vcc, r_fixed);
-}
-
-float _readSensorResistanceFromCodes(
-    int adc_code_sensor,
-    int adc_code_gnd,
-    int adc_code_ref,
-    float vref,
-    float vcc,
-    float r_fixed,
-    float r_pull
-) {
-    float v_meas = _adcCodeToVoltage(adc_code_sensor, adc_code_gnd, adc_code_ref, vref);
-    if (!(v_meas > 0.0f && v_meas < vcc)) {
-        return NAN;
-    }
-
-    if (r_pull > 0.0f) {
-        float rt = _voltageToResistanceCompensated(v_meas, vcc, r_fixed, r_pull);
-        if (isfinite(rt) && rt > 0.0f) return rt;
-        // fallback to uncompensated if compensated failed
-    }
-    // fallback:
-    return _voltageToResistance(v_meas, vcc, r_fixed);
-}
-
-float readThermistorTemperature(
-    int adc_code_sensor,
-    float pull_down_r,
-    bool fahrenheit
-) {
-    float r_therm = _readSensorResistanceFromCodes(
-        adc_code_sensor,
-        VCC,
-        FIXED_R,
-        pull_down_r
-    );
-
-    float tempC = _resistanceToTemperatureC(r_therm);
-
-    if (fahrenheit) return tempC * 9.0f / 5.0f + 32.0f;
-    else return tempC;
-}
-
-float readThermistorTemperature(
-    int adc_code_sensor,
-    int adc_code_gnd,
-    int adc_code_ref,
-    float pull_down_r,
-    bool fahrenheit
-) {
-    // Compute sensor resistance from ADC codes, applying pull-down compensation.
-    float r_therm = _readSensorResistanceFromCodes(
-        adc_code_sensor,
-        adc_code_gnd,
-        adc_code_ref,
-        VREF_IC,
-        VCC,
-        FIXED_R,
-        pull_down_r  // use measured pull-down value for thermistor bank
-    );
-
-    // Convert to temperature
-    float tempC = _resistanceToTemperatureC(r_therm);
-
-    if (fahrenheit) return tempC * 9.0f / 5.0f + 32.0f;
-    else return tempC;
-}
-
-// ------------------------- Debug functions -----------------------------------------
-
-void debugSensorMath(int adcSampleValue, Stream& out) {
-    int adcGnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
-    int adcRef = getRefOutput();
-
-    // Path 1: "test math" expects raw 12-bit ADC conversion (no calibration offsets).
-    float rawVoltage = _adcCodeToVoltage(adcSampleValue, VCC); 
-    float rawResistance = _voltageToResistance(rawVoltage, VCC, FIXED_R);
-    float rawTemperatureC = _resistanceToTemperatureC(rawResistance);
-    float rawTemperatureF = rawTemperatureC * 9.0f / 5.0f + 32.0f;
-
-    // Path 2: previous calibrated conversion using live GND/REF ADC readings.
-    float calibratedVoltage = _adcCodeToVoltage(adcSampleValue, adcGnd, adcRef);
-    float calibratedResistance = _voltageToResistance(calibratedVoltage, VCC, FIXED_R);
-    float calibratedTemperatureF = readThermistorTemperature(adcSampleValue, adcGnd, adcRef, 1000000.0f, true);
-
-    out.println("Debugging sensor math...");
-    out.println("The inputed ADC sample value is: " + String(adcSampleValue));
-    out.println("Calibration inputs -> GND ADC: " + String(adcGnd) + ", REF ADC: " + String(adcRef));
-    out.println("Raw path -> Voltage: " + String(rawVoltage) + "V, Resistance: " + String(rawResistance) + " ohms, Temperature: " + String(rawTemperatureF) + " degrees F");
-    out.println("Calibrated path -> Voltage: " + String(calibratedVoltage) + "V, Resistance: " + String(calibratedResistance) + " ohms, Temperature: " + String(calibratedTemperatureF) + " degrees F");
-}
-
-// ------------------------- TIA functions -----------------------------------------
-
-float _tiaVoltageToResistance(
-    float v_out,
-    float v_bias,
-    float r_feedback,
-    float v_offset
-) {
-    float v_tia = v_out - v_offset;
-    if (v_tia <= 0.0f || v_bias <= 0.0f || r_feedback <= 0.0f) {
-        return NAN;
-    }
-
-    return (v_bias * r_feedback) / v_tia;
-}
-
-
 float readThermistorTemperatureTIA(
     int adc_code_sensor,
     bool fahrenheit
@@ -224,7 +79,8 @@ float readThermistorTemperatureTIA(
     float r_therm = _tiaVoltageToResistance(
         v_out,
         VCC,
-        TIA_FEEDBACK_R
+        TIA_FEEDBACK_R,
+        TIA_VIRTUAL_REF
     );
 
     float tempC = _resistanceToTemperatureC(r_therm);
@@ -242,9 +98,35 @@ float readThermistorTemperatureTIA(
     float r_therm = _tiaVoltageToResistance(
         v_out,
         VCC,
-        TIA_FEEDBACK_R
+        TIA_FEEDBACK_R,
+        TIA_VIRTUAL_REF
     );
 
     float tempC = _resistanceToTemperatureC(r_therm);
     return fahrenheit ? (tempC * 9.0f / 5.0f + 32.0f) : tempC;
+}
+
+// ------------------------- Debug functions -----------------------------------------
+
+void debugSensorMath(int adcSampleValue, Stream& out) {
+    int adcGnd = ADCMeanFilter(ADC_GND_PIN, ADC_SAMPLES);
+    int adcRef = getRefOutput();
+
+    // Path 1: raw ADC-to-TIA conversion without calibration offsets.
+    float rawVoltage = _adcCodeToVoltage(adcSampleValue, VCC); 
+    float rawResistance = _tiaVoltageToResistance(rawVoltage, VCC, TIA_FEEDBACK_R, TIA_VIRTUAL_REF);
+    float rawTemperatureC = _resistanceToTemperatureC(rawResistance);
+    float rawTemperatureF = rawTemperatureC * 9.0f / 5.0f + 32.0f;
+
+    // Path 2: calibrated ADC-to-TIA conversion using live GND/REF ADC readings.
+    float calibratedVoltage = _adcCodeToVoltage(adcSampleValue, adcGnd, adcRef);
+    float calibratedResistance = _tiaVoltageToResistance(calibratedVoltage, VCC, TIA_FEEDBACK_R, TIA_VIRTUAL_REF);
+    float calibratedTemperatureF = readThermistorTemperatureTIA(adcSampleValue, adcGnd, adcRef, true);
+
+    out.println("Debugging sensor math...");
+    out.println("The inputed ADC sample value is: " + String(adcSampleValue));
+    out.println("Calibration inputs -> GND ADC: " + String(adcGnd) + ", REF ADC: " + String(adcRef));
+    out.println("TIA virtual reference: " + String(TIA_VIRTUAL_REF) + "V");
+    out.println("Raw path -> Voltage: " + String(rawVoltage) + "V, Resistance: " + String(rawResistance) + " ohms, Temperature: " + String(rawTemperatureF) + " degrees F");
+    out.println("Calibrated path -> Voltage: " + String(calibratedVoltage) + "V, Resistance: " + String(calibratedResistance) + " ohms, Temperature: " + String(calibratedTemperatureF) + " degrees F");
 }

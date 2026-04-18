@@ -11,15 +11,7 @@ enum MCP_DEVICE {
 
 void setupColumns();
 
-void activateColumn(
-    int column = -1, 
-    bool invert = 
-    #ifdef EXPERIMENTAL_MODE
-      true
-    #else
-      false
-    #endif
-);
+void activateColumn(int column = -1, bool invert = true);
 
 // ------------------------- Ai-gen (Alice & Ivette) Debug functions -----------------------------------------
 
