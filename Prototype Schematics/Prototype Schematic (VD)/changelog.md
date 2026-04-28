@@ -1,4 +1,4 @@
-# Prototype design changelog:
+# Prototype (VD) design changelog:
 
 (Version descriptions have been added since V16.1, so older version descriptions may be inaccurate.)
 
