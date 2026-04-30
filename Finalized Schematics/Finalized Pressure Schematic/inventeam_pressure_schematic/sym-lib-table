@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "pressure_pads")(type "KiCad")(uri "${KIPRJMOD}/pressure_pads.kicad_sym")(options "")(descr ""))
+)
