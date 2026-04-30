@@ -21,7 +21,7 @@
 | :---: | :---: |
 | [Prototype VD (17.1)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Prototype%20Schematics/Prototype%20Schematic%20(VD)/Schematic%20Versions/Schematic%20V17/v17.1%20-%203.19.26) | [Logic Schematic (V3)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Schematics/Finalized%20Logic%20Schematic/Schematic%20Versions/Schematic%20V03) |
 | Prototype TIA | [Thermistor Schematic (V2)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Schematics/Finalized%20Thermistor%20Schematic/Schematic%20Versions/Schematic%20V02) | 
-| | [Pressure Schematic (V1)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Schematics/Finalized%20Pressure%20Schematic/Schematic%20Versions/Schematic%20V01) |
+| | [Pressure Schematic (V2)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Schematics/Finalized%20Pressure%20Schematic/Schematic%20Versions/Schematic%20V02) |
 
 <!-- %20 is used as a space -->
 
