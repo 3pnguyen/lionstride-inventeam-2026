@@ -2,7 +2,7 @@
 
 ## Branch for the schematic files of the circuit and device
 
-[ ![KiCad](https://img.shields.io/badge/kicad-%23314CB0.svg?style=for-the-badge&logo=kicad&logoColor=white) ](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/device-schematic/README.md)
+[![KiCad](https://img.shields.io/badge/kicad-%23314CB0.svg?style=for-the-badge&logo=kicad&logoColor=white)](#lionstride-inventeam-2026) <!-- - --> [![Inkscape](https://img.shields.io/badge/Inkscape-e0e0e0?style=for-the-badge&logo=inkscape&logoColor=080A13)](#lionstride-inventeam-2026)
 
 <!-- Badeges from https://gprm.itsvg.in and https://github.com/Ileriayo/markdown-badges  -->
 
@@ -19,8 +19,8 @@
 
 | Prototype | Finalized |
 | :---: | :---: |
-| [Prototype VD (17.1)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Prototype%20Schematics/Prototype%20Schematic%20(VD)/Schematic%20Versions/Schematic%20V17/v17.1%20-%203.19.26) | [Logic Schematic (V3)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Schematics/Finalized%20Logic%20Schematic/Schematic%20Versions/Schematic%20V03) |
-| Prototype TIA | [Thermistor Schematic (V2)](https://github.com/3pnguyen/lionstride-inventeam-2026/tree/device-schematic/Finalized%20Schematics/Finalized%20Thermistor%20Schematic/Schematic%20Versions/Schematic%20V02) | 
+| [Prototype VD (17.1)](Prototype%20Schematics/Prototype%20Schematic%20(VD)/Schematic%20Versions/Schematic%20V17/v17.1%20-%203.19.26/) | [Logic Schematic (V3)](Finalized%20Schematics/Finalized%20Logic%20Schematic/Schematic%20Versions/Schematic%20V03/) |
+| Prototype TIA | [Thermistor Schematic (V2)](Finalized%20Schematics/Finalized%20Thermistor%20Schematic/Schematic%20Versions/Schematic%20V02/) | 
 | | [Pressure Schematic (V2.1)](Finalized%20Schematics/Finalized%20Pressure%20Schematic/Schematic%20Versions/Schematic%20V02/V2.1%20-%205.2.26/) |
 
 <!-- %20 is used as a space -->
@@ -33,6 +33,6 @@ This branch holds all of the KiCad files of our schematics and electrical design
 
 | Prototype | Finalized |
 | :---: | :---: |
-| [Prototype VD](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/device-schematic/Prototype%20Schematics/Prototype%20Schematic%20(VD)/changelog.md) | [Logic Schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/device-schematic/Finalized%20Schematics/Finalized%20Logic%20Schematic/changelog.md) |
-| Prototype TIA | [Thermistor Schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/device-schematic/Finalized%20Schematics/Finalized%20Thermistor%20Schematic/changelog.md) | 
-| | [Pressure Schematic](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/device-schematic/Finalized%20Schematics/Finalized%20Pressure%20Schematic/changelog.md) |
+| [Prototype VD](Prototype%20Schematics/Prototype%20Schematic%20(VD)/changelog.md) | [Logic Schematic](Finalized%20Schematics/Finalized%20Logic%20Schematic/changelog.md) |
+| Prototype TIA | [Thermistor Schematic](Finalized%20Schematics/Finalized%20Thermistor%20Schematic/changelog.md) | 
+| | [Pressure Schematic](Finalized%20Schematics/Finalized%20Pressure%20Schematic/changelog.md) |
