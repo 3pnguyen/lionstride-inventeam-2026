@@ -2,7 +2,7 @@
 
 ## Branch for the debugger UI/website
 
-[![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/website-source/README.md) <!-- - --> [![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/website-source/README.md) <!-- - --> [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/website-source/README.md) <!-- - --> [![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://github.com/3pnguyen/lionstride-inventeam-2026/blob/website-source/README.md)
+[![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](#lionstride-inventeam-2026) <!-- - --> [![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](#lionstride-inventeam-2026) <!-- - --> [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](#lionstride-inventeam-2026) <!-- - --> [![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](#lionstride-inventeam-2026)
 
 <!-- Badeges from https://gprm.itsvg.in and https://github.com/Ileriayo/markdown-badges  -->
 
