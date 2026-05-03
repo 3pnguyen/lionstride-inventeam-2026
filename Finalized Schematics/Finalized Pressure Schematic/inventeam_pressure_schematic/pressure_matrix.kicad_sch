@@ -2,99 +2,16 @@
 	(version 20250114)
 	(generator "eeschema")
 	(generator_version "9.0")
-	(uuid "1e4828eb-b1ab-47ff-90d4-20cfc90e4468")
-	(paper "A4")
+	(uuid "c058ec8e-5786-4e35-8527-0906a7574f0b")
+	(paper "User" 419.1 177.8)
 	(title_block
-		(title "Column Matrix")
+		(title "Row Matrix")
 		(date "2026-04-29")
 	)
-	(lib_symbols
-		(symbol "pressure_pads:Column_pad"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 -8.89 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "ColumnPad"
-				(at 0 -10.414 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Column_pad_0_1"
-				(rectangle
-					(start -5.08 7.62)
-					(end 5.08 -7.62)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "Column_pad_1_1"
-				(pin passive line
-					(at 7.62 0 180)
-					(length 2.54)
-					(name "Input"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-	)
+	(lib_symbols)
 	(rectangle
-		(start 177.8 166.37)
-		(end 284.48 180.34)
+		(start 13.97 13.97)
+		(end 297.18 163.83)
 		(stroke
 			(width 0)
 			(type default)
@@ -102,11 +19,23 @@
 		(fill
 			(type none)
 		)
-		(uuid 7f43d820-7a80-4876-a40e-84873700d902)
+		(uuid 07f508eb-1445-4796-b07e-72b6b86c9667)
+	)
+	(rectangle
+		(start 299.72 134.62)
+		(end 406.4 148.59)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 7e3d6790-1ee9-4921-8063-71433eddc9a9)
 	)
 	(text "LionStride"
 		(exclude_from_sim no)
-		(at 231.14 173.99 0)
+		(at 353.06 142.24 0)
 		(effects
 			(font
 				(size 6.35 6.35)
@@ -114,12 +43,177 @@
 				(bold yes)
 			)
 		)
-		(uuid "9f5eca83-6c33-4425-a020-ecfe116cd37c")
+		(uuid "973b47c1-d5d4-431b-9766-3ba847e9a4be")
+	)
+	(text "Pressure Matrix"
+		(exclude_from_sim no)
+		(at 15.24 15.24 0)
+		(effects
+			(font
+				(size 8.89 8.89)
+				(thickness 0.762)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(uuid "db86aa0f-6907-48a3-a4d6-970c8b4e2ead")
+	)
+	(no_connect
+		(at 218.44 49.53)
+		(uuid "0c2df254-ca25-4384-b759-9d8c64d60bb1")
+	)
+	(no_connect
+		(at 95.25 76.2)
+		(uuid "12024352-2c86-4556-93cf-fc289a808f54")
+	)
+	(no_connect
+		(at 68.58 138.43)
+		(uuid "189968e4-bae4-4693-bcb9-c374a4026e23")
+	)
+	(no_connect
+		(at 232.41 76.2)
+		(uuid "190e1b98-cc71-4a2c-9ee5-802779d03660")
+	)
+	(no_connect
+		(at 179.07 138.43)
+		(uuid "1e6920ce-4119-4a70-af41-c85209df1fe7")
+	)
+	(no_connect
+		(at 205.74 76.2)
+		(uuid "2b250726-be8d-413a-9db7-9cc8ccfd5e43")
+	)
+	(no_connect
+		(at 238.76 49.53)
+		(uuid "2d4be4e8-61a4-488b-a346-cde9d95528d8")
+	)
+	(no_connect
+		(at 152.4 106.68)
+		(uuid "308a98df-8993-455f-8d02-b08454ff94b5")
+	)
+	(no_connect
+		(at 232.41 138.43)
+		(uuid "3189b157-08a6-4e7c-914e-dbfdcdb068b1")
+	)
+	(no_connect
+		(at 121.92 138.43)
+		(uuid "49f70699-1f73-4982-b6d4-62dc5db4b870")
+	)
+	(no_connect
+		(at 116.84 49.53)
+		(uuid "544ac1de-3429-4d6e-84e2-084f3ed3db46")
+	)
+	(no_connect
+		(at 152.4 138.43)
+		(uuid "58348a27-044a-467a-9862-e3d90f9ea1a6")
+	)
+	(no_connect
+		(at 205.74 138.43)
+		(uuid "608ae296-341e-4ee3-a1fc-30f458ff2e5a")
+	)
+	(no_connect
+		(at 179.07 76.2)
+		(uuid "6353a0cf-5cfe-4405-b268-6ec1729ef7ae")
+	)
+	(no_connect
+		(at 152.4 76.2)
+		(uuid "69e1e493-8db0-4246-b2c8-354ea9a0dcdd")
+	)
+	(no_connect
+		(at 137.16 49.53)
+		(uuid "6a897042-d83e-42c8-b613-f06dc50e59a6")
+	)
+	(no_connect
+		(at 96.52 49.53)
+		(uuid "7ad5e938-1a54-437d-a289-78556be1f178")
+	)
+	(no_connect
+		(at 35.56 49.53)
+		(uuid "802d7066-7fa8-43e9-86bd-3de311c74255")
+	)
+	(no_connect
+		(at 55.88 49.53)
+		(uuid "81b9d894-bb4e-4cb3-abe0-2256e02d31dd")
+	)
+	(no_connect
+		(at 198.12 49.53)
+		(uuid "893c9b3a-6bc5-4f74-a3f3-264c8d3f196e")
+	)
+	(no_connect
+		(at 179.07 106.68)
+		(uuid "89c7cbed-d31e-413c-8965-a3493e1d3ba5")
+	)
+	(no_connect
+		(at 157.48 49.53)
+		(uuid "8fec3be4-ec94-4cba-87bc-96d2f9bdb612")
+	)
+	(no_connect
+		(at 259.08 49.53)
+		(uuid "91b0a86d-af46-4d69-85b3-9932c5c4516d")
+	)
+	(no_connect
+		(at 262.89 123.19)
+		(uuid "93666fd3-2035-4e57-8ddf-5b3691402922")
+	)
+	(no_connect
+		(at 95.25 138.43)
+		(uuid "94348f36-a9d2-45a7-b2a4-f7017cdf85b6")
+	)
+	(no_connect
+		(at 41.91 76.2)
+		(uuid "9aabe77c-b12f-4f29-8045-4fd86e1699a4")
+	)
+	(no_connect
+		(at 177.8 49.53)
+		(uuid "a59fe262-f51f-464b-b2d8-e2766a943f8a")
+	)
+	(no_connect
+		(at 262.89 92.71)
+		(uuid "a7fea86a-7d5f-427b-9fc1-8cf6744b4415")
+	)
+	(no_connect
+		(at 41.91 138.43)
+		(uuid "ad01651c-9635-422a-94dd-4cf231e1c419")
+	)
+	(no_connect
+		(at 68.58 106.68)
+		(uuid "b063789e-6388-4233-a617-bb54a2b0a04f")
+	)
+	(no_connect
+		(at 121.92 106.68)
+		(uuid "b5262ee9-349e-4f0c-9133-0933cfc8e2a7")
+	)
+	(no_connect
+		(at 232.41 106.68)
+		(uuid "c9c2bf7b-8154-48b6-ba8e-fe816c3839cb")
+	)
+	(no_connect
+		(at 205.74 106.68)
+		(uuid "ddc99a9e-7eda-48ea-a8ca-daa368363669")
+	)
+	(no_connect
+		(at 76.2 49.53)
+		(uuid "ded8de01-d4a7-4c5b-8bad-8d7047050bc8")
+	)
+	(no_connect
+		(at 68.58 76.2)
+		(uuid "df4a6f2d-26ac-4bd3-b423-e711adb1b34c")
+	)
+	(no_connect
+		(at 41.91 106.68)
+		(uuid "e7464384-2210-47f5-93d8-c09fca719ba2")
+	)
+	(no_connect
+		(at 95.25 106.68)
+		(uuid "fb6b3565-065a-4e47-a817-9352cb68026c")
+	)
+	(no_connect
+		(at 121.92 76.2)
+		(uuid "fbdc6fea-f8ef-4ebf-9ca2-3e83a64c725d")
 	)
 	(image
-		(at 232.41 140.97)
+		(at 354.33 109.22)
 		(scale 0.576687)
-		(uuid "5c940685-5b68-4998-aab8-0c31c91517c1")
+		(uuid "d9dca776-b697-485c-a44d-c533af68abda")
 		(data "iVBORw0KGgoAAAANSUhEUgAABD0AAAOxCAIAAAB5Q0sCAAAAA3NCSVQICAjb4U/gAAAgAElEQVR4"
 			"nOydWXPbSJa2EyTAXaQWarFseXe52tU11d1z0d1z0xET88P6Z83FxBcVMRMxUz09XVWuxZtsa5eo"
 			"jTsJgAu+ixM4cZgJULQt26T0PhcKigSBRIJAnjfPklYQBAoAAAAAAAAAppjE524AAAAAAAAAAFwA"
@@ -4157,1980 +4251,422 @@
 			"YNmRWwAAAAAsO3ILAAAAgGX3/wAIhMPlv/8JJgAAAABJRU5ErkJggg=="
 		)
 	)
-	(hierarchical_label "COL_1"
-		(shape input)
-		(at 41.91 36.83 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "0b6fe921-fa1e-4101-8642-20ffbf0d7d97")
-	)
-	(hierarchical_label "COL_23"
-		(shape input)
-		(at 232.41 67.31 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "128cebae-9ed1-4076-8f3f-d68e57cf2d94")
-	)
-	(hierarchical_label "COL_8"
-		(shape input)
-		(at 121.92 67.31 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "1966d8a5-d411-470f-a56e-56b13f19e00d")
-	)
 	(hierarchical_label "COL_22"
 		(shape input)
-		(at 232.41 36.83 0)
+		(at 232.41 76.2 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "324a533c-e062-4651-89ea-12aa7a243dab")
+		(uuid "06e8ffdc-ec16-4cff-82b4-6ca7985d3b29")
 	)
-	(hierarchical_label "COL_10"
-		(shape input)
-		(at 68.58 99.06 0)
+	(hierarchical_label "ROW_3"
+		(shape output)
+		(at 76.2 49.53 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "3413496e-47db-45dc-a24d-f19715c0808a")
-	)
-	(hierarchical_label "COL_24"
-		(shape input)
-		(at 232.41 99.06 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "34390a17-9d17-4f70-a209-efc052f1c583")
-	)
-	(hierarchical_label "COL_13"
-		(shape input)
-		(at 152.4 36.83 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "38230f93-aa2c-4fb1-9a91-fb36bf93ecc7")
-	)
-	(hierarchical_label "COL_12"
-		(shape input)
-		(at 121.92 99.06 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "3f1bc3b2-c083-4c09-9f8f-d65a4f544c17")
-	)
-	(hierarchical_label "COL_6"
-		(shape input)
-		(at 68.58 67.31 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "484a6b7c-a087-449a-9c81-b82134f77137")
-	)
-	(hierarchical_label "COL_11"
-		(shape input)
-		(at 95.25 99.06 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "4a76d195-7ff9-4592-b7c0-2ba8a89bc7c8")
-	)
-	(hierarchical_label "COL_16"
-		(shape input)
-		(at 179.07 36.83 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "593477e9-ff68-4569-b4cc-aa487907d41e")
-	)
-	(hierarchical_label "COL_19"
-		(shape input)
-		(at 205.74 36.83 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "5ff9509c-2092-4196-99b4-bc23153e7ea1")
-	)
-	(hierarchical_label "COL_4"
-		(shape input)
-		(at 121.92 36.83 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "650fef5b-6a65-46c1-96fb-90835c6215e6")
-	)
-	(hierarchical_label "COL_2"
-		(shape input)
-		(at 68.58 36.83 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "687e6434-9f10-4269-a003-3efa0120fde5")
-	)
-	(hierarchical_label "COL_7"
-		(shape input)
-		(at 95.25 67.31 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "6d55e9c5-2c07-4ec4-a494-846159b94735")
-	)
-	(hierarchical_label "COL_14"
-		(shape input)
-		(at 152.4 67.31 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "76b81528-38bd-45f7-b136-7a6e4cc64a72")
-	)
-	(hierarchical_label "COL_20"
-		(shape input)
-		(at 205.74 67.31 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "8863df9d-e6a5-4695-9cac-3507528f2343")
-	)
-	(hierarchical_label "COL_5"
-		(shape input)
-		(at 41.91 67.31 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "a12cabb0-ed10-4edc-b0e2-a2e09ab05221")
+		(uuid "0db0a0e3-b424-49c0-a96a-dece4390d539")
 	)
 	(hierarchical_label "COL_26"
 		(shape input)
-		(at 262.89 83.82 0)
+		(at 262.89 123.19 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "a9535082-b729-45dc-a7c6-03897b8fd812")
+		(uuid "0dc42ed3-18f1-4a6a-afc6-09590bbc5021")
 	)
-	(hierarchical_label "COL_15"
-		(shape input)
-		(at 152.4 99.06 0)
+	(hierarchical_label "ROW_10"
+		(shape output)
+		(at 218.44 49.53 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "addbe124-c39e-4556-ad62-0d9bf4757ce5")
+		(uuid "1036a9b6-b20b-4f3d-b784-846f86de9725")
+	)
+	(hierarchical_label "ROW_7"
+		(shape output)
+		(at 157.48 49.53 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "120bf142-7b83-4a82-b0a9-0ca917fd3180")
+	)
+	(hierarchical_label "COL_14"
+		(shape input)
+		(at 152.4 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "123ae126-14c1-4e5c-a500-a8e7e601d65a")
+	)
+	(hierarchical_label "ROW_2"
+		(shape output)
+		(at 55.88 49.53 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1da2553f-68ce-4869-bcbd-9e0755478fe1")
 	)
 	(hierarchical_label "COL_21"
 		(shape input)
-		(at 205.74 99.06 0)
+		(at 205.74 138.43 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "ba4564a6-bb2e-4ec0-873c-759d2feef824")
+		(uuid "1f19e999-5946-4924-bfbf-eb7ea28ef788")
 	)
-	(hierarchical_label "COL_3"
-		(shape input)
-		(at 95.25 36.83 0)
+	(hierarchical_label "ROW_5"
+		(shape output)
+		(at 116.84 49.53 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "bf5e1324-a210-4223-9475-4a56fe31a170")
+		(uuid "30c0c5b1-b026-4227-8959-840fa0af0269")
 	)
-	(hierarchical_label "COL_25"
-		(shape input)
-		(at 262.89 53.34 0)
+	(hierarchical_label "ROW_4"
+		(shape output)
+		(at 96.52 49.53 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "c7f330bf-5210-4508-93a0-847ef8443a91")
+		(uuid "3973c010-80a0-44e2-81bb-732478054d93")
+	)
+	(hierarchical_label "COL_11"
+		(shape input)
+		(at 95.25 138.43 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3fe67cb1-3840-409d-ab88-dca8e715c114")
+	)
+	(hierarchical_label "COL_13"
+		(shape input)
+		(at 152.4 76.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "42b43f60-de5f-447b-b3c5-1c2b3d31d18e")
+	)
+	(hierarchical_label "COL_2"
+		(shape input)
+		(at 68.58 76.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "463b1703-5d79-46d7-b06c-5d0762a8c4e7")
+	)
+	(hierarchical_label "ROW_9"
+		(shape output)
+		(at 198.12 49.53 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "516062e7-3915-401e-915d-c6e61722eed4")
+	)
+	(hierarchical_label "COL_12"
+		(shape input)
+		(at 121.92 138.43 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "58be7af5-44c8-4eda-849c-9598b84e0f47")
+	)
+	(hierarchical_label "COL_10"
+		(shape input)
+		(at 68.58 138.43 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "5f9d531f-84e1-4b0e-a7ba-3e47e03475f5")
+	)
+	(hierarchical_label "ROW_1"
+		(shape output)
+		(at 35.56 49.53 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6a3a60ad-021c-43fb-9907-ef4e615fd2f3")
+	)
+	(hierarchical_label "ROW_12"
+		(shape output)
+		(at 259.08 49.53 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6b25f922-3d29-4da9-acf8-d2ab52e9caf7")
+	)
+	(hierarchical_label "COL_20"
+		(shape input)
+		(at 205.74 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "71287a3e-d34a-4a47-ac4c-4f8a7648b66a")
+	)
+	(hierarchical_label "ROW_11"
+		(shape output)
+		(at 238.76 49.53 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "725b027e-5329-4a92-9168-f7db7e5bc7b8")
 	)
 	(hierarchical_label "COL_9"
 		(shape input)
-		(at 41.91 99.06 0)
+		(at 41.91 138.43 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "e8c5dca0-4ade-4cfb-ba42-e08c64ff640c")
+		(uuid "763b84ab-75ff-4e29-a94d-cfbd3d25d727")
+	)
+	(hierarchical_label "COL_4"
+		(shape input)
+		(at 121.92 76.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7791a3ad-016b-4779-b9e3-a9ef3a213081")
+	)
+	(hierarchical_label "ROW_6"
+		(shape output)
+		(at 137.16 49.53 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7d1729c9-727a-4411-b3eb-6bfcb61f1a6e")
 	)
 	(hierarchical_label "COL_18"
 		(shape input)
-		(at 179.07 99.06 0)
+		(at 179.07 138.43 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "ea704a42-62b7-4903-85c6-18678ba5fc2f")
+		(uuid "84e30823-8253-4979-a8e9-ec1c97803eed")
+	)
+	(hierarchical_label "COL_6"
+		(shape input)
+		(at 68.58 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8ab2528f-f55d-423f-b444-2eb5b2fedd7e")
+	)
+	(hierarchical_label "COL_23"
+		(shape input)
+		(at 232.41 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "98ab97d5-f002-4421-843c-1ba40d5c94a7")
+	)
+	(hierarchical_label "COL_15"
+		(shape input)
+		(at 152.4 138.43 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a2987abc-9b4e-4682-bc9e-5294a40017e8")
+	)
+	(hierarchical_label "COL_8"
+		(shape input)
+		(at 121.92 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b26ffca2-347b-4989-983a-d385374b79fd")
+	)
+	(hierarchical_label "COL_3"
+		(shape input)
+		(at 95.25 76.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b4fbfe0f-e4dc-4f39-82e9-93d6f830bbec")
+	)
+	(hierarchical_label "ROW_8"
+		(shape output)
+		(at 177.8 49.53 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b742376a-4b0d-4e40-99e3-e48fa89e25d3")
+	)
+	(hierarchical_label "COL_25"
+		(shape input)
+		(at 262.89 92.71 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "bf10fa3b-c462-44e9-b90e-8d056579ec10")
+	)
+	(hierarchical_label "COL_19"
+		(shape input)
+		(at 205.74 76.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c0ae4731-d56a-4836-97f1-f52c488f5ced")
+	)
+	(hierarchical_label "COL_1"
+		(shape input)
+		(at 41.91 76.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c57a0d2d-f64f-40ad-874d-02d05d2f2500")
+	)
+	(hierarchical_label "COL_16"
+		(shape input)
+		(at 179.07 76.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c6e0be5a-9bcd-4f24-a243-f32be53ea5a9")
+	)
+	(hierarchical_label "COL_7"
+		(shape input)
+		(at 95.25 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c8051a98-8e11-4a4c-b5f8-ace09cdd5893")
+	)
+	(hierarchical_label "COL_5"
+		(shape input)
+		(at 41.91 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ddf4f0ce-09d6-4a06-86d7-424d6ef4cd8c")
+	)
+	(hierarchical_label "COL_24"
+		(shape input)
+		(at 232.41 138.43 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f41d95af-5d37-429e-874f-f1775e11be5e")
 	)
 	(hierarchical_label "COL_17"
 		(shape input)
-		(at 179.07 67.31 0)
+		(at 179.07 106.68 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "ff35ffc7-5c43-4434-8a97-5cb16a32c74d")
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 171.45 67.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0277e554-26e1-4db4-bd6d-66f87788d8c6")
-		(property "Reference" "U17"
-			(at 171.45 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 171.45 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 171.45 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 171.45 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 171.45 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9a159217-2ccf-4990-bfad-6bc6c519b545")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 171.45 99.06 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "02b5e246-5a52-498c-b089-fac98ff8fcf9")
-		(property "Reference" "U18"
-			(at 171.45 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 171.45 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 171.45 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 171.45 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 171.45 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7844f9f9-53bd-4cb6-8364-31b648db5067")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U18")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 87.63 36.83 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0456d3eb-b057-4a50-9664-474e08e46a40")
-		(property "Reference" "U3"
-			(at 87.63 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 87.63 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 87.63 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 87.63 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 87.63 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "641f55e2-721e-40a7-89d4-142dd42b47e8")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 60.96 67.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "045d8e3f-138e-4704-81ca-e0cd4b654365")
-		(property "Reference" "U6"
-			(at 60.96 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 60.96 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 60.96 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 60.96 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 60.96 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "65004755-6191-4167-a671-5e6f1e7b349f")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 87.63 99.06 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1cb77fca-0d0a-4045-9edb-843ac04a3911")
-		(property "Reference" "U11"
-			(at 87.63 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 87.63 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 87.63 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 87.63 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 87.63 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "86928144-5184-4026-8155-0dc7f12f2357")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 198.12 67.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "246dbec4-dee0-4516-b835-15629ce617b9")
-		(property "Reference" "U20"
-			(at 198.12 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 198.12 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 198.12 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 198.12 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 198.12 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "77777d98-c34d-4dc0-8b5f-ccf0ffc58397")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U20")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 198.12 36.83 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2ba9946b-d464-4f9e-a0a8-f8b91773109b")
-		(property "Reference" "U19"
-			(at 198.12 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 198.12 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 198.12 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 198.12 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 198.12 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1286a082-eea6-4e36-ac5e-b74751b24fc4")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U19")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 114.3 67.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3a5e873c-a9bd-44d2-9047-a4bded4a5a7c")
-		(property "Reference" "U8"
-			(at 114.3 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 114.3 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 114.3 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3f3bc9b8-ef63-44a0-9a54-c01306a79d04")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 34.29 67.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3c7a89aa-4b55-4458-9c81-8bf407b48921")
-		(property "Reference" "U5"
-			(at 34.29 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 34.29 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 34.29 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 34.29 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 34.29 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "942cddc3-1366-42fc-9a64-4a9276ce417f")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 224.79 36.83 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "529ba45a-1b50-47eb-8c47-5218a49608f6")
-		(property "Reference" "U22"
-			(at 224.79 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 224.79 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 224.79 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 224.79 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 224.79 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d2913daa-694f-4a08-907c-ae92b6c48573")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U22")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 34.29 36.83 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "60615398-18fd-46b2-8ed7-a15f9bdbf3d1")
-		(property "Reference" "U1"
-			(at 34.29 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 34.29 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 34.29 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 34.29 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 34.29 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c294c81d-42a9-4137-8f17-78558fd7e5fd")
-		)
-		(instances
-			(project ""
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 144.78 99.06 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "694fcf53-8eb9-48b3-bb1e-59b7bc4403c9")
-		(property "Reference" "U15"
-			(at 144.78 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 144.78 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 144.78 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 144.78 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 144.78 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a7c83927-7195-4bfd-90dd-44e8d5c54d95")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 60.96 36.83 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "73d7000f-0f9e-437f-a5fc-134d5d8525f0")
-		(property "Reference" "U2"
-			(at 60.96 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 60.96 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 60.96 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 60.96 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 60.96 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "19e19c7a-8e9b-42a6-a79d-9558b10053f8")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 224.79 99.06 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7da5944b-0538-4b09-8875-5a68621ea083")
-		(property "Reference" "U24"
-			(at 224.79 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 224.79 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 224.79 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 224.79 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 224.79 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f7f8a27c-ad99-4112-bd0e-4a1a1ce65fbd")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U24")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 255.27 53.34 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "843b08a8-a561-4d55-a75f-b6361c50bdd0")
-		(property "Reference" "U25"
-			(at 255.27 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 255.27 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 255.27 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 255.27 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 255.27 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "126b0baa-6fcd-4d4f-a15a-788fbb34ae7e")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U25")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 114.3 99.06 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "88f8140f-6d47-4a25-9bff-ff20bd0b1a6b")
-		(property "Reference" "U12"
-			(at 114.3 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 114.3 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 114.3 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c3a00696-63e1-4445-89e1-71f74a3bea4d")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 114.3 36.83 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8f9a00fd-ee91-40bb-ae67-fd8a052ba9d0")
-		(property "Reference" "U4"
-			(at 114.3 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 114.3 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 114.3 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c4d230db-572c-4432-ad7d-d35e26661afd")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 171.45 36.83 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "95025291-98cd-421c-8c39-7c60a4e14b5b")
-		(property "Reference" "U16"
-			(at 171.45 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 171.45 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 171.45 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 171.45 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 171.45 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "96ebe248-4dce-463f-9868-26dcda8434bd")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 144.78 67.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a1e0ed66-df16-4ae6-afbe-b916f5547c89")
-		(property "Reference" "U14"
-			(at 144.78 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 144.78 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 144.78 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 144.78 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 144.78 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c1a1c9d0-f795-4a94-881b-8c03eb18e58a")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U14")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 255.27 83.82 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a50ac0c4-5820-4abb-b8f2-e08f7a5073dd")
-		(property "Reference" "U26"
-			(at 255.27 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 255.27 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 255.27 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 255.27 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 255.27 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6c1adeb9-2fa0-4a9b-8fad-a3d470983051")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U26")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 60.96 99.06 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ab02667c-db3c-401a-9f5f-cb495d9af0f0")
-		(property "Reference" "U10"
-			(at 60.96 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 60.96 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 60.96 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 60.96 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 60.96 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2f8bd84c-b3c6-4d39-be8c-009cb40a0c5b")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 224.79 67.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c4e2a630-b6c0-43cb-8f2e-5bb3a8e5516f")
-		(property "Reference" "U23"
-			(at 224.79 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 224.79 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 224.79 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 224.79 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 224.79 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "178aaf64-f5f5-40a2-aaa8-e021390a9a35")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U23")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 87.63 67.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c761ed71-ef94-4604-8c73-36423b013cd9")
-		(property "Reference" "U7"
-			(at 87.63 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 87.63 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 87.63 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 87.63 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 87.63 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "dfc04d41-dfd9-4c88-aa3a-907662266325")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 34.29 99.06 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c92fcfe3-1530-4114-831d-44040972340a")
-		(property "Reference" "U9"
-			(at 34.29 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 34.29 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 34.29 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 34.29 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 34.29 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9aed8d90-826f-465e-b8cc-2acee2bc55f7")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 198.12 99.06 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e6bdd950-980b-439d-ba19-988206778d35")
-		(property "Reference" "U21"
-			(at 198.12 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 198.12 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 198.12 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 198.12 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 198.12 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c632b406-f98d-4abc-b058-34b49f7d9272")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U21")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "pressure_pads:Column_pad")
-		(at 144.78 36.83 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "effe3d4c-ea18-4865-96c7-b8c657f21e27")
-		(property "Reference" "U13"
-			(at 144.78 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ColumnPad"
-			(at 144.78 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 144.78 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 144.78 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 144.78 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7e03f3f8-437b-4afd-8171-a0e9d1c8ca7b")
-		)
-		(instances
-			(project "inventeam_pressure_schematic"
-				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719/a0fdc529-63dd-4400-a12b-a24f2e1d382d"
-					(reference "U13")
-					(unit 1)
-				)
-			)
-		)
+		(uuid "fd009409-a1b8-4982-8f6b-628f67b7026c")
 	)
 )
