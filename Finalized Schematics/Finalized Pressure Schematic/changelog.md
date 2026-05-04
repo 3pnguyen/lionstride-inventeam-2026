@@ -4,3 +4,6 @@
 * V2 - 4.29.26: Redesgined pressure schematic following changes of design
     * V2.1 - Modified V2 by adding test points and removing cell footprints in favor of one large one
     * V2.2 - Added GND test point, flipped the connections on the header
+
+# Gerber files:
+* Gerbers 1 (Schematic V2.2) - 5.3.2026: Created PCB design for schematic V2.2
