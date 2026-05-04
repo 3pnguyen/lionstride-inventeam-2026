@@ -21,7 +21,7 @@
 | :---: | :---: |
 | [Prototype VD (17.1)](Prototype%20Schematics/Prototype%20Schematic%20(VD)/Schematic%20Versions/Schematic%20V17/v17.1%20-%203.19.26/) | [Logic Schematic (V3)](Finalized%20Schematics/Finalized%20Logic%20Schematic/Schematic%20Versions/Schematic%20V03/) |
 | Prototype TIA | [Thermistor Schematic (V2)](Finalized%20Schematics/Finalized%20Thermistor%20Schematic/Schematic%20Versions/Schematic%20V02/) | 
-| | [Pressure Schematic (V2.1)](Finalized%20Schematics/Finalized%20Pressure%20Schematic/Schematic%20Versions/Schematic%20V02/V2.1%20-%205.2.26/) |
+| | [Pressure Schematic (V2.2)](Finalized%20Schematics/Finalized%20Pressure%20Schematic/Schematic%20Versions/Schematic%20V02/V2.2%20-%205.3.2026/) |
 
 <!-- %20 is used as a space -->
 

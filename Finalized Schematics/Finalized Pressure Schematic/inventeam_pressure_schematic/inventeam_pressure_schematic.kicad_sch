@@ -2193,6 +2193,16 @@
 		)
 		(uuid "f2c0f491-7c51-40c6-b158-2428bff6f9bf")
 	)
+	(wire
+		(pts
+			(xy 148.59 147.32) (xy 148.59 151.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f651a163-e93d-447d-b720-84bd6fd6b4b0")
+	)
 	(image
 		(at 260.35 111.76)
 		(scale 0.49208)
@@ -8811,6 +8821,73 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint_Probe")
+		(at 148.59 147.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "11748cd3-c19b-4b84-bbdf-d4ab05281ead")
+		(property "Reference" "TP39"
+			(at 152.4 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint_Probe"
+			(at 152.4 147.0024 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.5mm"
+			(at 153.67 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 153.67 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point (alternative probe-style design)"
+			(at 148.59 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6a9fefa5-5d8f-4d15-b878-b5976f08ec8f")
+		)
+		(instances
+			(project "inventeam_pressure_schematic"
+				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719"
+					(reference "TP39")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint_Probe")
 		(at 137.16 147.32 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11389,6 +11466,73 @@
 			(project "inventeam_pressure_schematic"
 				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719"
 					(reference "TP35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 148.59 151.13 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e02d7d57-bd63-4113-a5be-01d652ed982e")
+		(property "Reference" "#PWR02"
+			(at 148.59 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 148.59 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 148.59 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 148.59 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 148.59 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2e1aa1a0-a799-4c9f-b151-c15a5c04b718")
+		)
+		(instances
+			(project "inventeam_pressure_schematic"
+				(path "/fcaa09fa-e29c-4184-8671-cd833b0ef719"
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)
