@@ -16,6 +16,11 @@ Debounce<int> chosenRow(-1);
 char matrixBuffer[MATRIX_DATA_LENGTH];
 float matrixData[MATRIX_ROWS][MATRIX_COLUMNS]; 
 char instructionBuffer[INSTRUCTIONS_DATA_LENGTH];
+int newToOldHeaderMapping[] = 
+{
+  5, 6, 7, 8, 21, 22, 23, 24, 20, 19, 18, 17, 4, // maps the old header of the PCBs/old prototype to the new header
+  3, 2, 1, 16, 15, 14, 13, 26, 25, 9, 10, 11, 12 // column 5 on the new activates column 1 (index 0) on the old, etc.
+};
 
 void setupMatrix() {
   pinMode(ADC_GND_PIN, INPUT);
@@ -27,7 +32,7 @@ void setupMatrix() {
 void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
   if (mode == TEMPERATURE) {
     for (int column = 0; column < MATRIX_COLUMNS; column++) {
-      activateColumn(column);
+      activateColumn(newToOldHeaderMapping[column]);
       delayMicroseconds(MATRIX_SWITCH_TIME);
 
       //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
@@ -87,7 +92,7 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
     }
   } else if (mode == PRESSURE_PRIMARY) {
     for (int column = 0; column < MATRIX_COLUMNS; column++) {
-      activateColumn(column);
+      activateColumn(newToOldHeaderMapping[column]);
       delayMicroseconds(MATRIX_SWITCH_TIME);
 
       //int code_ref = ADCMeanFilter(ADC_REF_PIN, ADC_SAMPLES);
@@ -112,7 +117,7 @@ void scanMatrix(SenseModes mode, IndexingModes readMatrixBy) {
 }
 
 float scanMatrixIndividual(int column, int row, int code_gnd, int code_ref, SenseModes mode, bool disable) {
-  activateColumn(column);
+  activateColumn(newToOldHeaderMapping[column]);
   if (chosenColumn.hasChanged(column)) delayMicroseconds(MATRIX_SWITCH_TIME);
 
   activateRow(row);
