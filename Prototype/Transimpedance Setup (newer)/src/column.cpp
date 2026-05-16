@@ -4,11 +4,6 @@
 
 #define CLOCK_SPEED 1000000
 
-#define DIR0 0x00 // direct access to COM1-8 on A bus
-#define DIR1 0x01 // direct access to COM9-16 on A bus
-#define DIR2 0x02 // direct access to COM1-8 on B bus
-#define DIR3 0x03 // direct access to COM9-16 on B bus
-
 #define MISO 19
 #define MOSI 18
 #define CLOCK 5
@@ -17,6 +12,11 @@
 //-------------------------------------------------------------------------------------------------------
 
 SPISettings maxSPISettings(CLOCK_SPEED, MSBFIRST, SPI_MODE0);
+int columnMapping[] = 
+{
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, // maps the pins on the MAX14661 to the columns on the physical header
+    14, 15, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 // column 16 skips AB16 on the first chip and jumps to AB1 on the second
+};
 
 void _max14661WriteTwo(uint32_t farChip, uint32_t nearChip);
 uint32_t _oneHot(uint8_t index);
@@ -68,16 +68,18 @@ void _allChannelsOff() {
 }
 
 void activateColumn(int column) {
-    if (column < 0 || column > 31) {
+    if (column < 0 || column > 25) {
         _allChannelsOff();
         return;
     }
 
+    int chipPhysicalPin = columnMapping[column];
+
     if (column > 15) {
-        uint32_t word = _oneHot(column - 16);
+        uint32_t word = _oneHot(chipPhysicalPin - 16);
         _max14661WriteTwo(word, 0x00000000);
     } else {
-        uint32_t word = _oneHot(column);
+        uint32_t word = _oneHot(chipPhysicalPin);
         _max14661WriteTwo(0x00000000, word);
     }
 }
