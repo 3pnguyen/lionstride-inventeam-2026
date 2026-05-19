@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
-import 'package:FootBox/screens/home_screen.dart';
+import 'home_screen.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:FootBox/bluetooth/bluetooth_manager.dart';
+import '../bluetooth/bluetooth_manager.dart';
 
 class BluetoothCheckScreen extends StatefulWidget {
   const BluetoothCheckScreen({super.key});
@@ -12,7 +12,7 @@ class BluetoothCheckScreen extends StatefulWidget {
   State<BluetoothCheckScreen> createState() => _BluetoothCheckScreenState();
 }
 
-class _BluetoothCheckScreenState extends State<BluetoothCheckScreen> { 
+class _BluetoothCheckScreenState extends State<BluetoothCheckScreen> {
   final List<BluetoothDevice> devices = [];
   bool scanning = false;
   BluetoothDevice? connectedDevice;
@@ -27,7 +27,6 @@ class _BluetoothCheckScreenState extends State<BluetoothCheckScreen> {
     await Permission.bluetoothScan.request();
     await Permission.bluetoothConnect.request();
     await Permission.locationWhenInUse.request();
-    
     startScan();
   }
 
@@ -36,11 +35,10 @@ class _BluetoothCheckScreenState extends State<BluetoothCheckScreen> {
     setState(() => scanning = true);
 
     try {
-      // Get bonded (paired) devices
-      List<BluetoothDevice> bondedDevices = await FlutterBluetoothSerial.instance.getBondedDevices();
-      
+      List<BluetoothDevice> bondedDevices =
+          await FlutterBluetoothSerial.instance.getBondedDevices();
+
       for (var device in bondedDevices) {
-        // Filter for your ESP32 device name
         if (device.name != null && device.name!.contains('ESP32_FootBox')) {
           if (!devices.contains(device)) {
             setState(() => devices.add(device));
@@ -58,7 +56,6 @@ class _BluetoothCheckScreenState extends State<BluetoothCheckScreen> {
     setState(() => scanning = false);
 
     try {
-      // Show connecting dialog
       if (!mounted) return;
       showDialog(
         context: context,
@@ -68,10 +65,9 @@ class _BluetoothCheckScreenState extends State<BluetoothCheckScreen> {
         ),
       );
 
-      // Connect to the device
-      BluetoothConnection connection = await BluetoothConnection.toAddress(device.address);
-      
-      // Close loading dialog
+      BluetoothConnection connection =
+          await BluetoothConnection.toAddress(device.address);
+
       if (!mounted) return;
       Navigator.pop(context);
 
@@ -84,16 +80,21 @@ class _BluetoothCheckScreenState extends State<BluetoothCheckScreen> {
       }
 
       setState(() => connectedDevice = device);
-
       print('✅ Connected to ${device.name}');
-      
-      // Store in BluetoothManager
+
+      // Store connection in BluetoothManager
       BluetoothManager.device = device;
       BluetoothManager.connection = connection;
 
-      // Optional: Setup listener for incoming data
+      // Set up the persistent input stream listener. This must be called
+      // once here and stays alive for the entire session. Individual screens
+      // swap their own callback via BluetoothManager.updateCallback() —
+      // the underlying stream stays open the whole time.
       BluetoothManager.setupListener((data) {
-        print('Received from ESP32: $data');
+        // Default handler — active only when no screen has registered
+        // its own callback. Individual screens (Countdown, LiveMonitor)
+        // override this with updateCallback().
+        print('BT data (unhandled): $data');
       });
 
       if (!mounted) return;
@@ -101,15 +102,11 @@ class _BluetoothCheckScreenState extends State<BluetoothCheckScreen> {
         context,
         MaterialPageRoute(builder: (context) => const HomeScreen()),
       );
-      
     } catch (e) {
-      // Close loading dialog if still open
       if (mounted && Navigator.canPop(context)) {
         Navigator.pop(context);
       }
-      
       print('Connection error: $e');
-      
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Failed to connect: $e')),
@@ -181,12 +178,9 @@ class _BluetoothCheckScreenState extends State<BluetoothCheckScreen> {
                         style: const TextStyle(fontFamily: 'Lexend'),
                       ),
                       trailing: ElevatedButton(
-                        onPressed: isConnected
-                            ? null
-                            : () => connectToDevice(device),
-                        child: Text(
-                          isConnected ? "Connected" : "Connect",
-                        ),
+                        onPressed:
+                            isConnected ? null : () => connectToDevice(device),
+                        child: Text(isConnected ? "Connected" : "Connect"),
                       ),
                     );
                   },

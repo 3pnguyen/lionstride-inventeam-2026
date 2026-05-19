@@ -48,7 +48,7 @@ class BluetoothManager {
     }
     
     try {
-      connection!.output.add(Uint8List.fromList(utf8.encode(command + '\n')));
+      connection!.output.add(Uint8List.fromList(utf8.encode('$command\n')));
       await connection!.output.allSent;
       print('Command sent: $command');
       return true;

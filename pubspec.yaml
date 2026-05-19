@@ -1,4 +1,4 @@
-name: FootBox
+name: footbox
 description: "A new Flutter project."
 publish_to: 'none'
 
@@ -14,6 +14,9 @@ dependencies:
   url_launcher: ^6.2.5
   flutter_blue_plus: ^1.31.15
   permission_handler: ^12.0.1
+  sqflite: ^2.4.2
+  path: ^1.9.1
+  ml_linalg: ^13.0.0
   flutter_bluetooth_serial: ^0.4.0
 
 dev_dependencies:

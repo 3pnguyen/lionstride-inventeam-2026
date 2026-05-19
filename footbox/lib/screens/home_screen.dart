@@ -2,20 +2,48 @@ import 'package:flutter/material.dart';
 import 'past_scans.dart';
 import 'foot_test_start.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'patients_screen.dart';
 import 'bluetooth_check.dart';
+import 'scan_failed.dart';
+import '../bluetooth/bluetooth_manager.dart';
+import 'live_monitor.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  bool get _isConnected =>
+      BluetoothManager.connection != null &&
+      BluetoothManager.connection!.isConnected;
+
   Future<void> _launchWebsite() async {
     final Uri url = Uri.parse('https://kcle102.wixsite.com/my-site');
-
-    if (!await launchUrl(
-      url,
-      mode: LaunchMode.externalApplication,
-    )) {
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $url';
     }
+  }
+
+  /// Checks BT connection and either navigates to [FootTestScreen] for the
+  /// given [foot] or pushes [ScanFailed] with [bluetoothError: true].
+  void _onFootTap(BuildContext context, String foot) {
+    if (!_isConnected) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => ScanFailed(
+            foot: foot,
+            bluetoothError: true,
+          ),
+        ),
+      );
+      return;
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => FootTestScreen(foot: foot),
+      ),
+    );
   }
 
   @override
@@ -70,10 +98,10 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 254, 5, 0),
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 254, 5, 0),
               ),
-              child: Text(
+              child: const Text(
                 'LionStride',
                 style: TextStyle(
                   color: Colors.white,
@@ -83,54 +111,77 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+
             ListTile(
-              leading: Icon(Icons.home),
-              title: Text(
-                'Home',
-                style: TextStyle(fontFamily: 'Lexend'),
-              ),
+              leading: const Icon(Icons.home),
+              title: const Text('Home', style: TextStyle(fontFamily: 'Lexend')),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  MaterialPageRoute(builder: (_) => const HomeScreen()),
                 );
               },
             ),
+
             ListTile(
-              leading: Icon(Icons.bluetooth),
-              title: Text(
-                'Bluetooth',
-                style: TextStyle(fontFamily: 'Lexend'),
-              ),
+              leading: const Icon(Icons.people_outline),
+              title:
+                  const Text('Patients', style: TextStyle(fontFamily: 'Lexend')),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const BluetoothCheckScreen()),
+                  MaterialPageRoute(builder: (_) => const PatientsScreen()),
                 );
               },
             ),
+
             ListTile(
-              leading: Icon(Icons.history),
-              title: Text(
-                'Past Scans',
-                style: TextStyle(fontFamily: 'Lexend'),
-              ),
+              leading: const Icon(Icons.history),
+              title: const Text('Past Scans',
+                  style: TextStyle(fontFamily: 'Lexend')),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const PastScansScreen()),
+                  MaterialPageRoute(builder: (_) => const PastScansScreen()),
                 );
               },
             ),
+
             ListTile(
-              leading: Icon(Icons.info),
-              title: Text(
-                'About',
-                style: TextStyle(fontFamily: 'Lexend'),
+              leading: const Icon(Icons.bluetooth),
+              title: const Text('Bluetooth',
+                  style: TextStyle(fontFamily: 'Lexend')),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => const BluetoothCheckScreen()),
+                );
+              },
+            ),
+
+            ListTile(
+              leading: const Icon(Icons.monitor_heart_outlined),
+              title: const Text('Live Monitor', 
+                  style: TextStyle(fontFamily: 'Lexend')),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const LiveMonitorScreen()),
+                  );
+                },
               ),
+ 
+
+            ListTile(
+              leading: const Icon(Icons.info),
+              title:
+                  const Text('About', style: TextStyle(fontFamily: 'Lexend')),
               onTap: () {
                 Navigator.pop(context);
                 showAboutDialog(
@@ -139,8 +190,8 @@ class HomeScreen extends StatelessWidget {
                   applicationVersion: '1.0.0',
                   applicationLegalese: '© 2026 LionStride',
                   children: [
-                    Text(
-                      'FootBox is an app designed to pair along with a footbox device to analyze foot pressure and temperature patterns as seen in DFUs.',
+                    const Text(
+                      'FootBox is an app designed to pair along with a FootBox device to analyze foot pressure and temperature patterns as seen in DFUs.',
                       style: TextStyle(fontFamily: 'Lexend'),
                     ),
                     const SizedBox(height: 12),
@@ -154,14 +205,15 @@ class HomeScreen extends StatelessWidget {
                           decoration: TextDecoration.underline,
                         ),
                       ),
-                    )
+                    ),
                   ],
                 );
               },
-            )
+            ),
           ],
         ),
       ),
+
       body: SizedBox.expand(
         child: Stack(
           children: [
@@ -171,17 +223,9 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    // ── Right Foot ──────────────────────────────────────────
                     ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => FootTestScreen(
-                              foot: 'Right',
-                            ),
-                          ),
-                        );
-                      },
+                      onPressed: () => _onFootTap(context, 'Right'),
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size(buttonWidth, buttonHeight),
                         backgroundColor: const Color.fromARGB(255, 254, 5, 0),
@@ -221,18 +265,12 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+
                     SizedBox(height: buttonSpacing),
+
+                    // ── Left Foot ───────────────────────────────────────────
                     ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => FootTestScreen(
-                              foot: 'Left',
-                            ),
-                          ),
-                        );
-                      },
+                      onPressed: () => _onFootTap(context, 'Left'),
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size(buttonWidth, buttonHeight),
                         backgroundColor: const Color.fromARGB(255, 254, 5, 0),
@@ -276,12 +314,13 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+
             Positioned(
               bottom: footerBottomPadding,
               left: 0,
               right: 0,
-              child: Center(
-                child: const Text(
+              child: const Center(
+                child: Text(
                   'Select a foot to start the test!',
                   style: TextStyle(
                     fontSize: 16,
