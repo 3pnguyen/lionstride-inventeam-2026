@@ -8,6 +8,8 @@
 EspModes mode;
 
 void setup() {
+  delay(500); // gives time for other components to power on before communicating with them
+
   setupMatrix();
 
   #ifndef TEST
