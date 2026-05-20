@@ -6,7 +6,7 @@
 
 // in microseconds
 // needs to be at least 25 ms for the MAX14661s
-#define MATRIX_SWITCH_TIME 14000
+#define MATRIX_SWITCH_TIME 25000
 
 #define MATRIX_ADC_1 A2
 #define MATRIX_ADC_2 A3
